@@ -1,0 +1,12 @@
+# Build artifacts
+build/
+target/
+
+# Vendored RELIC library (use lib.zip instead)
+**/lib/relic/
+
+# Documentation / notes
+docs/
+
+# macOS
+.DS_Store
