@@ -2,6 +2,11 @@
 members = ["common", "groth16"]
 resolver = "2"
 
+# Thesis instrumentation: use a local ark-ff with field-op counters so the
+# verifier can report Fq/Fr mul/square/inverse call counts (see vendor/ark-ff).
+[patch.crates-io]
+ark-ff = { path = "vendor/ark-ff" }
+
 [profile.release]
 opt-level = 3
 lto = true

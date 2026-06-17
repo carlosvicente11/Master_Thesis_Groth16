@@ -2,8 +2,30 @@
 build/
 target/
 
-# Vendored RELIC library (use lib.zip instead)
-**/lib/relic/
+# Vendored RELIC library: the bulk is rebuilt from lib.zip and stays out of git.
+# But re-include the specific files we modify so our changes are visible/diffable.
+# See docs/RELIC_MODIFICATIONS.md for the rationale of each change.
+**/lib/relic/**
+# re-include directories so git descends into them to reach the negated files below
+!**/lib/relic/**/
+# --- Ethereum BN254 (BN_P254E) curve patch ---
+!**/lib/relic/include/relic_ep.h
+!**/lib/relic/include/relic_fp.h
+!**/lib/relic/include/relic_core.h
+!**/lib/relic/src/ep/relic_ep_param.c
+!**/lib/relic/src/epx/relic_ep2_curve.c
+!**/lib/relic/src/fp/relic_fp_param.c
+!**/lib/relic/src/fpx/relic_fpx_field.c
+!**/lib/relic/src/fpx/relic_fp2_mul.c
+!**/lib/relic/src/low/easy/relic_fpx_add_low.c
+!**/lib/relic/src/arch/relic_arch_arm.c
+# --- ARM field-arithmetic tuning (Phase 4) ---
+!**/lib/relic/src/low/arm-asm-254e/relic_fp_mul_low.s
+!**/lib/relic/src/low/arm-asm-254e/relic_fp_mul_low.c
+!**/lib/relic/src/low/arm-asm-254e/relic_fp_rdc_low.s
+!**/lib/relic/src/low/arm-asm-254e/relic_fp_rdc_low.c
+!**/lib/relic/src/low/arm-asm-254e/relic_fp_add_low.s
+!**/lib/relic/src/low/arm-asm-254e/relic_fp_add_low.c
 
 # Documentation / notes
 docs/

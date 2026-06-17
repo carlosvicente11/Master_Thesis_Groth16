@@ -3,7 +3,9 @@ use std::path::PathBuf;
 use std::time::Instant;
 
 use ark_bn254::Fr;
-use ark_groth16::{prepare_verifying_key, Proof, ProvingKey, VerifyingKey};
+use ark_ec::{pairing::Pairing, CurveGroup};
+use ark_ff::opcount::{self, Snapshot};
+use ark_groth16::{prepare_verifying_key, Groth16, PreparedVerifyingKey, Proof, ProvingKey, VerifyingKey};
 use clap::{Parser, Subcommand};
 
 use poseidon_preimage_groth16::params::{poseidon_hash_chain, poseidon_params};
@@ -39,11 +41,77 @@ enum Commands {
     Verify {
         #[arg(long, default_value = "1")]
         iterations: usize,
+        /// Report Fq/Fr field-operation counts for the runtime verify path
+        #[arg(long, default_value_t = false)]
+        count_ops: bool,
     },
 }
 
 fn artifact_path(dir: &PathBuf, iterations: usize, suffix: &str) -> PathBuf {
     dir.join(format!("poseidon_preimage_{iterations}_{suffix}"))
+}
+
+/// Run the runtime verify path phase-by-phase with the field-op counters on,
+/// printing the Fq/Fr `mul`/`square`/`inverse` distribution per phase. This
+/// replicates `Groth16::verify_proof` (prepare_inputs -> multi_miller_loop ->
+/// final_exponentiation -> Gt compare) so each phase can be measured
+/// separately. `prepare_verifying_key` is excluded on purpose: on-chip,
+/// `e(alpha,beta)`/`-gamma`/`-delta` are baked into ROM.
+fn verify_with_op_counts(
+    pvk: &PreparedVerifyingKey<E>,
+    public_inputs: &[Fr],
+    proof: &Proof<E>,
+) -> bool {
+    fn phase<T>(label: &str, f: impl FnOnce() -> T) -> T {
+        opcount::reset();
+        opcount::set_enabled(true);
+        let out = f();
+        opcount::set_enabled(false);
+        print_phase(label, &opcount::snapshot());
+        out
+    }
+
+    println!("=== Field-operation counts per verify phase (Fq base field) ===");
+    println!("phase                fq_mul (direct+sop)        fq_sqr   fq_inv");
+
+    // Phase 1: prepare_inputs (public-input MSM: 1 scalar mul + 1 add here).
+    let prepared = phase("prepare_inputs", || {
+        Groth16::<E>::prepare_inputs(pvk, public_inputs).expect("prepare_inputs")
+    });
+
+    // Phase 2: affine conversion (one Fp inversion) + 3-pair multi-Miller loop.
+    let qap = phase("affine+miller_loop", || {
+        E::multi_miller_loop(
+            [
+                <<E as Pairing>::G1Affine as Into<<E as Pairing>::G1Prepared>>::into(proof.a),
+                prepared.into_affine().into(),
+                proof.c.into(),
+            ],
+            [
+                proof.b.into(),
+                pvk.gamma_g2_neg_pc.clone(),
+                pvk.delta_g2_neg_pc.clone(),
+            ],
+        )
+    });
+
+    // Phase 3: final exponentiation (easy + hard part).
+    let test = phase("final_exponentiation", || {
+        E::final_exponentiation(qap).expect("final_exponentiation")
+    });
+
+    println!("==============================================================");
+    println!("(Fr scalar-field ops are 0 across all phases for this circuit.)");
+
+    test.0 == pvk.alpha_g1_beta_g2
+}
+
+fn print_phase(label: &str, s: &Snapshot) {
+    let fq_mul = s.fq_mul + s.fq_sop;
+    println!(
+        "{label:<20} {fq_mul:>7} ({:>5}+{:>6})   {:>7}  {:>5}",
+        s.fq_mul, s.fq_sop, s.fq_square, s.fq_inverse
+    );
 }
 
 fn main() {
@@ -116,7 +184,10 @@ fn main() {
             fs::write(&pi_path, &pi_bytes).expect("write public inputs");
         }
 
-        Commands::Verify { iterations } => {
+        Commands::Verify {
+            iterations,
+            count_ops,
+        } => {
             let vk_path = artifact_path(&cli.artifacts_dir, iterations, "vk.bin");
             let proof_path = artifact_path(&cli.artifacts_dir, iterations, "proof.bin");
             let pi_path = artifact_path(&cli.artifacts_dir, iterations, "public_inputs.bin");
@@ -130,7 +201,11 @@ fn main() {
                 from_bytes_compressed(&fs::read(&pi_path).expect("read public inputs"));
 
             let t = Instant::now();
-            let valid = snark::verify(&pvk, &public_inputs, &proof);
+            let valid = if count_ops {
+                verify_with_op_counts(&pvk, &public_inputs, &proof)
+            } else {
+                snark::verify(&pvk, &public_inputs, &proof)
+            };
             let verify_us = t.elapsed().as_micros();
 
             println!("Verify time: {verify_us} us ({:.3} ms)", verify_us as f64 / 1000.0);
