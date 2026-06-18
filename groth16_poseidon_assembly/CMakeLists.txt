@@ -125,5 +125,13 @@ add_arm_executable(test_verifier_arm test/test_verifier_arm.c)
 # --- Benchmark (ARM bare-metal, measures SysTick cycles) ---
 add_arm_executable(bench_verifier_arm test/bench_verifier_arm.c)
 
+# --- Pairing-only benchmark (isolates pp_map_sim_k12) ---
+# Override iteration count with: cmake .. -DPAIRING_ITERS=11
+if(NOT DEFINED PAIRING_ITERS)
+    set(PAIRING_ITERS 1)
+endif()
+add_arm_executable(bench_pairing_arm test/bench_pairing_arm.c)
+target_compile_definitions(bench_pairing_arm PRIVATE PAIRING_ITERS=${PAIRING_ITERS})
+
 # --- Cross-validation (ARM bare-metal, dumps intermediate values) ---
 add_arm_executable(cross_validate_arm test/cross_validate.c)

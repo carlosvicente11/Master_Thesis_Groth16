@@ -1,6 +1,10 @@
 # Build artifacts
 build/
+build_insn/
 target/
+
+# Compiled QEMU TCG plugins / other shared objects (built from scripts/*.c)
+*.so
 
 # Vendored RELIC library: the bulk is rebuilt from lib.zip and stays out of git.
 # But re-include the specific files we modify so our changes are visible/diffable.
