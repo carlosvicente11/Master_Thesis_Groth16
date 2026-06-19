@@ -23,6 +23,9 @@ target/
 !**/lib/relic/src/fpx/relic_fp2_mul.c
 !**/lib/relic/src/low/easy/relic_fpx_add_low.c
 !**/lib/relic/src/arch/relic_arch_arm.c
+# --- Phase 3 source-level strip (unused curves/towers off the verify path) ---
+!**/lib/relic/src/pp/relic_pp_map.c
+!**/lib/relic/src/fp/relic_fp_prime.c
 # --- ARM field-arithmetic tuning (Phase 4) ---
 !**/lib/relic/src/low/arm-asm-254e/relic_fp_mul_low.s
 !**/lib/relic/src/low/arm-asm-254e/relic_fp_mul_low.c
