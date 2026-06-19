@@ -728,8 +728,8 @@ void fp_prime_calc(void) {
 #ifdef WITH_FPX
 	if (fp_prime_get_qnr() != 0) {
 		fp2_field_init();
-		fp4_field_init();
-		fp8_field_init();
+		/* Fp4/Fp8 unused by BN254's Fp2->Fp6->Fp12 tower (they back k8/k16/k24/k48
+		 * pairings); stripped (Phase 3 batch #2). */
 	}
 	/* Fp3 tower unused by BN254 (Fp2->Fp6->Fp12); stripped (Phase 3 batch #1). */
 #endif
