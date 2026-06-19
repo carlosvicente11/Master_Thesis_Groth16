@@ -176,49 +176,48 @@ fp_subn_low:
 
 /********************************************************** FP_ADDM_LOW ***********************************************************************/
 
+/* Double-precision (16-word) add/sub. LDM/STM do not touch the carry flag, so
+   the ADCS/SBCS chain runs across 4-word chunks: 2 LDM + 4 ALU + 1 STM per
+   chunk (~1.75 instr/word) instead of LDR/LDR/op/STR (4 instr/word). */
+.macro ADDD_CHUNK op
+	LDMIA r1!, {r4-r7}
+	LDMIA r2!, {r8-r11}
+	\op  r4, r4, r8
+	ADCS r5, r5, r9
+	ADCS r6, r6, r10
+	ADCS r7, r7, r11
+	STMIA r0!, {r4-r7}
+.endm
+
+.macro SUBD_CHUNK op
+	LDMIA r1!, {r4-r7}
+	LDMIA r2!, {r8-r11}
+	\op  r4, r4, r8
+	SBCS r5, r5, r9
+	SBCS r6, r6, r10
+	SBCS r7, r7, r11
+	STMIA r0!, {r4-r7}
+.endm
+
 fp_addd_low:
-	STMDB sp!, {r4}
-
-	/**** Primeira iteracao ****/
-	LDR r3, [r1, #0]	/* r3 = *a */
-	LDR r4, [r2, #0]	/* r4 = *b */
-	ADDS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #0]	/* (*c) = r3*/
-
-	.irp i, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-	LDR r3, [r1, #4*\i]	/* r3 = *a */
-	LDR r4, [r2, #4*\i]	/* r4 = *b */
-	ADCS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #4*\i]	/* (*c) = r3*/
-	.endr
-
+	PUSH {r4-r11, lr}
+	ADDD_CHUNK ADDS
+	ADDD_CHUNK ADCS
+	ADDD_CHUNK ADCS
+	ADDD_CHUNK ADCS
 	MOV r0, #0		/* r0 = carry = 0 */
-	ADC r0, r0, r0 	/* Armazenando o resultado do carry no r0*/
-
-	LDMIA sp!, {r4}
-	MOV pc, lr		/* return carry*/
+	ADC r0, r0, r0		/* return carry */
+	POP {r4-r11, pc}
 
 fp_subd_low:
-	STMDB sp!, {r4}
-
-	/**** Primeira iteracao ****/
-	LDR r3, [r1, #0]	/* r3 = *a */
-	LDR r4, [r2, #0]	/* r4 = *b */
-	SUBS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #0]	/* (*c) = r3*/
-
-	.irp i, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-	LDR r3, [r1, #4*\i]	/* r3 = *a */
-	LDR r4, [r2, #4*\i]	/* r4 = *b */
-	SBCS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #4*\i]	/* (*c) = r3*/
-	.endr
-
-	MOV r0, #0		/* r0 = carry = 0 */
-	SBCS r0, r0, r0 	/* Armazenando o resultado do carry no r0*/
-
-	LDMIA sp!, {r4}
-	MOV pc, lr		/* return carry*/
+	PUSH {r4-r11, lr}
+	SUBD_CHUNK SUBS
+	SUBD_CHUNK SBCS
+	SUBD_CHUNK SBCS
+	SUBD_CHUNK SBCS
+	MOV r0, #0		/* r0 = borrow = 0 */
+	SBC r0, r0, r0		/* return 0 / 0xFFFFFFFF as before */
+	POP {r4-r11, pc}
 
 fp_addm_low2:
 	STMDB sp!, {r4-r12}
