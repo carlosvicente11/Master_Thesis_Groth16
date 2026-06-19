@@ -32,606 +32,92 @@
 .type fp_muln_low, %function
 
 /*============================================================================*/
-/* Uso dos registradores                                                      */
-/* r0 = C                                                                      */
-/* r1 = A                                                                        */
-/* r2 = B                                                                        */
-/* r3 = ACC_2                                                                    */
-/* r4 = ACC_1                                                                    */
-/* r5 = ACC_0                                                                    */
-/* r6 = Ra[0]                                                                    */
-/* r7 = Ra[1]                                                                    */
-/* r8 = Ra[2]                                                                    */
-/* r9 = Rb[0]                                                                    */
-/* r10 = Rb[1]                                                                    */
-/* r11 = Rb[2]                                                                    */
-/* r12 = aux                                                                    */
-/* r13 = sp                                                                        */
-/* r14 = lr                                                                        */
-/* r15 = pc                                                                        */
+/* 256x256 -> 512 schoolbook multiply, operand-scanning with UMAAL.            */
+/*                                                                            */
+/* UMAAL RdLo, RdHi, Rn, Rm  computes  Rn*Rm + RdLo + RdHi  into RdHi:RdLo.    */
+/* Because a*b + c + d <= (2^32-1)^2 + 2(2^32-1) = 2^64-1, the running carry   */
+/* is always a single word: no ADDS/ADCS/ADC carry chains are needed.         */
+/*                                                                            */
+/* Register use:                                                              */
+/*   r0  = C  (16-word product, written in place; not pre-zeroed)             */
+/*   r1  = A  (8 words, streamed one limb per row)                            */
+/*   r4..r11 = B[0..7]  (resident for the whole multiply)                     */
+/*   r3  = a[i]  (current A limb)                                             */
+/*   r2  = running carry for the current row                                  */
+/*   r12 = current result word (UMAAL low half)                              */
 /*============================================================================*/
 
+/* One operand-scanning row: C[i..i+7] += a[i] * B[], carry out to C[i+8]. */
+.macro MROW i
+    LDR  r3,  [r1, #(4*\i)]
+    MOV  r2,  #0
+    LDR  r12, [r0, #(4*((\i)+0))]
+    UMAAL r12, r2, r3, r4
+    STR  r12, [r0, #(4*((\i)+0))]
+    LDR  r12, [r0, #(4*((\i)+1))]
+    UMAAL r12, r2, r3, r5
+    STR  r12, [r0, #(4*((\i)+1))]
+    LDR  r12, [r0, #(4*((\i)+2))]
+    UMAAL r12, r2, r3, r6
+    STR  r12, [r0, #(4*((\i)+2))]
+    LDR  r12, [r0, #(4*((\i)+3))]
+    UMAAL r12, r2, r3, r7
+    STR  r12, [r0, #(4*((\i)+3))]
+    LDR  r12, [r0, #(4*((\i)+4))]
+    UMAAL r12, r2, r3, r8
+    STR  r12, [r0, #(4*((\i)+4))]
+    LDR  r12, [r0, #(4*((\i)+5))]
+    UMAAL r12, r2, r3, r9
+    STR  r12, [r0, #(4*((\i)+5))]
+    LDR  r12, [r0, #(4*((\i)+6))]
+    UMAAL r12, r2, r3, r10
+    STR  r12, [r0, #(4*((\i)+6))]
+    LDR  r12, [r0, #(4*((\i)+7))]
+    UMAAL r12, r2, r3, r11
+    STR  r12, [r0, #(4*((\i)+7))]
+    STR  r2,  [r0, #(4*((\i)+8))]
+.endm
+
 fp_muln_low:
-    STMDB sp!, {r4-r12, r14}
+    PUSH {r4-r11, lr}
 
-    PLD    [r1, #32]
-    PLD    [r2, #32]
+    LDM  r2, {r4-r11}              @ B[0..7] resident
 
-/********************************************************** B_init ***********************************************************************/
+    /* Row 0: result is logically zero, so seed each word from 0 (in r12). */
+    LDR  r3, [r1, #(4*0)]         @ a[0]
+    MOV  r2, #0                   @ carry
+    MOV  r12, #0
+    UMAAL r12, r2, r3, r4
+    STR  r12, [r0, #(4*0)]
+    MOV  r12, #0
+    UMAAL r12, r2, r3, r5
+    STR  r12, [r0, #(4*1)]
+    MOV  r12, #0
+    UMAAL r12, r2, r3, r6
+    STR  r12, [r0, #(4*2)]
+    MOV  r12, #0
+    UMAAL r12, r2, r3, r7
+    STR  r12, [r0, #(4*3)]
+    MOV  r12, #0
+    UMAAL r12, r2, r3, r8
+    STR  r12, [r0, #(4*4)]
+    MOV  r12, #0
+    UMAAL r12, r2, r3, r9
+    STR  r12, [r0, #(4*5)]
+    MOV  r12, #0
+    UMAAL r12, r2, r3, r10
+    STR  r12, [r0, #(4*6)]
+    MOV  r12, #0
+    UMAAL r12, r2, r3, r11
+    STR  r12, [r0, #(4*7)]
+    STR  r2, [r0, #(4*8)]
 
-    LDR r6,  [r1, #(4*6)]
-    LDR r9,  [r2, #(4*0)]
-        MOV r5, #0
+    MROW 1
+    MROW 2
+    MROW 3
+    MROW 4
+    MROW 5
+    MROW 6
+    MROW 7
 
-    /* COMBA_STEP_1 r6 r9 */
-    UMULL r5, r4, r6, r9
-        MOV r3, #0
-        LDR r10, [r2, #(4*1)]
-    /* COMBA_MFIN_1 6 */
-    STR r5, [r0, #(4*6)]
-    MOV r5, #0
-
-    /* COMBA_STEP_2 r6 r10 */
-    UMLAL r4, r5, r6, r10
-        LDR r7,  [r1, #(4*7)]
-        MOV r12, #0
-    ADDS r3, r3, r5
-    ADC r5, r12, #0
-    /* COMBA_STEP_2 r7 r9 */
-    UMLAL r4, r12, r7, r9
-        MOV r14, #0
-        LDR r6,  [r1, #(4*3)]
-        LDR r9,  [r2, #(4*0)]
-    ADDS r3, r3, r12
-/* ADC r5, r5, #0 */
-    /* COMBA_MFIN_2 7 */
-
-    /* COMBA_STEP_3 r7 r10 */
-    UMLAL r3, r14, r7, r10
-        STR r4, [r0, #(4*7)]
-        MOV r4, #0
-        MOV r12, #0
-    ADCS r5, r5, r14
-/* ADC r4, r4, #0 */
-    /* COMBA_MFIN_3 8 */
-
-    STR r5, [r0, #(4*9)]
-    MOV r5, #0
-/********************************************************** r0 - Part 1 ***********************************************************************/
-
-    /* COMBA_STEP_1 r6 r9 */
-    UMULL r5, r12, r6, r9
-        STR r3, [r0, #(4*8)]
-        MOV r3, #0
-        LDR r7,  [r1, #(4*4)]
-        LDR r10, [r2, #(4*1)]
-        MOV r14, #0
-    ADCS r4, r4, r12
-/* ADC r3, r3, #0 */
-    /* COMBA_MFIN_1 3 */
-
-    /* COMBA_STEP_2 r7 r9 */
-    UMLAL r4, r14, r7, r9
-        STR r5, [r0, #(4*3)]
-        MOV r5, #0
-        MOV r12, #0
-    ADCS r3, r3, r14
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r6 r10 */
-    UMLAL r4, r12, r6, r10
-        MOV r14, #0
-        LDR r8,  [r1, #(4*5)]
-        LDR r11, [r2, #(4*2)]
-    ADDS r3, r3, r12
-/* ADC r5, r5, #0 */
-    /* COMBA_MFIN_2 4 */
-
-    /* COMBA_STEP_3 r8 r9 */
-    UMLAL r3, r14, r8, r9
-        STR r4, [r0, #(4*4)]
-        MOV r4, #0
-        MOV r12, #0
-    ADCS r5, r5, r14
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r7 r10 */
-    UMLAL r3, r12, r7, r10
-        MOV r14, #0
-    ADDS r5, r5, r12
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r6 r11 */
-    UMLAL r3, r14, r6, r11
-        MOV r12, #0
-    ADDS r5, r5, r14
-/* ADC r4, r4, #0 */
-    /* COMBA_MFIN_3 5 */
-
-/********************************************************** r0 - Part 2 ***********************************************************************/
-
-    /* COMBA_STEP_1 r8 r10 */
-    UMLAL r5, r12, r8, r10
-        STR r3, [r0, #(4*5)]
-        MOV r3, #0
-        MOV r14, #0
-    ADCS r4, r4, r12
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r7 r11 */
-    UMLAL r5, r14, r7, r11
-        LDR r9,  [r2, #(4*3)]
-        MOV r12, #0
-    ADDS r4, r4, r14
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r6 r9 */
-    UMLAL r5, r12, r6, r9
-        MOV r14, #0
-        LDR  r10, [r0, #(4*6)]
-/*
-ADDS r4, r4, r12
-ADC r3, r3, #0
-*/
-    /* COMBA_ADD_1 6 */
-    ADDS r5, r5, r10
-    ADCS r4, r4, r12
-/* ADC  r3, r3, #0 */
-    /* COMBA_MFIN_1 6 */
-    STR r5, [r0, #(4*6)]
-
-    /* COMBA_STEP_2 r8 r11 */
-    UMLAL r4, r14, r8, r11
-        MOV r5, #0
-        LDR r10,  [r2, #(4*4)]
-        MOV r12, #0
-    ADCS r3, r3, r14
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r7 r9 */
-    UMLAL r4, r12, r7, r9
-        MOV r14, #0
-    ADDS r3, r3, r12
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r6 r10 */
-    UMLAL r4, r14, r6, r10
-        MOV r12, #0
-        LDR  r6, [r0, #(4*7)]
-/*
-    ADDS r3, r3, r14
-    ADC r5, r5, #0
-*/
-    /* COMBA_ADD_2 7 */
-    ADDS r4, r4, r6
-    ADCS r3, r3, r14
-/* ADC  r5, r5, #0 */
-    /* COMBA_MFIN_2 7 */
-    STR r4, [r0, #(4*7)]
-
-/********************************************************** r0 - Part 3 ***********************************************************************/
-
-    /* COMBA_STEP_3 r8 r9 */
-    UMLAL r3, r12, r8, r9
-        MOV r4, #0
-        LDR r6,  [r1, #(4*6)]
-        MOV r14, #0
-    ADCS r5, r5, r12
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r6 r11 */
-    UMLAL r3, r14, r6, r11
-        MOV r12, #0
-    ADDS r5, r5, r14
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r7 r10 */
-    UMLAL r3, r12, r7, r10
-        MOV r14, #0
-        LDR  r7, [r0, #(4*8)]
-/*
-    ADDS r5, r5, r12
-    ADC r4, r4, #0
-*/
-    /* COMBA_ADD_3 8 */
-    ADDS r3, r3, r7
-    ADCS r5, r5, r12
-/* ADC  r4, r4, #0 */
-
-    /* COMBA_MFIN_3 8 */
-    STR r3, [r0, #(4*8)]
-
-    /* COMBA_STEP_1 r6 r9 */
-    UMLAL r5, r14, r6, r9
-        MOV r3, #0
-        LDR r7,  [r1, #(4*7)]
-        MOV r12, #0
-    ADCS r4, r4, r14
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r7 r11 */
-    UMLAL r5, r12, r7, r11
-        MOV r14, #0
-    ADDS r4, r4, r12
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r8 r10 */
-    UMLAL r5, r14, r8, r10
-        MOV r12, #0
-    ADDS r4, r4, r14
-    ADC r3, r3, #0
-    /* COMBA_ADD_1 9 */
-    LDR  r14, [r0, #(4*9)]
-    ADDS r5, r5, r14
-    ADCS r4, r4, #0
-/* ADC  r3, r3, #0 */
-    /* COMBA_MFIN_1 9 */
-    STR r5, [r0, #(4*9)]
-
-/********************************************************** r0 - Part 4 ***********************************************************************/
-
-    /* COMBA_STEP_2 r7 r9 */
-    UMLAL r4, r12, r7, r9
-        MOV r5, #0
-        MOV r14, #0
-    ADCS r3, r3, r12
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r6 r10 */
-    UMLAL r4, r14, r6, r10
-        MOV r12, #0
-    ADDS r3, r3, r14
-/* ADC r5, r5, #0 */
-    /* COMBA_MFIN_2 10 */
-    STR r4, [r0, #(4*10)]
-
-    /* COMBA_STEP_3 r7 r10 */
-    UMLAL r3, r12, r7, r10
-        MOV r4, #0
-        MOV r14, #0
-        LDR r6,  [r1, #(4*0)]
-        LDR r9,  [r2, #(4*0)]
-    ADCS r5, r5, r12
-/* ADC r4, r4, #0 */
-    /* COMBA_MFIN_3 11 */
-    STR r5, [r0, #(4*12)]
-    MOV r5, #0
-
-/********************************************************** r1 - Part 1 ***********************************************************************/
-
-    /* COMBA_STEP_1 r6 r9 */
-    UMULL r5, r14, r6, r9
-        STR r3, [r0, #(4*11)]
-        MOV r3, #0
-        LDR r7,  [r1, #(4*1)]
-        MOV r12, #0
-    ADCS r4, r4, r14
-/* ADC r3, r3, #0 */
-    /* COMBA_MFIN_1 0 */
-    STR r5, [r0, #(4*0)]
-
-    /* COMBA_STEP_2 r7 r9 */
-    UMLAL r4, r12, r7, r9
-        MOV r5, #0
-        LDR r10, [r2, #(4*1)]
-        MOV r14, #0
-    ADCS r3, r3, r12
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r6 r10 */
-    UMLAL r4, r14, r6, r10
-        MOV r12, #0
-        LDR r8,  [r1, #(4*2)]
-        LDR r11, [r2, #(4*2)]
-    ADDS r3, r3, r14
-/* ADC r5, r5, #0 */
-
-    /* COMBA_MFIN_2 1 */
-    STR r4, [r0, #(4*1)]
-
-    /* COMBA_STEP_3 r8 r9 */
-    UMLAL r3, r12, r8, r9
-        MOV r4, #0
-        MOV r14, #0
-    ADCS r5, r5, r12
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r7 r10 */
-    UMLAL r3, r14, r7, r10
-        MOV r12, #0
-    ADDS r5, r5, r14
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r6 r11 */
-    UMLAL r3, r12, r6, r11
-        MOV r14, #0
-    ADDS r5, r5, r12
-/* ADC r4, r4, #0 */
-    /* COMBA_MFIN_3 2 */
-    STR r3, [r0, #(4*2)]
-
-/********************************************************** r1 - Part 2 ***********************************************************************/
-
-    /* COMBA_STEP_1 r8 r10 */
-    UMLAL r5, r14, r8, r10
-        MOV r3, #0
-        LDR r9,  [r2, #(4*3)]
-        MOV r12, #0
-    ADCS r4, r4, r14
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r7 r11 */
-    UMLAL r5, r12, r7, r11
-        MOV r14, #0
-    ADDS r4, r4, r12
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r6 r9 */
-    UMLAL r5, r14, r6, r9
-        MOV r12, #0
-        LDR  r10, [r0, #(4*3)]
-/*
-    ADDS r4, r4, r14
-    ADC r3, r3, #0
-*/
-    /* COMBA_ADD_1 3 */
-    ADDS r5, r5, r10
-    ADCS r4, r4, r14
-/* ADC  r3, r3, #0 */
-    /* COMBA_MFIN_1 3 */
-    STR r5, [r0, #(4*3)]
-
-    /* COMBA_STEP_2 r8 r11 */
-    UMLAL r4, r12, r8, r11
-        MOV r5, #0
-        LDR r10,  [r2, #(4*4)]
-        MOV r14, #0
-    ADCS r3, r3, r12
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r7 r9 */
-    UMLAL r4, r14, r7, r9
-        MOV r12, #0
-    ADDS r3, r3, r14
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r6 r10 */
-    UMLAL r4, r12, r6, r10
-        MOV r14, #0
-        LDR  r11, [r0, #(4*4)]
-/*
-    ADDS r3, r3, r12
-    ADC r5, r5, #0
-*/
-    /* COMBA_ADD_2 4 */
-    ADDS r4, r4, r11
-    ADCS r3, r3, r12
-/* ADC  r5, r5, #0 */
-    /* COMBA_MFIN_2 4 */
-    STR r4, [r0, #(4*4)]
-
-    /* COMBA_STEP_3 r8 r9 */
-    UMLAL r3, r14, r8, r9
-        MOV r4, #0
-        LDR r11,  [r2, #(4*5)]
-        MOV r12, #0
-    ADCS r5, r5, r14
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r7 r10 */
-    UMLAL r3, r12, r7, r10
-        MOV r14, #0
-    ADDS r5, r5, r12
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r6 r11 */
-    UMLAL r3, r14, r6, r11
-        MOV r12, #0
-        LDR  r9, [r0, #(4*5)]
-/*
-    ADDS r5, r5, r14
-    ADC r4, r4, #0
-*/
-    /* COMBA_ADD_3 5 */
-    ADDS r3, r3, r9
-    ADCS r5, r5, r14
-/* ADC  r4, r4, #0 */
-    /* COMBA_MFIN_3 5 */
-    STR r3, [r0, #(4*5)]
-
-    /* COMBA_STEP_1 r8 r10 */
-    UMLAL r5, r12, r8, r10
-        MOV r3, #0
-        LDR r9,  [r2, #(4*6)]
-        MOV r14, #0
-    ADCS r4, r4, r12
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r7 r11 */
-    UMLAL r5, r14, r7, r11
-        MOV r12, #0
-    ADDS r4, r4, r14
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r6 r9 */
-    UMLAL r5, r12, r6, r9
-        MOV r14, #0
-        LDR  r10, [r0, #(4*6)]
-/*
-    ADDS r4, r4, r12
-    ADC r3, r3, #0
-*/
-    /* COMBA_ADD_1 6 */
-    ADDS r5, r5, r10
-    ADCS r4, r4, r12
-/* ADC  r3, r3, #0 */
-    /* COMBA_MFIN_1 6 */
-    STR r5, [r0, #(4*6)]
-
-    /* COMBA_STEP_2 r8 r11 */
-    UMLAL r4, r14, r8, r11
-        MOV r5, #0
-        LDR r10,  [r2, #(4*7)]
-        MOV r12, #0
-    ADCS r3, r3, r14
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r7 r9 */
-    UMLAL r4, r12, r7, r9
-        MOV r14, #0
-    ADDS r3, r3, r12
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r6 r10 */
-    UMLAL r4, r14, r6, r10
-        MOV r12, #0
-        LDR  r6, [r0, #(4*7)]
-/*
-    ADDS r3, r3, r14
-    ADC r5, r5, #0
-*/
-    /* COMBA_ADD_2 7 */
-    ADDS r4, r4, r6
-    ADCS r3, r3, r14
-/* ADC  r5, r5, #0 */
-    /* COMBA_MFIN_2 7 */
-    STR r4, [r0, #(4*7)]
-
-/********************************************************** r1 - Part 3 ***********************************************************************/
-
-    /* COMBA_STEP_3 r8 r9 */
-    UMLAL r3, r12, r8, r9
-        MOV r4, #0
-        LDR r6,  [r1, #(4*3)]
-        MOV r14, #0
-    ADCS r5, r5, r12
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r6 r11 */
-    UMLAL r3, r14, r6, r11
-        MOV r12, #0
-    ADDS r5, r5, r14
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r7 r10 */
-    UMLAL r3, r12, r7, r10
-        MOV r14, #0
-        LDR  r7, [r0, #(4*8)]
-/*
-    ADDS r5, r5, r12
-    ADC r4, r4, #0
-*/
-    /* COMBA_ADD_3 8 */
-    ADDS r3, r3, r7
-    ADCS r5, r5, r12
-/* ADC  r4, r4, #0 */
-    /* COMBA_MFIN_3 8 */
-    STR r3, [r0, #(4*8)]
-
-    /* COMBA_STEP_1 r6 r9 */
-    UMLAL r5, r14, r6, r9
-        MOV r3, #0
-        LDR r7,  [r1, #(4*4)]
-        MOV r12, #0
-    ADCS r4, r4, r14
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r7 r11 */
-    UMLAL r5, r12, r7, r11
-        MOV r14, #0
-    ADDS r4, r4, r12
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r8 r10 */
-    UMLAL r5, r14, r8, r10
-        MOV r12, #0
-        LDR  r8, [r0, #(4*9)]
-/*
-    ADDS r4, r4, r14
-    ADC r3, r3, #0
-*/
-    /* COMBA_ADD_1 9 */
-    ADDS r5, r5, r8
-    ADCS r4, r4, r14
-/* ADC  r3, r3, #0 */
-    /* COMBA_MFIN_1 9 */
-    STR r5, [r0, #(4*9)]
-
-    /* COMBA_STEP_2 r7 r9 */
-    UMLAL r4, r12, r7, r9
-        MOV r5, #0
-        LDR r8,  [r1, #(4*5)]
-        MOV r14, #0
-    ADCS r3, r3, r12
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r8 r11 */
-    UMLAL r4, r14, r8, r11
-        MOV r12, #0
-    ADDS r3, r3, r14
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r6 r10 */
-    UMLAL r4, r12, r6, r10
-        MOV r14, #0
-        LDR  r6, [r0, #(4*10)]
-/*
-    ADDS r3, r3, r12
-    ADC r5, r5, #0
-*/
-    /* COMBA_ADD_2 10 */
-    ADDS r4, r4, r6
-    ADCS r3, r3, r12
-/* ADC  r5, r5, #0 */
-    /* COMBA_MFIN_2 10 */
-    STR r4, [r0, #(4*10)]
-
-    /* COMBA_STEP_3 r8 r9 */
-    UMLAL r3, r14, r8, r9
-        MOV r4, #0
-        LDR r6,  [r1, #(4*6)]
-        MOV r12, #0
-    ADCS r5, r5, r14
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r6 r11 */
-    UMLAL r3, r12, r6, r11
-        MOV r14, #0
-    ADDS r5, r5, r12
-    ADC r4, r4, #0
-    /* COMBA_STEP_3 r7 r10 */
-    UMLAL r3, r14, r7, r10
-        MOV r12, #0
-        LDR  r7, [r0, #(4*11)]
-/*
-    ADDS r5, r5, r14
-    ADC r4, r4, #0
-*/
-    /* COMBA_ADD_3 11 */
-    ADDS r3, r3, r7
-    ADCS r5, r5, r14
-/* ADC  r4, r4, #0 */
-    /* COMBA_MFIN_3 11 */
-    STR r3, [r0, #(4*11)]
-
-    /* COMBA_STEP_1 r6 r9 */
-    UMLAL r5, r12, r6, r9
-        MOV r3, #0
-        LDR r7,  [r1, #(4*7)]
-        MOV r14, #0
-    ADCS r4, r4, r12
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r7 r11 */
-    UMLAL r5, r14, r7, r11
-        MOV r12, #0
-    ADDS r4, r4, r14
-    ADC r3, r3, #0
-    /* COMBA_STEP_1 r8 r10 */
-    UMLAL r5, r12, r8, r10
-        MOV r14, #0
-    ADDS r4, r4, r12
-    ADC r3, r3, #0
-    /* COMBA_ADD_1 12 */
-    LDR  r12, [r0, #(4*12)]
-    ADDS r5, r5, r12
-    ADCS r4, r4, #0
-/* ADC  r3, r3, #0 */
-    /* COMBA_MFIN_1 12 */
-    STR r5, [r0, #(4*12)]
-
-/********************************************************** r1 - Part 4 ***********************************************************************/
-
-    /* COMBA_STEP_2 r7 r9 */
-    UMLAL r4, r14, r7, r9
-        MOV r5, #0
-        MOV r12, #0
-    ADCS r3, r3, r14
-    ADC r5, r5, #0
-    /* COMBA_STEP_2 r6 r10 */
-    UMLAL r4, r12, r6, r10
-        MOV r14, #0
-    ADDS r3, r3, r12
-/* ADC r5, r5, #0 */
-    /* COMBA_MFIN_2 13 */
-    STR r4, [r0, #(4*13)]
-
-    /* COMBA_STEP_3 r7 r10 */
-    UMLAL r3, r14, r7, r10
-        MOV r4, #0
-    ADCS r5, r5, r14
-    ADC r4, r4, #0
-    /* COMBA_MFIN_3 14 */
-    STR r3, [r0, #(4*14)]
-
-    STR r5, [r0, #(4*15)]
-
-    LDMIA sp!, {r4-r12, r14}
-    MOV pc, lr
+    POP {r4-r11, pc}
