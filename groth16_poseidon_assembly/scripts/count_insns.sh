@@ -51,9 +51,12 @@ build_target() {
     local args=(-DCMAKE_TOOLCHAIN_FILE="$TOOLCHAIN" -DBOARD="$MACHINE")
     [[ -n "$iters" ]] && args+=(-DPAIRING_ITERS="$iters")
     cmake -S "$PROJ" -B "$BUILD" "${args[@]}" >/dev/null
-    # CMake's Makefiles generator does not recompile on a -D define-only change,
-    # so force the bench source to rebuild when PAIRING_ITERS varies.
-    [[ -n "$iters" ]] && touch "$PROJ/test/bench_pairing_arm.c"
+    # A -D define-only change updates flags.make but does not reliably invalidate
+    # the already-compiled object under the Makefiles generator (touching the .c
+    # is not enough across a reconfigure). Delete the object outright so the next
+    # build unconditionally recompiles it with the freshly-generated PAIRING_ITERS.
+    [[ -n "$iters" ]] && rm -f \
+        "$BUILD/CMakeFiles/bench_pairing_arm.dir/test/bench_pairing_arm.c.obj"
     cmake --build "$BUILD" --target "$target" >/dev/null
 }
 
