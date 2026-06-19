@@ -15,7 +15,7 @@ execute_process(
 
 # --- RELIC Configuration for Ethereum BN254 (ARM, assembly backend) ---
 set(WSIZE   32      CACHE STRING "" FORCE)
-set(RAND    "HASHD" CACHE STRING "" FORCE)
+set(RAND    "CALL"  CACHE STRING "" FORCE)
 set(SEED    ""      CACHE STRING "" FORCE)
 set(SHLIB   OFF     CACHE BOOL "" FORCE)
 set(STBIN   OFF     CACHE BOOL "" FORCE)
@@ -27,7 +27,7 @@ set(MULTI   "OFF"   CACHE STRING "" FORCE)
 set(BENCH   0       CACHE INTEGER "" FORCE)
 set(TESTS   0       CACHE INTEGER "" FORCE)
 
-set(WITH "BN;DV;FP;FPX;EP;EPX;PP;MD" CACHE STRING "" FORCE)
+set(WITH "BN;DV;FP;FPX;EP;EPX;PP" CACHE STRING "" FORCE)
 
 set(EP_PRECO  OFF  CACHE BOOL "" FORCE)
 set(EP_CTMAP  OFF  CACHE BOOL "" FORCE)
@@ -46,7 +46,7 @@ else()
     set(ARITH "arm-asm-254e" CACHE STRING "" FORCE)
 endif()
 
-set(CFLAGS "-mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffreestanding -O2 -nostdinc -isystem ${CMAKE_SOURCE_DIR}/bare_metal/include -isystem ${GCC_BUILTIN_INCLUDE}" CACHE STRING "" FORCE)
+set(CFLAGS "-mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffreestanding -O2 -ffunction-sections -fdata-sections -nostdinc -isystem ${CMAKE_SOURCE_DIR}/bare_metal/include -isystem ${GCC_BUILTIN_INCLUDE}" CACHE STRING "" FORCE)
 
 add_subdirectory(lib/relic)
 
@@ -63,6 +63,7 @@ target_include_directories(groth16_verifier PUBLIC
 )
 target_compile_options(groth16_verifier PRIVATE
     -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffreestanding -O2
+    -ffunction-sections -fdata-sections
     -nostdinc
     "SHELL:-isystem ${CMAKE_SOURCE_DIR}/bare_metal/include"
     "SHELL:-isystem ${GCC_BUILTIN_INCLUDE}"
@@ -100,6 +101,7 @@ macro(add_arm_executable NAME)
     )
     target_compile_options(${NAME} PRIVATE
         -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -ffreestanding -O2
+        -ffunction-sections -fdata-sections
         -nostdinc
         "SHELL:-isystem ${CMAKE_SOURCE_DIR}/bare_metal/include"
         "SHELL:-isystem ${GCC_BUILTIN_INCLUDE}"
@@ -108,6 +110,8 @@ macro(add_arm_executable NAME)
     target_link_options(${NAME} PRIVATE
         -T${LINKER_SCRIPT}
         -nostartfiles -nostdlib
+        -Wl,--gc-sections
+        -Wl,-Map=${NAME}.map
     )
     set_property(TARGET ${NAME} PROPERTY LINK_LIBRARIES
         -Wl,--start-group

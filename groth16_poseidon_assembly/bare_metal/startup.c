@@ -370,5 +370,10 @@ void exit(int code) {
 
 int raise(int sig) { (void)sig; abort(); return 0; }
 
-/* RELIC uses RAND=HASHD with no SEED defined, so rand_init() uses a zero seed.
- * Verification is deterministic — no randomness needed. */
+/* RELIC uses RAND=CALL; crypto_init.c registers a no-op rand callback, so the
+ * verify path samples no randomness. The CALL backend's default rand_stub
+ * (relic_rand_call.c) references these POSIX file ops but never runs once our
+ * callback is registered — the stubs exist only to satisfy the linker. */
+int open(const char *path, int flags) { (void)path; (void)flags; return -1; }
+int read(int fd, void *buf, size_t count) { (void)fd; (void)buf; (void)count; return -1; }
+int close(int fd) { (void)fd; return -1; }
