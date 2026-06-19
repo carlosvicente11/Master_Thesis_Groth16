@@ -57,128 +57,11 @@
 .thumb_func
 .type fp_subm_low, %function
 
-/********************************************************** FP_ADDN_LOW ***********************************************************************/
-
-fp_addn_low:
-	STMDB sp!, {r4}
-
-	/**** Primeira iteracao ****/
-	LDR r3, [r1, #0]	/* r3 = *a */
-	LDR r4, [r2, #0]	/* r4 = *b */
-	ADDS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #0]	/* (*c) = r3*/
-
-	/**** Segunda iteracao ****/
-	LDR r3, [r1, #4]	/* r3 = *a */
-	LDR r4, [r2, #4]	/* r4 = *b */
-	ADCS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #4]	/* (*c) = r3*/
-
-	/**** Terceira iteracao ****/
-	LDR r3, [r1, #8]	/* r3 = *a */
-	LDR r4, [r2, #8]	/* r4 = *b */
-	ADCS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #8]	/* (*c) = r3*/
-
-	/**** Quarta iteracao ****/
-	LDR r3, [r1, #12]	/* r3 = *a */
-	LDR r4, [r2, #12]	/* r4 = *b */
-	ADCS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #12]	/* (*c) = r3*/
-
-	/**** Quinta iteracao ****/
-	LDR r3, [r1, #16]	/* r3 = *a */
-	LDR r4, [r2, #16]	/* r4 = *b */
-	ADCS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #16]	/* (*c) = r3*/
-
-	/**** Sexta iteracao ****/
-	LDR r3, [r1, #20]	/* r3 = *a */
-	LDR r4, [r2, #20]	/* r4 = *b */
-	ADCS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #20]	/* (*c) = r3*/
-
-	/**** Setima iteracao ****/
-	LDR r3, [r1, #24]	/* r3 = *a */
-	LDR r4, [r2, #24]	/* r4 = *b */
-	ADCS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #24]	/* (*c) = r3*/
-
-	/**** Oitava iteracao ****/
-	LDR r3, [r1, #28]	/* r3 = *a */
-	LDR r4, [r2, #28]	/* r4 = *b */
-	ADCS r3, r3, r4		/* r3 = (*a) + (*b) */
-	STR r3, [r0, #28]	/* (*c) = r3*/
-
-	MOV r0, #0		/* r0 = carry = 0 */
-	ADC r0, r0, r0 	/* Armazenando o resultado do carry no r0*/
-
-	LDMIA sp!, {r4}
-	MOV pc, lr		/* return carry*/
-
-/********************************************************** FP_SUBN_LOW ***********************************************************************/
-fp_subn_low:
-	STMDB sp!, {r4}
-
-	/**** Primeira iteracao ****/
-	LDR r3, [r1, #0]	/* r3 = *a */
-	LDR r4, [r2, #0]	/* r4 = *b */
-	SUBS r3, r3, r4		/* r3 = (*a) - (*b) */
-	STR r3, [r0, #0]	/* (*c) = r3*/
-
-	/**** Segunda iteracao ****/
-	LDR r3, [r1, #4]	/* r3 = *a */
-	LDR r4, [r2, #4]	/* r4 = *b */
-	SBCS r3, r3, r4		/* r3 = (*a) - (*b) */
-	STR r3, [r0, #4]	/* (*c) = r3*/
-
-	/**** Terceira iteracao ****/
-	LDR r3, [r1, #8]	/* r3 = *a */
-	LDR r4, [r2, #8]	/* r4 = *b */
-	SBCS r3, r3, r4		/* r3 = (*a) - (*b) */
-	STR r3, [r0, #8]	/* (*c) = r3*/
-
-	/**** Quarta iteracao ****/
-	LDR r3, [r1, #12]	/* r3 = *a */
-	LDR r4, [r2, #12]	/* r4 = *b */
-	SBCS r3, r3, r4		/* r3 = (*a) - (*b) */
-	STR r3, [r0, #12]	/* (*c) = r3*/
-
-	/**** Quinta iteracao ****/
-	LDR r3, [r1, #16]	/* r3 = *a */
-	LDR r4, [r2, #16]	/* r4 = *b */
-	SBCS r3, r3, r4		/* r3 = (*a) - (*b) */
-	STR r3, [r0, #16]	/* (*c) = r3*/
-
-	/**** Sexta iteracao ****/
-	LDR r3, [r1, #20]	/* r3 = *a */
-	LDR r4, [r2, #20]	/* r4 = *b */
-	SBCS r3, r3, r4		/* r3 = (*a) - (*b) */
-	STR r3, [r0, #20]	/* (*c) = r3*/
-
-	/**** Setima iteracao ****/
-	LDR r3, [r1, #24]	/* r3 = *a */
-	LDR r4, [r2, #24]	/* r4 = *b */
-	SBCS r3, r3, r4		/* r3 = (*a) - (*b) */
-	STR r3, [r0, #24]	/* (*c) = r3*/
-
-	/**** Oitava iteracao ****/
-	LDR r3, [r1, #28]	/* r3 = *a */
-	LDR r4, [r2, #28]	/* r4 = *b */
-	SBCS r3, r3, r4		/* r3 = (*a) - (*b) */
-	STR r3, [r0, #28]	/* (*c) = r3*/
-
-	MOV r0, #0		/* r0 = carry = 0 */
-	SBC r0, r0, r0 	/* Armazenando o resultado do carry no r0*/
-
-	LDMIA sp!, {r4}
-	MOV pc, lr		/* return carry*/
-
-/********************************************************** FP_ADDM_LOW ***********************************************************************/
-
-/* Double-precision (16-word) add/sub. LDM/STM do not touch the carry flag, so
-   the ADCS/SBCS chain runs across 4-word chunks: 2 LDM + 4 ALU + 1 STM per
-   chunk (~1.75 instr/word) instead of LDR/LDR/op/STR (4 instr/word). */
+/* Single/double-precision add/sub share one chunked carry-chain primitive.
+   LDM/STM do not touch the carry flag, so ADDS/ADCS (resp. SUBS/SBCS) runs
+   unbroken across 4-word chunks: 2 LDM + 4 ALU + 1 STM per chunk (~1.75
+   instr/word) instead of LDR/LDR/op/STR (4 instr/word). addn/subn = 2 chunks
+   (8 words); addd/subd = 4 chunks (16 words). */
 .macro ADDD_CHUNK op
 	LDMIA r1!, {r4-r7}
 	LDMIA r2!, {r8-r11}
@@ -198,6 +81,27 @@ fp_subn_low:
 	SBCS r7, r7, r11
 	STMIA r0!, {r4-r7}
 .endm
+
+/********************************************************** FP_ADDN_LOW ***********************************************************************/
+
+fp_addn_low:
+	PUSH {r4-r11, lr}
+	ADDD_CHUNK ADDS
+	ADDD_CHUNK ADCS
+	MOV r0, #0		/* r0 = carry = 0 */
+	ADC r0, r0, r0		/* return carry */
+	POP {r4-r11, pc}
+
+/********************************************************** FP_SUBN_LOW ***********************************************************************/
+fp_subn_low:
+	PUSH {r4-r11, lr}
+	SUBD_CHUNK SUBS
+	SUBD_CHUNK SBCS
+	MOV r0, #0		/* r0 = borrow = 0 */
+	SBC r0, r0, r0		/* return 0 / 0xFFFFFFFF as before */
+	POP {r4-r11, pc}
+
+/********************************************************** FP_ADDM_LOW ***********************************************************************/
 
 fp_addd_low:
 	PUSH {r4-r11, lr}
