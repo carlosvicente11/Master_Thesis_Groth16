@@ -2,6 +2,34 @@
 
 This repository contains the implementation of a Groth16 zero-knowledge proof system for clear signing verification on a constrained ARM Cortex-M4 chip.
 
+## Quick Start for Reviewers
+
+The headline artifact is the ARM Cortex-M4 verifier in `groth16_poseidon_assembly/`. To build and run it from a fresh clone:
+
+```bash
+# 0. Tools needed: arm-none-eabi-gcc, cmake (3.14+), qemu-system-arm
+#    (macOS: brew install --cask gcc-arm-embedded; brew install cmake qemu)
+
+# 1. Reconstitute the RELIC library (NOT stored in git — shipped as lib.zip).
+#    A bare clone will NOT build until you do this. The -o flag overwrites the
+#    placeholder files git checked out; the archive already contains the
+#    optimized kernels, so nothing is lost.
+unzip -o lib.zip -d groth16_poseidon_assembly/lib/
+
+# 2. Build (hand-tuned assembly backend, the default).
+cd groth16_poseidon_assembly
+mkdir -p build && cd build
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-arm-none-eabi.cmake
+cmake --build .
+
+# 3. Run the verification test suite under QEMU (expect "All tests passed").
+qemu-system-arm -machine netduinoplus2 -nographic -semihosting -kernel ./test_verifier_arm
+```
+
+This is a **bare-metal ARM** project: there is no native/desktop build of the assembly verifier (CMake errors out if not cross-compiling), and it executes under QEMU rather than on a host CPU. For a desktop C verifier that runs natively, see `groth16_poseidon_c/` below.
+
+> **Note for reviewers:** the detailed write-ups (optimization results, progress log, deployment notes) live under `docs/`, which is intentionally excluded from git and therefore **not** part of a clone. They are provided separately.
+
 ## Prerequisites
 
 | Tool | Purpose |
@@ -19,11 +47,7 @@ thesis/
 ├── groth16_poseidon_rust/       # Rust prover/verifier (basic preimage)
 ├── groth16_poseidon_c/          # C verifier (basic preimage, desktop)
 ├── groth16_poseidon_assembly/   # C verifier (ARM Cortex-M4 with assembly)
-├── groth16_clear_signing_rust/  # Rust prover/verifier (clear signing)
-├── groth16_clear_signing_c/     # C verifier (clear signing, desktop)
-├── groth16_clear_signing_assembly/ # C verifier (clear signing, ARM with assembly)
-├── lib.zip                      # RELIC crypto library (vendored)
-└── docs/                        # Documentation
+└── lib.zip                      # RELIC crypto library (vendored)
 ```
 
 ## Setting Up the RELIC Library
@@ -163,10 +187,12 @@ groth16_poseidon_assembly/
 
 **Memory usage (STM32F405):**
 
-| Backend | Flash | RAM | Budget |
-|---|---|---|---|
-| Assembly (`arm-asm-254e`) | 214 KB | 12.6 KB | 1 MB / 128 KB |
-| Generic C (`easy`) | 211 KB | 12.6 KB | 1 MB / 128 KB |
+| Backend | Flash (baseline) | Flash (current, post-strip) | RAM | Budget |
+|---|---|---|---|---|
+| Assembly (`arm-asm-254e`) | 214 KB | 55.0 KB | 12.5 KB | 1 MB / 128 KB |
+| Generic C (`easy`) | 211 KB | 53.2 KB | 12.5 KB | 1 MB / 128 KB |
+
+The *baseline* column is the pre-strip footprint (full RELIC, all curves/towers). The *current* column is after the Phase 3 source-level strip of unused curves and field towers. Measured with `arm-none-eabi-size` on `test_verifier_arm` (flash = text+data, RAM = data+bss). Note the assembly backend is slightly larger in flash than generic C (its unrolled `UMAAL`/`LDM`/`STM` kernels are bigger code) despite being ~3.6× faster in retired instructions.
 
 ## Cleaning Build Artifacts
 
