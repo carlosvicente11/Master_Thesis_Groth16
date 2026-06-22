@@ -28,8 +28,6 @@ qemu-system-arm -machine netduinoplus2 -nographic -semihosting -kernel ./test_ve
 
 This is a **bare-metal ARM** project: there is no native/desktop build of the assembly verifier (CMake errors out if not cross-compiling), and it executes under QEMU rather than on a host CPU. For a desktop C verifier that runs natively, see `groth16_poseidon_c/` below.
 
-> **Note for reviewers:** the detailed write-ups (optimization results, progress log, deployment notes) live under `docs/`, which is intentionally excluded from git and therefore **not** part of a clone. They are provided separately.
-
 ## Prerequisites
 
 | Tool | Purpose |
