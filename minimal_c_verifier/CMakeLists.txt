@@ -59,3 +59,7 @@ target_link_libraries(cross_validate PRIVATE groth16_verifier)
 # --- Profile ---
 add_executable(profile_verify test/profile_verify.c)
 target_link_libraries(profile_verify PRIVATE groth16_verifier)
+
+# --- Fr backend self-test (standalone, no RELIC) ---
+add_executable(fr_selftest src/fr.c test/fr_selftest.c)
+target_include_directories(fr_selftest PRIVATE ${CMAKE_SOURCE_DIR}/include)
