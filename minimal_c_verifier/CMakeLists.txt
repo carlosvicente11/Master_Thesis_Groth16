@@ -63,3 +63,11 @@ target_link_libraries(profile_verify PRIVATE groth16_verifier)
 # --- Fr backend self-test (standalone, no RELIC) ---
 add_executable(fr_selftest src/fr.c test/fr_selftest.c)
 target_include_directories(fr_selftest PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+# --- Poseidon cross-validation vs arkworks prover (standalone, no RELIC) ---
+add_executable(poseidon_cross_validate
+    src/fr.c
+    src/poseidon.c
+    test/poseidon_cross_validate.c
+)
+target_include_directories(poseidon_cross_validate PRIVATE ${CMAKE_SOURCE_DIR}/include)
