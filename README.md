@@ -42,11 +42,15 @@ This is a **bare-metal ARM** project: there is no native/desktop build of the as
 
 ```
 thesis/
+├── report/                       # Thesis chapter drafts
 ├── groth16_poseidon_rust/       # Rust prover/verifier (basic preimage)
 ├── groth16_poseidon_c/          # C verifier (basic preimage, desktop)
 ├── groth16_poseidon_assembly/   # C verifier (ARM Cortex-M4 with assembly)
 └── lib.zip                      # RELIC crypto library (vendored)
 ```
+
+The benchmark methodology, results, and proof-system selection draft is in
+[`report/BENCHMARK_EVALUATION_DRAFT.md`](report/BENCHMARK_EVALUATION_DRAFT.md).
 
 ## Setting Up the RELIC Library
 
