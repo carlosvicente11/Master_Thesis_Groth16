@@ -49,8 +49,11 @@ thesis/
 └── lib.zip                      # RELIC crypto library (vendored)
 ```
 
-The benchmark methodology, results, and proof-system selection draft is in
-[`report/BENCHMARK_EVALUATION_DRAFT.md`](report/BENCHMARK_EVALUATION_DRAFT.md).
+Current thesis chapter drafts:
+
+- Background: [`report/BACKGROUND_DRAFT.md`](report/BACKGROUND_DRAFT.md)
+- Benchmark methodology, results, and proof-system selection:
+  [`report/BENCHMARK_EVALUATION_DRAFT.md`](report/BENCHMARK_EVALUATION_DRAFT.md)
 
 ## Setting Up the RELIC Library
 

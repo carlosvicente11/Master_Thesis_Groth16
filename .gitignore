@@ -33,6 +33,9 @@ target/
 !**/lib/relic/src/low/arm-asm-254e/relic_fp_rdc_low.c
 !**/lib/relic/src/low/arm-asm-254e/relic_fp_add_low.s
 !**/lib/relic/src/low/arm-asm-254e/relic_fp_add_low.c
+# --- minimal_c_verifier: track its full pruned RELIC tree (buildable from clone) ---
+# (scoped to this project only; other projects' RELIC still reconstitutes from lib.zip)
+!minimal_c_verifier/lib/relic/**
 
 # Documentation / notes
 docs/

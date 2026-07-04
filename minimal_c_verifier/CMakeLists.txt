@@ -1,9 +1,16 @@
 cmake_minimum_required(VERSION 3.14)
 project(groth16_verifier C)
 
+# RELIC comes from pairing_only_bn254: the trimmed tree (fp2/4/6/12 + ep2 + k12
+# only) that is the single crypto core — the supervisor's Cortex-M4 Montgomery
+# assembly lands there (fp_mulm_low/fp_sqrm_low) and this verifier inherits it.
+set(RELIC_DIR ${CMAKE_SOURCE_DIR}/../pairing_only_bn254/lib/relic)
+
 # --- RELIC Configuration for Ethereum BN254 ---
 set(WSIZE   64    CACHE STRING "" FORCE)
-set(RAND    "UDEV" CACHE STRING "" FORCE)
+# CALL = randomness via user callback; none is registered because the verify
+# path is fully deterministic. Bare-metal safe (no /dev/urandom on the M4).
+set(RAND    "CALL" CACHE STRING "" FORCE)
 set(SHLIB   OFF   CACHE BOOL "" FORCE)
 set(STBIN   OFF   CACHE BOOL "" FORCE)
 set(TIMER   "NONE" CACHE STRING "" FORCE)
@@ -28,7 +35,16 @@ set(PP_METHD  "LAZYR;OATEP" CACHE STRING "" FORCE)
 set(ARITH "easy" CACHE STRING "" FORCE)
 set(CFLAGS "-O2" CACHE STRING "" FORCE)
 
-add_subdirectory(lib/relic)
+# Per-function/data sections + dead-strip (same as pairing_only_bn254) so the
+# linked image only contains the verify path.
+add_compile_options(-ffunction-sections -fdata-sections)
+if(APPLE)
+    add_link_options(-Wl,-dead_strip)
+else()
+    add_link_options(-Wl,--gc-sections)
+endif()
+
+add_subdirectory(${RELIC_DIR} relic_build)
 
 # --- Verifier library ---
 add_library(groth16_verifier STATIC
@@ -38,8 +54,8 @@ add_library(groth16_verifier STATIC
 )
 target_include_directories(groth16_verifier PUBLIC
     ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_BINARY_DIR}/lib/relic/include
-    ${CMAKE_SOURCE_DIR}/lib/relic/include
+    ${CMAKE_BINARY_DIR}/relic_build/include
+    ${RELIC_DIR}/include
 )
 target_link_libraries(groth16_verifier PUBLIC relic_s)
 
@@ -71,3 +87,11 @@ add_executable(poseidon_cross_validate
     test/poseidon_cross_validate.c
 )
 target_include_directories(poseidon_cross_validate PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+# --- Byte-sponge cross-validation vs dump_sponge_vectors (standalone, no RELIC) ---
+add_executable(poseidon_sponge_cross_validate
+    src/fr.c
+    src/poseidon.c
+    test/poseidon_sponge_cross_validate.c
+)
+target_include_directories(poseidon_sponge_cross_validate PRIVATE ${CMAKE_SOURCE_DIR}/include)

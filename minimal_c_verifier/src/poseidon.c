@@ -78,3 +78,42 @@ void poseidon_hash_be(uint8_t out[32], const uint8_t in[32]) {
     poseidon_hash_fr(&h, &x);
     fr_to_be(&h, out);
 }
+
+// arkworks duplex absorb: permute lazily, only when the rate is full AND
+// another element arrives; the final permute happens at squeeze time.
+static void sponge_absorb(fr_t state[POSEIDON_WIDTH], int *idx, const fr_t *e) {
+    if (*idx == POSEIDON_WIDTH - 1) { // rate = width - capacity = 2
+        permute(state);
+        *idx = 0;
+    }
+    fr_add(&state[1 + *idx], &state[1 + *idx], e);
+    (*idx)++;
+}
+
+void poseidon_hash_bytes(fr_t *out, const uint8_t *data, size_t len) {
+    poseidon_init();
+
+    fr_t state[POSEIDON_WIDTH];
+    for (int i = 0; i < POSEIDON_WIDTH; i++) fr_set_zero(&state[i]);
+
+    int idx = 0;
+    fr_t e;
+
+    // pack(data) = [Fr(len)] ++ 31-byte big-endian chunks.
+    fr_set_u64(&e, (uint64_t)len);
+    sponge_absorb(state, &idx, &e);
+
+    size_t off = 0;
+    while (off < len) {
+        size_t n = len - off;
+        if (n > 31) n = 31;
+        uint8_t buf[32] = {0};
+        memcpy(buf + 32 - n, data + off, n); // right-aligned = BE integer value
+        fr_from_be(&e, buf);
+        sponge_absorb(state, &idx, &e);
+        off += n;
+    }
+
+    permute(state); // squeeze
+    *out = state[1];
+}

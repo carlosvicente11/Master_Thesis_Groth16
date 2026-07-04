@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/carlosdasilva/Codes/proof_systems/thesis/groth16_poseidon_assembly/build_easy/cmake_install.cmake",
+		"/Users/carlosdasilva/Codes/proof_systems/thesis/groth16_poseidon_assembly/build_easy/lib/relic/cmake_install.cmake",
+		"/Users/carlosdasilva/Codes/proof_systems/thesis/groth16_poseidon_assembly/build_easy/lib/relic/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

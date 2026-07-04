@@ -1,0 +1,2 @@
+arm-none-eabi-ar qc libgroth16_verifier.a CMakeFiles/groth16_verifier.dir/src/point_decode.c.obj CMakeFiles/groth16_verifier.dir/src/crypto_init.c.obj CMakeFiles/groth16_verifier.dir/src/groth16_verifier.c.obj
+arm-none-eabi-ranlib libgroth16_verifier.a

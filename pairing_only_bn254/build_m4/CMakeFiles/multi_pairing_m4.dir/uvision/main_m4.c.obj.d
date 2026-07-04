@@ -1,0 +1,37 @@
+CMakeFiles/multi_pairing_m4.dir/uvision/main_m4.c.obj: \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/uvision/main_m4.c \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/uvision/include/stdint.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/uvision/include/stdio.h \
+ /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/include/stddef.h \
+ /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/include/stdarg.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/include/pairing.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_arch.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_types.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/lib/relic/include/relic_conf.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_label.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_label.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_core.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/uvision/include/stdlib.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/uvision/include/string.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/uvision/include/ctype.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_err.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_util.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_bn.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_epx.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_fpx.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_fp.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_dv.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_ep.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_pc.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_pp.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_bench.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_rand.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_alloc.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/uvision/include/alloca.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_multi.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_ec.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_bc.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/lib/relic/include/relic_md.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/include/vk_constants.h \
+ /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/test/test_vectors.h
