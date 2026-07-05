@@ -1,0 +1,18 @@
+[package]
+name = "clear-signing-groth16"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Shared Poseidon params + byte-packing convention (cross-validated vs the C
+# verifier) live in the preimage-demo crate; single source of truth.
+poseidon-preimage-groth16 = { path = "../../groth16_poseidon_rust/groth16" }
+ark-std = "0.5"
+ark-ff = "0.5"
+ark-relations = "0.5"
+ark-r1cs-std = "0.5"
+ark-groth16 = "0.5"
+ark-bn254 = "0.5"
+ark-serialize = "0.5"
+ark-crypto-primitives = { version = "0.5", features = ["sponge", "r1cs"] }
+rand = "0.8"

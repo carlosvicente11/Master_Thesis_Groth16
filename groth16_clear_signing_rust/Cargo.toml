@@ -1,0 +1,12 @@
+[workspace]
+members = ["clear_signing"]
+resolver = "2"
+
+# Same instrumented ark-ff as groth16_poseidon_rust (field-op counters), so the
+# shared poseidon-preimage-groth16 crate builds against identical types.
+[patch.crates-io]
+ark-ff = { path = "../groth16_poseidon_rust/vendor/ark-ff" }
+
+[profile.release]
+opt-level = 3
+lto = true
