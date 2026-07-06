@@ -75,7 +75,7 @@ pub fn print_circuit_stats(params: &PoseidonConfig<Fr>) {
     };
     circuit.generate_constraints(cs.clone()).expect("synthesize");
 
-    println!("Circuit statistics (two-hash skeleton):");
+    println!("Circuit statistics (two-hash ERC-20 transfer v1):");
     println!("  Constraints:       {}", cs.num_constraints());
     println!(
         "  Public inputs:     {} (includes implicit 1)",
@@ -87,18 +87,12 @@ pub fn print_circuit_stats(params: &PoseidonConfig<Fr>) {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::circuit::{CALLDATA_BYTES, TEXT_BYTES};
+    use crate::template::{build_transfer_calldata, render_transfer_text};
     use poseidon_preimage_groth16::params::poseidon_params;
 
     fn sample_inputs() -> (Vec<u8>, Vec<u8>) {
-        let mut calldata = vec![0u8; CALLDATA_BYTES];
-        calldata[..4].copy_from_slice(&[0xa9, 0x05, 0x9c, 0xbb]);
-        calldata[16..36].fill(0x11);
-        calldata[64..].copy_from_slice(&12_500_000u32.to_be_bytes());
-
-        let mut text =
-            b"Send 12.500000 USDC to 0x1111111111111111111111111111111111111111".to_vec();
-        text.resize(TEXT_BYTES, b' ');
+        let calldata = build_transfer_calldata(&[0x11; 20], 12_500_000);
+        let text = render_transfer_text(&calldata).unwrap();
         (calldata, text)
     }
 

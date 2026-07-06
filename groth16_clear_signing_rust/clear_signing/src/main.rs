@@ -3,8 +3,8 @@
 // (BE hex, comparable with the C verifier's poseidon_hash_bytes output).
 
 use ark_ff::{BigInteger, PrimeField};
-use clear_signing_groth16::circuit::{CALLDATA_BYTES, TEXT_BYTES};
 use clear_signing_groth16::snark::{print_circuit_stats, prove, setup, verify};
+use clear_signing_groth16::template::{build_transfer_calldata, render_transfer_text};
 use poseidon_preimage_groth16::params::poseidon_params;
 
 fn fr_hex(elem: &ark_bn254::Fr) -> String {
@@ -21,14 +21,9 @@ fn main() {
     print_circuit_stats(&params);
 
     // ERC-20 transfer(0x1111...1111, 12.5 USDC).
-    let mut calldata = vec![0u8; CALLDATA_BYTES];
-    calldata[..4].copy_from_slice(&[0xa9, 0x05, 0x9c, 0xbb]);
-    calldata[16..36].fill(0x11);
-    calldata[64..].copy_from_slice(&12_500_000u32.to_be_bytes());
-
-    let mut text =
-        b"Send 12.500000 USDC to 0x1111111111111111111111111111111111111111".to_vec();
-    text.resize(TEXT_BYTES, b' ');
+    let calldata = build_transfer_calldata(&[0x11; 20], 12_500_000);
+    let text = render_transfer_text(&calldata).expect("render");
+    println!("\ntext: \"{}\"", String::from_utf8_lossy(&text));
 
     println!("\nSetup (circuit-specific CRS)...");
     let artifacts = setup(&params).expect("setup");
