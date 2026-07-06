@@ -65,12 +65,14 @@ CMAKE_BINARY_DIR = /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_
 # The main recursive "all" target.
 all: CMakeFiles/pairing.dir/all
 all: CMakeFiles/multi_pairing_m4.dir/all
+all: CMakeFiles/clear_signing_m4.dir/all
 all: lib/relic/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/pairing.dir/codegen
 codegen: CMakeFiles/multi_pairing_m4.dir/codegen
+codegen: CMakeFiles/clear_signing_m4.dir/codegen
 codegen: lib/relic/codegen
 .PHONY : codegen
 
@@ -81,6 +83,7 @@ preinstall: lib/relic/preinstall
 # The main recursive "clean" target.
 clean: CMakeFiles/pairing.dir/clean
 clean: CMakeFiles/multi_pairing_m4.dir/clean
+clean: CMakeFiles/clear_signing_m4.dir/clean
 clean: lib/relic/clean
 .PHONY : clean
 
@@ -130,12 +133,12 @@ lib/relic/src/clean: lib/relic/src/CMakeFiles/relic_s.dir/clean
 CMakeFiles/pairing.dir/all: lib/relic/src/CMakeFiles/relic_s.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pairing.dir/build.make CMakeFiles/pairing.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pairing.dir/build.make CMakeFiles/pairing.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=3,4 "Built target pairing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=7,8 "Built target pairing"
 .PHONY : CMakeFiles/pairing.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/pairing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 98
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 94
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/pairing.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 0
 .PHONY : CMakeFiles/pairing.dir/rule
@@ -147,7 +150,7 @@ pairing: CMakeFiles/pairing.dir/rule
 # codegen rule for target.
 CMakeFiles/pairing.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pairing.dir/build.make CMakeFiles/pairing.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=3,4 "Finished codegen for target pairing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=7,8 "Finished codegen for target pairing"
 .PHONY : CMakeFiles/pairing.dir/codegen
 
 # clean rule for target.
@@ -163,12 +166,12 @@ CMakeFiles/multi_pairing_m4.dir/all: CMakeFiles/pairing.dir/all
 CMakeFiles/multi_pairing_m4.dir/all: lib/relic/src/CMakeFiles/relic_s.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=1,2 "Built target multi_pairing_m4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=4,5,6 "Built target multi_pairing_m4"
 .PHONY : CMakeFiles/multi_pairing_m4.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/multi_pairing_m4.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 100
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 97
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/multi_pairing_m4.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 0
 .PHONY : CMakeFiles/multi_pairing_m4.dir/rule
@@ -181,13 +184,47 @@ multi_pairing_m4: CMakeFiles/multi_pairing_m4.dir/rule
 CMakeFiles/multi_pairing_m4.dir/codegen: CMakeFiles/pairing.dir/all
 CMakeFiles/multi_pairing_m4.dir/codegen: lib/relic/src/CMakeFiles/relic_s.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=1,2 "Finished codegen for target multi_pairing_m4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=4,5,6 "Finished codegen for target multi_pairing_m4"
 .PHONY : CMakeFiles/multi_pairing_m4.dir/codegen
 
 # clean rule for target.
 CMakeFiles/multi_pairing_m4.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/clean
 .PHONY : CMakeFiles/multi_pairing_m4.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/clear_signing_m4.dir
+
+# All Build rule for target.
+CMakeFiles/clear_signing_m4.dir/all: CMakeFiles/pairing.dir/all
+CMakeFiles/clear_signing_m4.dir/all: lib/relic/src/CMakeFiles/relic_s.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=1,2,3 "Built target clear_signing_m4"
+.PHONY : CMakeFiles/clear_signing_m4.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/clear_signing_m4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 97
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/clear_signing_m4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 0
+.PHONY : CMakeFiles/clear_signing_m4.dir/rule
+
+# Convenience name for target.
+clear_signing_m4: CMakeFiles/clear_signing_m4.dir/rule
+.PHONY : clear_signing_m4
+
+# codegen rule for target.
+CMakeFiles/clear_signing_m4.dir/codegen: CMakeFiles/pairing.dir/all
+CMakeFiles/clear_signing_m4.dir/codegen: lib/relic/src/CMakeFiles/relic_s.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=1,2,3 "Finished codegen for target clear_signing_m4"
+.PHONY : CMakeFiles/clear_signing_m4.dir/codegen
+
+# clean rule for target.
+CMakeFiles/clear_signing_m4.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/clean
+.PHONY : CMakeFiles/clear_signing_m4.dir/clean
 
 #=============================================================================
 # Target rules for target lib/relic/src/CMakeFiles/arith_objs.dir
@@ -228,12 +265,12 @@ lib/relic/src/CMakeFiles/arith_objs.dir/clean:
 lib/relic/src/CMakeFiles/relic_s.dir/all: lib/relic/src/CMakeFiles/arith_objs.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/relic/src/CMakeFiles/relic_s.dir/build.make lib/relic/src/CMakeFiles/relic_s.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/relic/src/CMakeFiles/relic_s.dir/build.make lib/relic/src/CMakeFiles/relic_s.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Built target relic_s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Built target relic_s"
 .PHONY : lib/relic/src/CMakeFiles/relic_s.dir/all
 
 # Build rule for subdir invocation for target.
 lib/relic/src/CMakeFiles/relic_s.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 96
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 92
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/relic/src/CMakeFiles/relic_s.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles 0
 .PHONY : lib/relic/src/CMakeFiles/relic_s.dir/rule
@@ -245,7 +282,7 @@ relic_s: lib/relic/src/CMakeFiles/relic_s.dir/rule
 # codegen rule for target.
 lib/relic/src/CMakeFiles/relic_s.dir/codegen: lib/relic/src/CMakeFiles/arith_objs.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/relic/src/CMakeFiles/relic_s.dir/build.make lib/relic/src/CMakeFiles/relic_s.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Finished codegen for target relic_s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Finished codegen for target relic_s"
 .PHONY : lib/relic/src/CMakeFiles/relic_s.dir/codegen
 
 # clean rule for target.

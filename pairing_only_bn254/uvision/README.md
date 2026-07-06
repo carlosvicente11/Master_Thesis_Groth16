@@ -16,6 +16,7 @@ watch window.
 | File | Purpose |
 |---|---|
 | `main_m4.c` | Bare-metal benchmark: decode points, warm-up + correctness check vs `e(alpha,beta)`, then `PAIRING_ITERS` timed runs of `pp_map_sim_k12` |
+| `clear_signing_m4.c` | Bare-metal clear-signing verify (two-hash): SysTick-times Poseidon(C), Poseidon(T), 2×`ep_mul` input prep, and the 3-pair multi-pairing separately; checks on-chip h_c/h_t vs the prover and the pairing product vs `e(alpha,beta)`. Watch-window globals: `g_hashes_ok`, `g_valid`, `g_cycles_{hc,ht,prep,pair,total}`, `g_done` |
 | `startup.c` | Vector table, reset handler, BSS init, semihosting (BKPT 0xAB) console, minimal libc (printf subset, bump-allocator malloc/calloc) |
 | `mps2_an386.ld` | Linker script for QEMU's MPS2-AN386 board (Cortex-M4, 4 MB flash @ 0x0, 4 MB SRAM @ 0x20000000) |
 | `stm32f405.ld` | Linker script for an STM32F405-class part (1 MB flash, 128 KB SRAM) — realistic target footprint |
@@ -30,20 +31,28 @@ cmake -S . -B build_m4 -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-arm-none-eabi.cmak
 cmake --build build_m4
 ```
 
-Produces `build_m4/multi_pairing_m4` (ELF) and `multi_pairing_m4.map`.
-Options: `-DBOARD=stm32f405` (default `mps2-an386`), `-DPAIRING_ITERS=N`
-(default 3).
+Produces `build_m4/multi_pairing_m4` and `build_m4/clear_signing_m4` (ELFs)
+plus their `.map` files. Options: `-DBOARD=stm32f405` (default `mps2-an386`),
+`-DPAIRING_ITERS=N` (default 3, `multi_pairing_m4` only).
+
+`clear_signing_m4` compiles `../minimal_c_verifier`'s RELIC-independent
+`fr.c`/`poseidon.c` (portable C99, no `__int128`) and its generated
+clear-signing VK/vector headers; both µVision options below apply to it
+unchanged (image: ~63 KB flash, ~19 KB RAM).
 
 ## Functional check under QEMU
 
 ```sh
 qemu-system-arm -M mps2-an386 -cpu cortex-m4 -nographic \
     -semihosting -kernel build_m4/multi_pairing_m4
+qemu-system-arm -M mps2-an386 -cpu cortex-m4 -nographic \
+    -semihosting -kernel build_m4/clear_signing_m4
 ```
 
-Expected output: `Correctness: PASS (equals e(alpha,beta))` plus per-iteration
-tick counts (QEMU ticks are NOT cycle-accurate — ignore the numbers, only the
-PASS matters here).
+Expected output: `Correctness: PASS (equals e(alpha,beta))` (multi-pairing) /
+`On-chip h_c/h_t match prover: YES` + `Proof: VALID` (clear-signing) plus tick
+counts (QEMU ticks are NOT cycle-accurate — ignore the numbers, only the PASS
+matters here).
 
 ## Keil µVision (cycle-accurate timing)
 

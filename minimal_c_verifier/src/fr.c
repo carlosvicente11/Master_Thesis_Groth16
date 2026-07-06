@@ -20,14 +20,43 @@ static int cmp4(const uint64_t a[4], const uint64_t b[4]) {
     return 0;
 }
 
+// No __int128 anywhere: arm-none-eabi (32-bit) has no 128-bit type, and this
+// file must build unchanged for the Cortex-M4 target.
+
 // out = a - b (assumes a >= b), 4-limb little-endian.
 static void sub4(uint64_t out[4], const uint64_t a[4], const uint64_t b[4]) {
-    unsigned __int128 borrow = 0;
+    uint64_t borrow = 0;
     for (int i = 0; i < 4; i++) {
-        unsigned __int128 t = (unsigned __int128)a[i] - b[i] - borrow;
-        out[i] = (uint64_t)t;
-        borrow = (t >> 64) & 1; // 1 if it wrapped
+        uint64_t d = a[i] - b[i];
+        uint64_t b_out = (a[i] < b[i]);
+        out[i] = d - borrow;
+        b_out |= (d < borrow);
+        borrow = b_out;
     }
+}
+
+// out = a + b, returns the carry out of limb 3.
+static uint64_t add4(uint64_t out[4], const uint64_t a[4], const uint64_t b[4]) {
+    uint64_t carry = 0;
+    for (int i = 0; i < 4; i++) {
+        uint64_t s = a[i] + carry;
+        uint64_t c = (s < carry);
+        out[i] = s + b[i];
+        c |= (out[i] < s);
+        carry = c;
+    }
+    return carry;
+}
+
+// 64x64 -> 128 via four 32x32->64 partial products.
+static void mul64(uint64_t a, uint64_t b, uint64_t *hi, uint64_t *lo) {
+    uint64_t a0 = (uint32_t)a, a1 = a >> 32;
+    uint64_t b0 = (uint32_t)b, b1 = b >> 32;
+    uint64_t p00 = a0 * b0;
+    uint64_t mid1 = a0 * b1 + (p00 >> 32);
+    uint64_t mid2 = a1 * b0 + (uint32_t)mid1;
+    *lo = (mid2 << 32) | (uint32_t)p00;
+    *hi = a1 * b1 + (mid1 >> 32) + (mid2 >> 32);
 }
 
 void fr_set_zero(fr_t *out) { memset(out->v, 0, sizeof(out->v)); }
@@ -65,12 +94,7 @@ int fr_eq(const fr_t *a, const fr_t *b) { return cmp4(a->v, b->v) == 0; }
 
 void fr_add(fr_t *out, const fr_t *a, const fr_t *b) {
     uint64_t t[4];
-    unsigned __int128 carry = 0;
-    for (int i = 0; i < 4; i++) {
-        unsigned __int128 s = (unsigned __int128)a->v[i] + b->v[i] + carry;
-        t[i] = (uint64_t)s;
-        carry = s >> 64;
-    }
+    uint64_t carry = add4(t, a->v, b->v);
     // a, b < r < 2^254, so a + b < 2^255: no carry out of 4 limbs; one subtract suffices.
     if (carry || cmp4(t, R_MOD) >= 0) {
         sub4(t, t, R_MOD);
@@ -83,14 +107,9 @@ void fr_sub(fr_t *out, const fr_t *a, const fr_t *b) {
     if (cmp4(a->v, b->v) >= 0) {
         sub4(t, a->v, b->v);
     } else {
-        // a - b + r
+        // a - b + r; a + r < 2^255 so the carry out of add4 is always 0.
         uint64_t apr[4];
-        unsigned __int128 carry = 0;
-        for (int i = 0; i < 4; i++) {
-            unsigned __int128 s = (unsigned __int128)a->v[i] + R_MOD[i] + carry;
-            apr[i] = (uint64_t)s;
-            carry = s >> 64;
-        }
+        (void)add4(apr, a->v, R_MOD);
         sub4(t, apr, b->v);
     }
     memcpy(out->v, t, sizeof(t));
@@ -100,14 +119,20 @@ void fr_mul(fr_t *out, const fr_t *a, const fr_t *b) {
     // Schoolbook 4x4 -> 8-limb product.
     uint64_t p[8] = {0};
     for (int i = 0; i < 4; i++) {
-        unsigned __int128 carry = 0;
+        uint64_t carry = 0;
         for (int j = 0; j < 4; j++) {
-            unsigned __int128 t =
-                (unsigned __int128)a->v[i] * b->v[j] + p[i + j] + carry;
-            p[i + j] = (uint64_t)t;
-            carry = t >> 64;
+            uint64_t hi, lo;
+            mul64(a->v[i], b->v[j], &hi, &lo);
+            // p[i+j] += lo + carry; overflow feeds hi. Total per step is
+            // (2^64-1)^2 + 2*(2^64-1) = 2^128 - 1, so hi + c never wraps.
+            uint64_t s = lo + p[i + j];
+            uint64_t c = (s < lo);
+            uint64_t s2 = s + carry;
+            c += (s2 < s);
+            p[i + j] = s2;
+            carry = hi + c;
         }
-        p[i + 4] += (uint64_t)carry;
+        p[i + 4] += carry;
     }
 
     // Reduce the 512-bit product mod r by binary long division.

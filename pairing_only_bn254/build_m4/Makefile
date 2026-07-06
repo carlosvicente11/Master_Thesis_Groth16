@@ -188,6 +188,19 @@ multi_pairing_m4/fast:
 .PHONY : multi_pairing_m4/fast
 
 #=============================================================================
+# Target rules for targets named clear_signing_m4
+
+# Build rule for target.
+clear_signing_m4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clear_signing_m4
+.PHONY : clear_signing_m4
+
+# fast build rule for target.
+clear_signing_m4/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/build
+.PHONY : clear_signing_m4/fast
+
+#=============================================================================
 # Target rules for targets named arith_objs
 
 # Build rule for target.
@@ -212,6 +225,54 @@ relic_s: cmake_check_build_system
 relic_s/fast:
 	$(MAKE) $(MAKESILENT) -f lib/relic/src/CMakeFiles/relic_s.dir/build.make lib/relic/src/CMakeFiles/relic_s.dir/build
 .PHONY : relic_s/fast
+
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.obj: Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.obj
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.obj
+
+# target to build an object file
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.obj
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.obj
+
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.i: Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.i
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.i
+
+# target to preprocess a source file
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.i
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.i
+
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.s: Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.s
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.s
+
+# target to generate assembly for a file
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.s
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.c.s
+
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.obj: Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.obj
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.obj
+
+# target to build an object file
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.obj
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.obj
+
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.i: Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.i
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.i
+
+# target to preprocess a source file
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.i
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.i
+
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.s: Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.s
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.s
+
+# target to generate assembly for a file
+Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.s
+.PHONY : Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.s
 
 src/crypto_init.obj: src/crypto_init.c.obj
 .PHONY : src/crypto_init.obj
@@ -261,6 +322,30 @@ src/point_decode.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pairing.dir/build.make CMakeFiles/pairing.dir/src/point_decode.c.s
 .PHONY : src/point_decode.c.s
 
+uvision/clear_signing_m4.obj: uvision/clear_signing_m4.c.obj
+.PHONY : uvision/clear_signing_m4.obj
+
+# target to build an object file
+uvision/clear_signing_m4.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/uvision/clear_signing_m4.c.obj
+.PHONY : uvision/clear_signing_m4.c.obj
+
+uvision/clear_signing_m4.i: uvision/clear_signing_m4.c.i
+.PHONY : uvision/clear_signing_m4.i
+
+# target to preprocess a source file
+uvision/clear_signing_m4.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/uvision/clear_signing_m4.c.i
+.PHONY : uvision/clear_signing_m4.c.i
+
+uvision/clear_signing_m4.s: uvision/clear_signing_m4.c.s
+.PHONY : uvision/clear_signing_m4.s
+
+# target to generate assembly for a file
+uvision/clear_signing_m4.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/uvision/clear_signing_m4.c.s
+.PHONY : uvision/clear_signing_m4.c.s
+
 uvision/main_m4.obj: uvision/main_m4.c.obj
 .PHONY : uvision/main_m4.obj
 
@@ -291,6 +376,7 @@ uvision/startup.obj: uvision/startup.c.obj
 # target to build an object file
 uvision/startup.c.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/uvision/startup.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/uvision/startup.c.obj
 .PHONY : uvision/startup.c.obj
 
 uvision/startup.i: uvision/startup.c.i
@@ -299,6 +385,7 @@ uvision/startup.i: uvision/startup.c.i
 # target to preprocess a source file
 uvision/startup.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/uvision/startup.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/uvision/startup.c.i
 .PHONY : uvision/startup.c.i
 
 uvision/startup.s: uvision/startup.c.s
@@ -307,6 +394,7 @@ uvision/startup.s: uvision/startup.c.s
 # target to generate assembly for a file
 uvision/startup.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/uvision/startup.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/uvision/startup.c.s
 .PHONY : uvision/startup.c.s
 
 # Help Target
@@ -322,15 +410,25 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... arith_objs"
+	@echo "... clear_signing_m4"
 	@echo "... multi_pairing_m4"
 	@echo "... pairing"
 	@echo "... relic_s"
+	@echo "... Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.obj"
+	@echo "... Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.i"
+	@echo "... Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.s"
+	@echo "... Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.obj"
+	@echo "... Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.i"
+	@echo "... Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.s"
 	@echo "... src/crypto_init.obj"
 	@echo "... src/crypto_init.i"
 	@echo "... src/crypto_init.s"
 	@echo "... src/point_decode.obj"
 	@echo "... src/point_decode.i"
 	@echo "... src/point_decode.s"
+	@echo "... uvision/clear_signing_m4.obj"
+	@echo "... uvision/clear_signing_m4.i"
+	@echo "... uvision/clear_signing_m4.s"
 	@echo "... uvision/main_m4.obj"
 	@echo "... uvision/main_m4.i"
 	@echo "... uvision/main_m4.s"

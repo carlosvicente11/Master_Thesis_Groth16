@@ -154,4 +154,39 @@ else()
         -Wl,--end-group
     )
     add_dependencies(multi_pairing_m4 pairing relic_s)
+
+    # --- Bare-metal clear-signing verify benchmark (plan step 6) ---
+    # Full device flow: 2x on-chip Poseidon (fr.c/poseidon.c from
+    # minimal_c_verifier, RELIC-independent) + 2 ep_mul + 3-pair multi-pairing,
+    # against the generated clear-signing VK/vector headers.
+    set(MCV ${CMAKE_SOURCE_DIR}/../minimal_c_verifier)
+    add_executable(clear_signing_m4
+        uvision/clear_signing_m4.c
+        uvision/startup.c
+        ${MCV}/src/fr.c
+        ${MCV}/src/poseidon.c
+    )
+    target_include_directories(clear_signing_m4 PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
+        ${MCV}/include
+        ${MCV}/test
+        ${CMAKE_BINARY_DIR}/lib/relic/include
+        ${CMAKE_SOURCE_DIR}/lib/relic/include
+    )
+    target_compile_options(clear_signing_m4 PRIVATE ${M4_FLAGS})
+    set_target_properties(clear_signing_m4 PROPERTIES LINK_DEPENDS ${LINKER_SCRIPT})
+    target_link_options(clear_signing_m4 PRIVATE
+        -T${LINKER_SCRIPT}
+        -nostartfiles -nostdlib
+        -Wl,--gc-sections
+        -Wl,-Map=clear_signing_m4.map
+    )
+    set_property(TARGET clear_signing_m4 PROPERTY LINK_LIBRARIES
+        -Wl,--start-group
+        $<TARGET_FILE:pairing>
+        $<TARGET_FILE:relic_s>
+        ${LIBGCC_PATH}
+        -Wl,--end-group
+    )
+    add_dependencies(clear_signing_m4 pairing relic_s)
 endif()

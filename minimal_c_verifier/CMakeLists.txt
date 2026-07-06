@@ -104,3 +104,12 @@ add_executable(clear_signing_verifier
 )
 target_include_directories(clear_signing_verifier PRIVATE ${CMAKE_SOURCE_DIR}/test)
 target_link_libraries(clear_signing_verifier PRIVATE groth16_verifier)
+
+# --- Clear-signing profile (per-phase host timing, step 6) ---
+add_executable(clear_signing_profile
+    test/clear_signing_profile.c
+    src/fr.c
+    src/poseidon.c
+)
+target_include_directories(clear_signing_profile PRIVATE ${CMAKE_SOURCE_DIR}/test)
+target_link_libraries(clear_signing_profile PRIVATE groth16_verifier)
