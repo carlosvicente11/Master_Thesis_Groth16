@@ -95,3 +95,12 @@ add_executable(poseidon_sponge_cross_validate
     test/poseidon_sponge_cross_validate.c
 )
 target_include_directories(poseidon_sponge_cross_validate PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+# --- Clear-signing E2E (two-hash: on-chip Poseidon + 2-input Groth16) ---
+add_executable(clear_signing_verifier
+    src/clear_signing_main.c
+    src/fr.c
+    src/poseidon.c
+)
+target_include_directories(clear_signing_verifier PRIVATE ${CMAKE_SOURCE_DIR}/test)
+target_link_libraries(clear_signing_verifier PRIVATE groth16_verifier)

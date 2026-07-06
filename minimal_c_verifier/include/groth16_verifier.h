@@ -19,6 +19,24 @@ int decode_gt(fp12_t gt, const uint8_t buf[384]);
 
 /* --- Verification (Step 4) --- */
 
+/* A verifying key as raw ROM byte arrays (same encodings as the proof). */
+typedef struct {
+    const uint8_t *ic;         /* (num_public_inputs + 1) x 64 bytes, G1 each */
+    size_t         num_public_inputs;
+    const uint8_t *alpha_beta; /* 384 bytes, GT */
+    const uint8_t *neg_gamma;  /* 128 bytes, G2 */
+    const uint8_t *neg_delta;  /* 128 bytes, G2 */
+} groth16_vk_t;
+
+int groth16_verify_vk(
+    const groth16_vk_t *vk,
+    const uint8_t *proof_buf,        /* 256 bytes: A(64) || B(128) || C(64) */
+    size_t         proof_len,
+    const uint8_t *public_input_buf, /* 32 bytes per public input, BE */
+    size_t         pi_len
+);
+
+/* Legacy wrapper: the Poseidon-preimage VK from vk_constants.h (1 input). */
 int groth16_verify(
     const uint8_t *proof_buf,        /* 256 bytes: A(64) || B(128) || C(64) */
     size_t         proof_len,

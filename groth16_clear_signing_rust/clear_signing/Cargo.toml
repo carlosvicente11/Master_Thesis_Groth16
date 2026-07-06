@@ -13,6 +13,7 @@ ark-relations = "0.5"
 ark-r1cs-std = "0.5"
 ark-groth16 = "0.5"
 ark-bn254 = "0.5"
+ark-ec = "0.5"
 ark-serialize = "0.5"
 ark-crypto-primitives = { version = "0.5", features = ["sponge", "r1cs"] }
 rand = "0.8"
