@@ -72,6 +72,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/pairing.dir/DependInfo.cmake"
   "CMakeFiles/multi_pairing_m4.dir/DependInfo.cmake"
+  "CMakeFiles/single_pairing_m4.dir/DependInfo.cmake"
   "CMakeFiles/clear_signing_m4.dir/DependInfo.cmake"
   "lib/relic/src/CMakeFiles/arith_objs.dir/DependInfo.cmake"
   "lib/relic/src/CMakeFiles/relic_s.dir/DependInfo.cmake"

@@ -188,6 +188,19 @@ multi_pairing_m4/fast:
 .PHONY : multi_pairing_m4/fast
 
 #=============================================================================
+# Target rules for targets named single_pairing_m4
+
+# Build rule for target.
+single_pairing_m4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 single_pairing_m4
+.PHONY : single_pairing_m4
+
+# fast build rule for target.
+single_pairing_m4/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/single_pairing_m4.dir/build.make CMakeFiles/single_pairing_m4.dir/build
+.PHONY : single_pairing_m4/fast
+
+#=============================================================================
 # Target rules for targets named clear_signing_m4
 
 # Build rule for target.
@@ -370,12 +383,37 @@ uvision/main_m4.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/uvision/main_m4.c.s
 .PHONY : uvision/main_m4.c.s
 
+uvision/single_pairing_m4.obj: uvision/single_pairing_m4.c.obj
+.PHONY : uvision/single_pairing_m4.obj
+
+# target to build an object file
+uvision/single_pairing_m4.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/single_pairing_m4.dir/build.make CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+.PHONY : uvision/single_pairing_m4.c.obj
+
+uvision/single_pairing_m4.i: uvision/single_pairing_m4.c.i
+.PHONY : uvision/single_pairing_m4.i
+
+# target to preprocess a source file
+uvision/single_pairing_m4.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/single_pairing_m4.dir/build.make CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.i
+.PHONY : uvision/single_pairing_m4.c.i
+
+uvision/single_pairing_m4.s: uvision/single_pairing_m4.c.s
+.PHONY : uvision/single_pairing_m4.s
+
+# target to generate assembly for a file
+uvision/single_pairing_m4.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/single_pairing_m4.dir/build.make CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.s
+.PHONY : uvision/single_pairing_m4.c.s
+
 uvision/startup.obj: uvision/startup.c.obj
 .PHONY : uvision/startup.obj
 
 # target to build an object file
 uvision/startup.c.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/uvision/startup.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/single_pairing_m4.dir/build.make CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/uvision/startup.c.obj
 .PHONY : uvision/startup.c.obj
 
@@ -385,6 +423,7 @@ uvision/startup.i: uvision/startup.c.i
 # target to preprocess a source file
 uvision/startup.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/uvision/startup.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/single_pairing_m4.dir/build.make CMakeFiles/single_pairing_m4.dir/uvision/startup.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/uvision/startup.c.i
 .PHONY : uvision/startup.c.i
 
@@ -394,6 +433,7 @@ uvision/startup.s: uvision/startup.c.s
 # target to generate assembly for a file
 uvision/startup.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_pairing_m4.dir/build.make CMakeFiles/multi_pairing_m4.dir/uvision/startup.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/single_pairing_m4.dir/build.make CMakeFiles/single_pairing_m4.dir/uvision/startup.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clear_signing_m4.dir/build.make CMakeFiles/clear_signing_m4.dir/uvision/startup.c.s
 .PHONY : uvision/startup.c.s
 
@@ -414,6 +454,7 @@ help:
 	@echo "... multi_pairing_m4"
 	@echo "... pairing"
 	@echo "... relic_s"
+	@echo "... single_pairing_m4"
 	@echo "... Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.obj"
 	@echo "... Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.i"
 	@echo "... Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/fr.s"
@@ -432,6 +473,9 @@ help:
 	@echo "... uvision/main_m4.obj"
 	@echo "... uvision/main_m4.i"
 	@echo "... uvision/main_m4.s"
+	@echo "... uvision/single_pairing_m4.obj"
+	@echo "... uvision/single_pairing_m4.i"
+	@echo "... uvision/single_pairing_m4.s"
 	@echo "... uvision/startup.obj"
 	@echo "... uvision/startup.i"
 	@echo "... uvision/startup.s"

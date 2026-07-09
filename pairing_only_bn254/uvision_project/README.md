@@ -19,22 +19,28 @@ folder to the machine that has Keil MDK.
 |---|---|
 | `clear_signing_m4.c` | **main #1** — full clear-signing verify: Poseidon(C), Poseidon(T), 2× `ep_mul`, 3-pair multi-pairing, each phase SysTick-timed |
 | `main_m4.c` | **main #2** — multi-pairing-only benchmark (`PAIRING_ITERS` timed runs) |
+| `single_pairing_m4.c` | **main #3** — single-pairing micro-benchmark: one `pp_map_k12(e, A, B)` per timed run; correctness via bilinearity `e([2]A,B) == e(A,B)^2`. Cleanest workload for measuring the Montgomery drop-in speedup |
 | `crypto_init.c` | `pairing_init()`: core init + BN254 curve + D-type twist |
 | `point_decode.c` | G1/G2/Fr decoders with on-curve checks |
 | `fr.c`, `poseidon.c` | Scalar field + Poseidon (portable C99, RELIC-independent) |
 
-Add **exactly one** of `clear_signing_m4.c` / `main_m4.c` to the build — both
-define `main` and `SysTick_Handler`.
+Add **exactly one** of `clear_signing_m4.c` / `main_m4.c` /
+`single_pairing_m4.c` to the build — each defines `main` and
+`SysTick_Handler`.
 
 ## Keil project setup
 
+0. For the assembly work, `app/single_pairing_m4.c` is the recommended main:
+   one pairing per timed run, no Groth16 3-pair sharing, so the
+   `fp_{mulm,sqrm,rdcn}_low` replacement shows up directly in `g_ticks[]`.
 1. New project → device **STM32F405RG** (or generic ARMCM4) → compiler
    **armclang (AC6)**. Use the device's normal startup file and scatter file
    (the pack's defaults are fine). Do **not** add any startup of our own —
    `SysTick_Handler` in the app's main file overrides the pack startup's weak
    handler automatically.
 2. Add sources:
-   - `app/clear_signing_m4.c` (or `app/main_m4.c`, not both)
+   - one main: `app/clear_signing_m4.c`, `app/main_m4.c`, or
+     `app/single_pairing_m4.c`
    - `app/crypto_init.c`, `app/point_decode.c`
    - `app/fr.c`, `app/poseidon.c` (only needed by `clear_signing_m4.c`, but
      harmless to keep in both configurations)
@@ -72,7 +78,8 @@ define `main` and `SysTick_Handler`.
 | `g_cycles_pair` | cycles for the 3-pair multi-pairing |
 | `g_cycles_total` | sum of the four phases |
 
-`main_m4.c`: `g_valid`, `g_ticks[]` (one entry per iteration), `g_done`.
+`main_m4.c` / `single_pairing_m4.c`: `g_valid`, `g_ticks[]` (one entry per
+iteration), `g_done`.
 
 Expected functional result (already verified under QEMU with the identical
 sources): `g_hashes_ok = 1`, `g_valid = 1`.
@@ -82,7 +89,7 @@ sources): `g_hashes_ok = 1`, `g_valid = 1`.
 This folder is assembled from the repo (do not edit here and there
 divergently — the repo copies are authoritative):
 
-- `app/clear_signing_m4.c`, `app/main_m4.c` ← `../uvision/`
+- `app/clear_signing_m4.c`, `app/main_m4.c`, `app/single_pairing_m4.c` ← `../uvision/`
 - `app/crypto_init.c`, `app/point_decode.c` ← `../src/`
 - `app/fr.c`, `app/poseidon.c` ← `../../minimal_c_verifier/src/`
 - `include/*` ← `../include/`, `../test/test_vectors.h`,

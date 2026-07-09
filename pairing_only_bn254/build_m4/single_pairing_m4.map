@@ -1,0 +1,2717 @@
+Archive member included to satisfy reference by file (symbol)
+
+libpairing.a(point_decode.c.obj)
+                              CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj (decode_g1)
+libpairing.a(crypto_init.c.obj)
+                              CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj (pairing_init)
+lib/relic/lib/librelic_s.a(relic_core.c.obj)
+                              libpairing.a(crypto_init.c.obj) (core_init)
+lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_core.c.obj) (arch_init)
+lib/relic/lib/librelic_s.a(relic_rand_core.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_core.c.obj) (rand_init)
+lib/relic/lib/librelic_s.a(relic_rand_call.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_rand_core.c.obj) (rand_seed)
+lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                              libpairing.a(point_decode.c.obj) (bn_read_bin)
+lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_util.c.obj) (dv_zero)
+lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_core.c.obj) (fp_prime_init)
+lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj) (fp_rdc_monty_comba)
+lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj) (fp_is_sqr)
+lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj) (fp_copy)
+lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+                              CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj (fp12_sqr_lazyr)
+lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj) (fp2_mul_nor_integ)
+lib/relic/lib/librelic_s.a(relic_fp2_sqr.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj) (fp2_sqr_integ)
+lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj) (fp4_mul_unr)
+lib/relic/lib/librelic_s.a(relic_fp4_sqr.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj) (fp4_sqr_unr)
+lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj) (fp6_mul_lazyr)
+lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj) (fp2_add_integ)
+lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+                              CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj (fp12_cmp)
+lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj) (fp2_field_get_qnr)
+lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj) (fp2_srt)
+lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj) (fp2_copy)
+lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_core.c.obj) (ep_curve_init)
+lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+                              CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj (ep_dbl_projc)
+lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj) (ep_mul_basic)
+lib/relic/lib/librelic_s.a(relic_ep_neg.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj) (ep_neg)
+lib/relic/lib/librelic_s.a(relic_ep_norm.c.obj)
+                              CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj (ep_norm)
+lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+                              libpairing.a(crypto_init.c.obj) (ep_param_set)
+lib/relic/lib/librelic_s.a(relic_ep_psi.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj) (ep_psi)
+lib/relic/lib/librelic_s.a(relic_ep_tpl.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj) (ep_tpl_projc)
+lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj) (ep_is_infty)
+lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                              libpairing.a(crypto_init.c.obj) (ep2_curve_set_twist)
+lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj) (ep2_norm)
+lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj) (ep2_is_infty)
+lib/relic/lib/librelic_s.a(relic_pp_map.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_core.c.obj) (pp_map_init)
+lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+                              CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj (pp_map_oatep_k12)
+lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj) (bn_divn_low)
+lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj) (bn_mul1_low)
+lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj) (bn_lshb_low)
+lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj) (fp_addm_low)
+lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj) (fp_mula_low)
+lib/relic/lib/librelic_s.a(relic_fp_rdc_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj) (fp_rdcs_low)
+lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj) (fp_rsh1_low)
+lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj) (fp2_addn_low)
+lib/relic/lib/librelic_s.a(relic_fpx_mul_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj) (fp2_muln_low)
+lib/relic/lib/librelic_s.a(relic_fpx_rdc_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj) (fp2_rdcn_low)
+lib/relic/lib/librelic_s.a(relic_fpx_sqr_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj) (fp2_sqrn_low)
+lib/relic/lib/librelic_s.a(relic_util.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_util.c.obj) (util_conv_char)
+lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_util.c.obj) (bn_add)
+lib/relic/lib/librelic_s.a(relic_bn_cmp.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_util.c.obj) (bn_cmp_abs)
+lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj) (bn_div)
+lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj) (bn_gcd_ext_mid)
+lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_util.c.obj) (bn_make)
+lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj) (bn_mod_dig)
+lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_util.c.obj) (bn_mul_dig)
+lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj) (bn_rec_slw)
+lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj) (bn_dbl)
+lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj) (bn_sqr_comba)
+lib/relic/lib/librelic_s.a(relic_bn_srt.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj) (bn_srt)
+lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj) (fp_add_integ)
+lib/relic/lib/librelic_s.a(relic_fp_cmp.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj) (fp_cmp_dig)
+lib/relic/lib/librelic_s.a(relic_fp_crt.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj) (fp_is_cub)
+lib/relic/lib/librelic_s.a(relic_fp_div.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj) (fp_hlv_integ)
+lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj) (fp_exp_slide)
+lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj) (fp_inv_jmpds)
+lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj) (fp_mul_dig)
+lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_param.c.obj) (fp_param_set)
+lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj) (fp_smb_jmpds)
+lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj) (fp_sqr_integ)
+lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj) (fp12_mul_lazyr)
+lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj) (fp2_test_cyc)
+lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj) (fp2_exp)
+lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj) (fp2_frb)
+lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj) (fp2_inv)
+lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj) (fp2_pck)
+lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj) (ep_add_projc)
+lib/relic/lib/librelic_s.a(relic_ep_cmp.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj) (ep_cmp)
+lib/relic/lib/librelic_s.a(relic_ep_pck.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep_util.c.obj) (ep_pck)
+lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj) (ep2_add_projc)
+lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj) (ep2_dbl_basic)
+lib/relic/lib/librelic_s.a(relic_ep2_frb.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj) (ep2_frb)
+lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep2_frb.c.obj) (ep2_mul_basic)
+lib/relic/lib/librelic_s.a(relic_ep2_neg.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj) (ep2_neg)
+lib/relic/lib/librelic_s.a(relic_ep2_pck.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj) (ep2_pck)
+lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj) (pp_add_k12_projc_lazyr)
+lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj) (pp_dbl_k12_projc_lazyr)
+lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj) (pp_exp_k12)
+lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj) (bn_add1_low)
+lib/relic/lib/librelic_s.a(relic_bn_mod_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj) (bn_modn_low)
+lib/relic/lib/librelic_s.a(relic_bn_sqr_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj) (bn_sqra_low)
+lib/relic/lib/librelic_s.a(relic_fp_inv_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj) (fp_invm_low)
+lib/relic/lib/librelic_s.a(relic_fp_smb_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj) (fp_smbm_low)
+lib/relic/lib/librelic_s.a(relic_fp_sqr_low.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj) (fp_sqrn_low)
+lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fp_param.c.obj) (bn_is_prime)
+lib/relic/lib/librelic_s.a(relic_bn_smb.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj) (bn_smb_jac)
+lib/relic/lib/librelic_s.a(relic_fp6_sqr.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj) (fp6_sqr_lazyr)
+lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj) (bn_mxp_slide)
+lib/relic/lib/librelic_s.a(relic_bn_inv.c.obj)
+                              lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj) (bn_mod_inv)
+/opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                              lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj) (__aeabi_uldivmod)
+/opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                              /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
+/opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+                              /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
+
+Merging object attributes
+
+
+Discarded input sections
+
+ .text          0x00000000        0x0 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+ .data          0x00000000        0x0 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+ .data.g_iters  0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+ .text          0x00000000        0x0 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .data          0x00000000        0x0 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text._write   0x00000000       0x40 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.memmove  0x00000000       0x2c CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.memcmp   0x00000000       0x28 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.strcpy   0x00000000       0x10 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.strcmp   0x00000000       0x20 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.strchr   0x00000000       0x18 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.strncmp  0x00000000       0x28 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.strncpy  0x00000000       0x38 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.abs      0x00000000        0x8 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.labs     0x00000000        0x8 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.snprintf
+                0x00000000       0x14 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.fprintf  0x00000000       0xac CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.fopen    0x00000000       0x5c CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.fread    0x00000000       0x20 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.fclose   0x00000000       0x14 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.calloc   0x00000000       0x38 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.malloc   0x00000000       0x38 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.realloc  0x00000000       0x5c CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.free     0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.abort    0x00000000        0xc CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.exit     0x00000000       0x18 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.raise    0x00000000        0x8 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.open     0x00000000        0x8 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.read     0x00000000        0x8 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.close    0x00000000        0x8 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .bss.heap_ptr.2
+                0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .bss.files.1   0x00000000       0x10 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .bss.next.0    0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .rodata.str1.4
+                0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .data.stderr   0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .data.stdin    0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .data._stderr_f
+                0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .bss._stdin_f  0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .bss.errno     0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .data.stdout_fd
+                0x00000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .rodata        0x00000000        0xc CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text          0x00000000        0x0 libpairing.a(point_decode.c.obj)
+ .data          0x00000000        0x0 libpairing.a(point_decode.c.obj)
+ .bss           0x00000000        0x0 libpairing.a(point_decode.c.obj)
+ .text.decode_fr
+                0x00000000        0xc libpairing.a(point_decode.c.obj)
+ .text.decode_gt
+                0x00000000       0x4c libpairing.a(point_decode.c.obj)
+ .text          0x00000000        0x0 libpairing.a(crypto_init.c.obj)
+ .data          0x00000000        0x0 libpairing.a(crypto_init.c.obj)
+ .bss           0x00000000        0x0 libpairing.a(crypto_init.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_core.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_core.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_core.c.obj)
+ .text.core_set
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_core.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+ .text.arch_cycles
+                0x00000000        0x8 lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+ .text.arch_tzcnt
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_rand_core.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_rand_core.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_rand_core.c.obj)
+ .text.rand_check
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_rand_core.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_rand_call.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_rand_call.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_rand_call.c.obj)
+ .rodata.rand_bytes.str1.4
+                0x00000000       0x7f lib/relic/lib/librelic_s.a(relic_rand_call.c.obj)
+ .text.rand_bytes
+                0x00000000       0x58 lib/relic/lib/librelic_s.a(relic_rand_call.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_ham   0x00000000       0x90 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_rand  0x00000000       0x50 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_rand_mod
+                0x00000000       0x90 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_rand_frb
+                0x00000000       0xec lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .rodata.bn_print.str1.4
+                0x00000000        0xa lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_print
+                0x00000000       0x5c lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_size_str
+                0x00000000       0xd8 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_write_str
+                0x00000000      0x164 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_size_bin
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_size_raw
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_read_raw
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text.bn_write_raw
+                0x00000000       0x78 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+ .rodata.dv_print.str1.4
+                0x00000000        0x2 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+ .text.dv_print
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+ .text.dv_swap_sec
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .text.fp_prime_get_sps
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .text.fp_prime_get_conv
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .text.fp_prime_get_crt
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .text.fp_prime_get_cnr
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .text.fp_prime_set_dense
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .text.fp_prime_set_pmers
+                0x00000000       0xf8 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .text.fp_prime_calc
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+ .text.fp_rdc_basic
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+ .text.fp_rdc_monty_basic
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+ .text.fp_rdc_quick
+                0x00000000       0x1c lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .text.fp_get_bit
+                0x00000000       0x14 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .text.fp_set_bit
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .text.fp_rand  0x00000000       0x38 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .rodata.fp_print.str1.4
+                0x00000000        0x6 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .text.fp_print
+                0x00000000       0x6c lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .text.fp_size_str
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .text.fp_write_str
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .text.fp_write_bin
+                0x00000000       0x60 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+ .text.fp12_sqr_basic
+                0x00000000       0x6c lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+ .text.fp12_sqr_cyc_basic
+                0x00000000      0x1c4 lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+ .text.fp12_sqr_pck_basic
+                0x00000000      0x130 lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+ .text.fp2_mul_basic
+                0x00000000       0xbc lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+ .rodata.fp2_mul_nor_basic.str1.4
+                0x00000000       0x7f lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+ .text.fp2_mul_nor_basic
+                0x00000000       0xc0 lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp2_sqr.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp2_sqr.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp2_sqr.c.obj)
+ .text.fp2_sqr_basic
+                0x00000000       0xdc lib/relic/lib/librelic_s.a(relic_fp2_sqr.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .text.fp4_mul_basic
+                0x00000000       0x78 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .text.fp4_mul_lazyr
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .text.fp4_mul_art
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .rodata.fp4_mul_frb.str1.4
+                0x00000000       0x7f lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .text.fp4_mul_frb
+                0x00000000      0x118 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .text.fp4_mul_dig
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp4_sqr.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp4_sqr.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp4_sqr.c.obj)
+ .text.fp4_sqr_basic
+                0x00000000       0x6c lib/relic/lib/librelic_s.a(relic_fp4_sqr.c.obj)
+ .text.fp4_sqr_lazyr
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fp4_sqr.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+ .text.fp6_mul_basic
+                0x00000000      0x128 lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+ .text.fp6_mul_dxs
+                0x00000000       0xd4 lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp2_add_basic
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp2_sub_basic
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp2_dbl_basic
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp2_add_dig
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp2_sub_dig
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp4_add  0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp4_sub  0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp4_dbl  0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp4_add_dig
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp4_sub_dig
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp4_neg  0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp6_dbl  0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp12_add
+                0x00000000       0x60 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp12_sub
+                0x00000000       0x60 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp12_neg
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text.fp12_dbl
+                0x00000000       0x4c lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+ .text.fp4_cmp  0x00000000       0x48 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+ .text.fp4_cmp_dig
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj)
+ .text.fp4_field_init
+                0x00000000       0xa4 lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+ .text.fp2_is_sqr
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+ .text.fp4_is_sqr
+                0x00000000       0x44 lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+ .text.fp4_srt  0x00000000      0x1d8 lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp6_write_bin.part.0
+                0x00000000       0x54 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp6_read_bin.part.0
+                0x00000000       0x54 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp2_rand
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp2_print
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp2_size_bin
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .rodata.fp2_read_bin.str1.4
+                0x00000000       0x7f lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp2_read_bin
+                0x00000000       0x88 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp2_write_bin
+                0x00000000       0xb0 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_copy
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_copy_sec
+                0x00000000       0x3c lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_zero
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_is_zero
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_rand
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_print
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_size_bin
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_read_bin
+                0x00000000       0x74 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_write_bin
+                0x00000000       0x74 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp4_set_dig
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp6_copy_sec
+                0x00000000       0x58 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp6_rand
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp6_print
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp6_size_bin
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp6_read_bin
+                0x00000000       0x44 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp6_write_bin
+                0x00000000       0x44 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp6_set_dig
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp12_copy_sec
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp12_is_zero
+                0x00000000       0x58 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp12_rand
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp12_print
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp12_size_bin
+                0x00000000       0x1c lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp12_read_bin
+                0x00000000       0xec lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text.fp12_write_bin
+                0x00000000       0xfc lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_get_v1
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_get_v2
+                0x00000000       0x10 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_is_endom
+                0x00000000       0x10 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_is_super
+                0x00000000       0x10 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_is_ctmap
+                0x00000000       0x10 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_get_gen
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_get_ord
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_get_cof
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_get_tab
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_get_iso
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_set_plain
+                0x00000000       0x60 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_set_super
+                0x00000000       0x38 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_embed
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_frdim
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .rodata.CSWTCH.35
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .rodata.CSWTCH.33
+                0x00000000       0x38 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+ .text.ep_dbl_basic_imp
+                0x00000000       0xb8 lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+ .text.ep_dbl_basic
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+ .text.ep_dbl_slp_basic
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+ .text.ep_dbl_jacob
+                0x00000000      0x350 lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_naf_imp
+                0x00000000       0xbc lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_glv_imp
+                0x00000000      0x1a4 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_reg_glv
+                0x00000000      0x2e4 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_reg_imp
+                0x00000000      0x174 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_slide
+                0x00000000      0x108 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_monty
+                0x00000000      0x150 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_lwnaf
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_lwreg
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_gen
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_dig
+                0x00000000       0x38 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_neg.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_neg.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_neg.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_norm.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_norm.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_norm.c.obj)
+ .text.ep_norm_sim
+                0x00000000       0xf4 lib/relic/lib/librelic_s.a(relic_ep_norm.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .text.ep_param_set_any
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .text.ep_param_set_any_plain
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .text.ep_param_set_any_endom
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .text.ep_param_set_any_super
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .text.ep_param_set_any_pairf
+                0x00000000       0x14 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .rodata.ep_param_print.str1.4
+                0x00000000      0x480 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .text.ep_param_print
+                0x00000000      0x334 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .text.ep_param_level
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .rodata.CSWTCH.11
+                0x00000000       0x6e lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_psi.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_psi.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_psi.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_tpl.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_tpl.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_tpl.c.obj)
+ .text.ep_tpl_basic
+                0x00000000      0x140 lib/relic/lib/librelic_s.a(relic_ep_tpl.c.obj)
+ .text.ep_tpl_jacob
+                0x00000000      0x308 lib/relic/lib/librelic_s.a(relic_ep_tpl.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .text.ep_rand  0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .text.ep_blind
+                0x00000000       0x3c lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .text.ep_tab   0x00000000       0x70 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .text.ep_print
+                0x00000000       0x1c lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .text.ep_size_bin
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .rodata.ep_read_bin.str1.4
+                0x00000000       0x7b lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .text.ep_read_bin
+                0x00000000      0x184 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .text.ep_write_bin
+                0x00000000      0x108 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .text.ep2_curve_is_ctmap
+                0x00000000       0x10 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .text.ep2_curve_get_gen
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .text.ep2_curve_get_ord
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .text.ep2_curve_get_cof
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .text.ep2_curve_get_iso
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .text.ep2_curve_set
+                0x00000000       0x64 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj)
+ .text.ep2_norm_sim
+                0x00000000       0xf8 lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .text.ep2_rand
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .text.ep2_blind
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .text.ep2_tab  0x00000000       0x70 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .text.ep2_print
+                0x00000000       0x1c lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .text.ep2_size_bin
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .rodata.ep2_read_bin.str1.4
+                0x00000000       0x7f lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .text.ep2_read_bin
+                0x00000000      0x1a0 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .text.ep2_write_bin
+                0x00000000      0x110 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_map.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_map.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_map.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .text.pp_mil_lit_k12
+                0x00000000       0xf0 lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .text.pp_map_tatep_k12
+                0x00000000       0x6c lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .text.pp_map_sim_tatep_k12
+                0x00000000      0x104 lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .text.pp_map_weilp_k12
+                0x00000000       0xbc lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .text.pp_map_sim_weilp_k12
+                0x00000000      0x174 lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .text.pp_map_sim_oatep_k12
+                0x00000000      0x1b4 lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+ .text.bn_mula_low
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+ .text.bn_lshd_low
+                0x00000000       0x3c lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+ .text.fp_add1_low
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+ .text.fp_sub1_low
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+ .text.fp_dbln_low
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+ .text.fp_mula_low
+                0x00000000       0x38 lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_rdc_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_rdc_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_rdc_low.c.obj)
+ .text.fp_rdcs_low
+                0x00000000      0x1f0 lib/relic/lib/librelic_s.a(relic_fp_rdc_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+ .text.fp_lsh1_low
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+ .text.fp_lshb_low
+                0x00000000       0x38 lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+ .text.fp_rshb_low
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+ .text.fp2_subn_low
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+ .text.fp2_subd_low
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+ .text.fp2_dbln_low
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_mul_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_mul_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_mul_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_rdc_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_rdc_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_rdc_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_sqr_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_sqr_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_sqr_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .text.util_conv_endian
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .text.util_conv_big
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .text.util_conv_little
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .text.util_cmp_sec
+                0x00000000       0x34 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .text.util_perm
+                0x00000000       0x3c lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .rodata.util_print_dig.str1.4
+                0x00000000        0xb lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .text.util_print_dig
+                0x00000000       0x1c lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_cmp.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_cmp.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_cmp.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .text.bn_gcd_basic
+                0x00000000       0x88 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .text.bn_gcd_ext_basic
+                0x00000000      0x168 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .text.bn_gcd_binar
+                0x00000000      0x110 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .text.bn_gcd_ext_binar
+                0x00000000      0x38c lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .text.bn_gcd_dig
+                0x00000000       0x5c lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .text.bn_gcd_ext_dig
+                0x00000000      0x278 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .text.bn_gcd_lehme
+                0x00000000      0x444 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .text.bn_gcd_ext_lehme
+                0x00000000      0x698 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text.bn_mod_2b
+                0x00000000       0x70 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text.bn_mod_pre_barrt
+                0x00000000       0x68 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text.bn_mod_barrt
+                0x00000000      0x20c lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text.bn_mod_monty_conv
+                0x00000000       0x7c lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text.bn_mod_monty_basic
+                0x00000000       0xec lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text.bn_mod_monty_comba
+                0x00000000       0xb0 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text.bn_mod_monty_back
+                0x00000000       0x6c lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text.bn_mod_pre_pmers
+                0x00000000       0x70 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text.bn_mod_pmers
+                0x00000000      0x138 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+ .text.bn_mul_basic
+                0x00000000       0x78 lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+ .text.bn_mul_karat_imp
+                0x00000000      0x1b8 lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+ .text.bn_mul_karat
+                0x00000000        0x8 lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_win
+                0x00000000       0xb8 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_tnaf_get
+                0x00000000      0x3f4 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_tnaf_mod
+                0x00000000      0x118 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_tnaf
+                0x00000000      0x298 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_rtnaf
+                0x00000000      0x308 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_reg
+                0x00000000      0x15c lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_jsf
+                0x00000000      0x1bc lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_glv
+                0x00000000      0x298 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_sac
+                0x00000000      0x210 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_frb
+                0x00000000      0x410 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+ .text.bn_sqr_karat_imp
+                0x00000000      0x1b8 lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+ .text.bn_sqr_basic
+                0x00000000       0x88 lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+ .text.bn_sqr_karat
+                0x00000000        0x8 lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_srt.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_srt.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_srt.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+ .text.fp_add_basic
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+ .text.fp_sub_basic
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+ .text.fp_neg_basic
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+ .text.fp_dbl_basic
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_cmp.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_cmp.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_cmp.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_crt.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_crt.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_crt.c.obj)
+ .text.fp_crt   0x00000000      0x378 lib/relic/lib/librelic_s.a(relic_fp_crt.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_div.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_div.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_div.c.obj)
+ .text.fp_hlv_basic
+                0x00000000       0x48 lib/relic/lib/librelic_s.a(relic_fp_div.c.obj)
+ .text.fp_trs   0x00000000       0xbc lib/relic/lib/librelic_s.a(relic_fp_div.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+ .text.fp_exp_basic
+                0x00000000       0x7c lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+ .text.fp_exp_monty
+                0x00000000       0x90 lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+ .text.fp_exp_dig
+                0x00000000       0x58 lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .text.fp_inv_basic
+                0x00000000       0x74 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .text.fp_inv_binar
+                0x00000000      0x234 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .text.fp_inv_monty
+                0x00000000      0x23c lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .text.fp_inv_exgcd
+                0x00000000      0x14c lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .text.fp_inv_divst
+                0x00000000      0x1e4 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .text.fp_inv_lower
+                0x00000000       0x50 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .text.fp_inv_sim
+                0x00000000       0xcc lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+ .text.fp_mul_karat_imp
+                0x00000000      0x1b4 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+ .text.fp_mul_basic
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+ .text.fp_mul_comba
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+ .text.fp_mul_karat
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .text.fp_param_get
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .text.fp_param_set_any
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .text.fp_param_set_any_dense
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .text.fp_param_set_any_pmers
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .text.fp_param_set_any_h2adc
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .text.fp_param_set_any_tower
+                0x00000000        0xc lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .rodata.fp_param_print.str1.4
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .text.fp_param_print
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .text.porninstep
+                0x00000000      0x1bc lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .text.fp_smb_basic
+                0x00000000       0x74 lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .text.fp_smb_binar
+                0x00000000      0x1dc lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .text.fp_smb_divst
+                0x00000000      0x1c8 lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .text.fp_smb_lower
+                0x00000000        0x4 lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+ .text.fp_sqr_karat_imp
+                0x00000000      0x1b8 lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+ .text.fp_sqr_basic
+                0x00000000       0x50 lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+ .text.fp_sqr_comba
+                0x00000000       0x18 lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+ .text.fp_sqr_karat
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+ .text.fp12_mul_basic
+                0x00000000       0x7c lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+ .text.fp12_mul_dxs_basic
+                0x00000000      0x104 lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+ .text.fp12_mul_art
+                0x00000000       0x28 lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .text.fp2_conv_cyc
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .text.fp2_test_cyc
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .text.fp2_exp_cyc
+                0x00000000      0x128 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .text.fp2_exp_cyc_sim
+                0x00000000      0x1f8 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .text.fp12_test_cyc
+                0x00000000       0x3c lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .text.fp12_back_cyc
+                0x00000000      0x158 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .text.fp12_exp_cyc
+                0x00000000      0x23c lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .text.fp12_exp_cyc_sim
+                0x00000000      0x3d8 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+ .text.fp2_exp_dig
+                0x00000000       0x58 lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+ .text.fp4_exp  0x00000000       0x78 lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+ .text.fp6_exp  0x00000000       0x78 lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+ .text.fp12_exp
+                0x00000000       0x90 lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+ .text.fp12_exp_dig
+                0x00000000       0xdc lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+ .text.fp4_frb  0x00000000       0xa0 lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+ .text.fp2_inv_cyc
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+ .text.fp4_inv_cyc
+                0x00000000       0x20 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+ .text.fp4_inv  0x00000000       0x58 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+ .text.fp4_inv_sim
+                0x00000000       0xcc lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .text.fp2_pck  0x00000000       0x44 lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .text.fp2_upk  0x00000000       0x84 lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .text.fp12_pck
+                0x00000000       0x24 lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .text.fp12_upk
+                0x00000000       0x3c lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .text.fp12_pck_max
+                0x00000000       0x44 lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .text.fp12_upk_max
+                0x00000000       0x70 lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_fpx_pck.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+ .text.ep_add_basic_imp
+                0x00000000       0xc8 lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+ .text.ep_add_basic
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+ .text.ep_add_slp_basic
+                0x00000000       0x44 lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+ .text.ep_add_jacob
+                0x00000000      0x2fc lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_cmp.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_cmp.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_cmp.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_pck.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_pck.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep_pck.c.obj)
+ .text.ep_pck   0x00000000       0x94 lib/relic/lib/librelic_s.a(relic_ep_pck.c.obj)
+ .text.ep_upk   0x00000000       0xd4 lib/relic/lib/librelic_s.a(relic_ep_pck.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_ep_pck.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_ep_pck.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .text.ep2_add_basic_imp
+                0x00000000       0xcc lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .text.ep2_add_jacob_imp
+                0x00000000      0x2d4 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .text.ep2_add_basic
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .text.ep2_add_slp_basic
+                0x00000000       0x44 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .text.ep2_add_jacob
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .text.ep2_dbl_basic_imp
+                0x00000000       0xbc lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .text.ep2_dbl_jacob_imp
+                0x00000000      0x348 lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .text.ep2_dbl_basic
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .text.ep2_dbl_slp_basic
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .text.ep2_dbl_jacob
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_frb.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_frb.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_frb.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_naf_imp
+                0x00000000       0xb0 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_gls_imp
+                0x00000000      0x218 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_reg_gls
+                0x00000000      0x2fc lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_reg_imp
+                0x00000000      0x178 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_slide
+                0x00000000       0xfc lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_monty
+                0x00000000      0x1b8 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_lwnaf
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_lwreg
+                0x00000000       0x40 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_gen
+                0x00000000       0x30 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_dig
+                0x00000000       0x38 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_neg.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_neg.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_neg.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_pck.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_pck.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_ep2_pck.c.obj)
+ .text.ep2_pck  0x00000000       0x94 lib/relic/lib/librelic_s.a(relic_ep2_pck.c.obj)
+ .text.ep2_upk  0x00000000       0xc8 lib/relic/lib/librelic_s.a(relic_ep2_pck.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_ep2_pck.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_ep2_pck.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+ .text.pp_add_k12_basic
+                0x00000000       0x80 lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+ .text.pp_add_k12_projc_basic
+                0x00000000      0x160 lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+ .text.pp_add_lit_k12
+                0x00000000      0x15c lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+ .text.pp_dbl_k12_basic
+                0x00000000       0x80 lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+ .text.pp_dbl_k12_projc_basic
+                0x00000000      0x28c lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+ .text.pp_dbl_lit_k12
+                0x00000000      0x1bc lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mod_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mod_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mod_low.c.obj)
+ .text.bn_modn_low
+                0x00000000      0x20c lib/relic/lib/librelic_s.a(relic_bn_mod_low.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_bn_mod_low.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_bn_mod_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_sqr_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_sqr_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_sqr_low.c.obj)
+ .text.bn_sqra_low
+                0x00000000       0x84 lib/relic/lib/librelic_s.a(relic_bn_sqr_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_inv_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_inv_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_inv_low.c.obj)
+ .text.fp_invm_low
+                0x00000000       0x44 lib/relic/lib/librelic_s.a(relic_fp_inv_low.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_fp_inv_low.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_fp_inv_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_smb_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_smb_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_smb_low.c.obj)
+ .text.fp_smbm_low
+                0x00000000       0x70 lib/relic/lib/librelic_s.a(relic_fp_smb_low.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_fp_smb_low.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_fp_smb_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_sqr_low.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_sqr_low.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp_sqr_low.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text.bn_is_prime_rabin.part.0
+                0x00000000      0x1ac lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text.bn_is_prime_basic
+                0x00000000       0x50 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text.bn_is_prime
+                0x00000000       0x48 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text.bn_is_prime_rabin
+                0x00000000       0x2c lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text.bn_is_prime_solov
+                0x00000000       0xdc lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text.bn_gen_prime_basic
+                0x00000000       0x50 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text.bn_gen_prime_safep
+                0x00000000       0xa0 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text.bn_gen_prime_stron
+                0x00000000      0x1f0 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text.bn_gen_prime_factor
+                0x00000000       0x94 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .rodata.primes
+                0x00000000      0x800 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_bn_prime.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_smb.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_smb.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_smb.c.obj)
+ .rodata.bn_smb_leg.str1.4
+                0x00000000       0x7b lib/relic/lib/librelic_s.a(relic_bn_smb.c.obj)
+ .text.bn_smb_leg
+                0x00000000       0xac lib/relic/lib/librelic_s.a(relic_bn_smb.c.obj)
+ .text.bn_smb_jac
+                0x00000000      0x370 lib/relic/lib/librelic_s.a(relic_bn_smb.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_bn_smb.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_bn_smb.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp6_sqr.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp6_sqr.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_fp6_sqr.c.obj)
+ .text.fp6_sqr_basic
+                0x00000000       0xe8 lib/relic/lib/librelic_s.a(relic_fp6_sqr.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .text.bn_mxp_basic
+                0x00000000       0xf4 lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .text.bn_mxp_slide
+                0x00000000      0x234 lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .text.bn_mxp_monty
+                0x00000000      0x180 lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .text.bn_mxp_crt
+                0x00000000      0x11c lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .text.bn_mxp_dig
+                0x00000000       0xc8 lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_bn_mxp.c.obj)
+ .text          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_inv.c.obj)
+ .data          0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_inv.c.obj)
+ .bss           0x00000000        0x0 lib/relic/lib/librelic_s.a(relic_bn_inv.c.obj)
+ .rodata.bn_mod_inv.str1.4
+                0x00000000       0x7b lib/relic/lib/librelic_s.a(relic_bn_inv.c.obj)
+ .text.bn_mod_inv
+                0x00000000       0x94 lib/relic/lib/librelic_s.a(relic_bn_inv.c.obj)
+ .text.bn_mod_inv_sim
+                0x00000000      0x148 lib/relic/lib/librelic_s.a(relic_bn_inv.c.obj)
+ .comment       0x00000000       0x13 lib/relic/lib/librelic_s.a(relic_bn_inv.c.obj)
+ .ARM.attributes
+                0x00000000       0x2e lib/relic/lib/librelic_s.a(relic_bn_inv.c.obj)
+ .data          0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .data          0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+ .bss           0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+ .ARM.extab     0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+ .data          0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x00000000         0x00400000         xr
+SRAM             0x20000000         0x00400000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+LOAD CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+START GROUP
+LOAD libpairing.a
+LOAD lib/relic/lib/librelic_s.a
+LOAD /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a
+END GROUP
+                0x20400000                        _stack_top = (ORIGIN (SRAM) + LENGTH (SRAM))
+
+.isr_vector     0x00000000       0x40
+ *(.isr_vector)
+ .isr_vector    0x00000000       0x40 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x00000000                vector_table
+
+.text           0x00000040     0xc5c9
+ *(.text*)
+ .text.SysTick_Handler
+                0x00000040       0x10 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+                0x00000040                SysTick_Handler
+ .text.startup.main
+                0x00000050      0x158 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+                0x00000050                main
+ .text.Default_Handler
+                0x000001a8        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text._start   0x000001ac       0x48 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x000001ac                _start
+ .text.put_uint
+                0x000001f4       0x64 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .text.memset   0x00000258       0x10 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x00000258                memset
+ .text.memcpy   0x00000268       0x14 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x00000268                memcpy
+ .text.strlen   0x0000027c       0x18 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x0000027c                strlen
+ .text.strrchr  0x00000294       0x1c CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x00000294                strrchr
+ .text.printf   0x000002b0      0x1c4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x000002b0                printf
+ .text.vprintf  0x00000474      0x1ac CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x00000474                vprintf
+ .text.fflush   0x00000620        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x00000620                fflush
+ .text.decode_g1
+                0x00000624       0x3c libpairing.a(point_decode.c.obj)
+                0x00000624                decode_g1
+ .text.decode_g2
+                0x00000660       0x54 libpairing.a(point_decode.c.obj)
+                0x00000660                decode_g2
+ .text.pairing_init
+                0x000006b4       0x20 libpairing.a(crypto_init.c.obj)
+                0x000006b4                pairing_init
+ .text.pairing_cleanup
+                0x000006d4        0x4 libpairing.a(crypto_init.c.obj)
+                0x000006d4                pairing_cleanup
+ .text.core_init
+                0x000006d8       0x34 lib/relic/lib/librelic_s.a(relic_core.c.obj)
+                0x000006d8                core_init
+ .text.core_clean
+                0x0000070c       0x28 lib/relic/lib/librelic_s.a(relic_core.c.obj)
+                0x0000070c                core_clean
+ .text.core_get
+                0x00000734        0xc lib/relic/lib/librelic_s.a(relic_core.c.obj)
+                0x00000734                core_get
+ .text.arch_init
+                0x00000740        0x4 lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+                0x00000740                arch_init
+ .text.arch_clean
+                0x00000744        0x4 lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+                0x00000744                arch_clean
+ .text.arch_lzcnt
+                0x00000748        0x8 lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+                0x00000748                arch_lzcnt
+ .text.rand_init
+                0x00000750       0x1c lib/relic/lib/librelic_s.a(relic_rand_core.c.obj)
+                0x00000750                rand_init
+ .text.rand_clean
+                0x0000076c       0x18 lib/relic/lib/librelic_s.a(relic_rand_core.c.obj)
+                0x0000076c                rand_clean
+ .text.rand_seed
+                0x00000784       0x24 lib/relic/lib/librelic_s.a(relic_rand_call.c.obj)
+                0x00000784                rand_seed
+ .text.bn_copy  0x000007a8       0x34 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x000007a8                bn_copy
+ .text.bn_abs   0x000007dc       0x34 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x000007dc                bn_abs
+ .text.bn_neg   0x00000810       0x50 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x00000810                bn_neg
+ .text.bn_sign  0x00000860        0x4 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x00000860                bn_sign
+ .text.bn_zero  0x00000864       0x18 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x00000864                bn_zero
+ .text.bn_is_zero
+                0x0000087c       0x1c lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x0000087c                bn_is_zero
+ .text.bn_is_even
+                0x00000898       0x1c lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x00000898                bn_is_even
+ .text.bn_bits  0x000008b4       0x34 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x000008b4                bn_bits
+ .text.bn_get_bit
+                0x000008e8       0x64 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x000008e8                bn_get_bit
+ .text.bn_set_bit
+                0x0000094c       0x50 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x0000094c                bn_set_bit
+ .text.bn_get_dig
+                0x0000099c        0x8 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x0000099c                bn_get_dig
+ .text.bn_set_dig
+                0x000009a4       0x20 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x000009a4                bn_set_dig
+ .text.bn_set_2b
+                0x000009c4       0x7c lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x000009c4                bn_set_2b
+ .text.bn_read_str
+                0x00000a40       0xe0 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x00000a40                bn_read_str
+ .text.bn_read_bin
+                0x00000b20       0xdc lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x00000b20                bn_read_bin
+ .text.bn_write_bin
+                0x00000bfc       0xe0 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                0x00000bfc                bn_write_bin
+ .text.dv_zero  0x00000cdc       0x48 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                0x00000cdc                dv_zero
+ .text.dv_copy  0x00000d24        0x8 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                0x00000d24                dv_copy
+ .text.dv_copy_sec
+                0x00000d2c       0x2c lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                0x00000d2c                dv_copy_sec
+ .text.dv_cmp   0x00000d58       0x48 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                0x00000d58                dv_cmp
+ .text.dv_cmp_sec
+                0x00000da0       0x34 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                0x00000da0                dv_cmp_sec
+ .text.dv_rshd  0x00000dd4       0x40 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                0x00000dd4                dv_rshd
+ .text.dv_lshd  0x00000e14       0x44 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                0x00000e14                dv_lshd
+ .text.fp_prime_set
+                0x00000e58      0x334 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .text.fp_prime_init
+                0x0000118c       0x70 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x0000118c                fp_prime_init
+ .text.fp_prime_clean
+                0x000011fc       0x64 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x000011fc                fp_prime_clean
+ .text.fp_prime_get
+                0x00001260        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x00001260                fp_prime_get
+ .text.fp_prime_get_rdc
+                0x0000126c        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x0000126c                fp_prime_get_rdc
+ .text.fp_prime_get_par
+                0x00001278       0x18 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x00001278                fp_prime_get_par
+ .text.fp_prime_get_par_sps
+                0x00001290       0x28 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x00001290                fp_prime_get_par_sps
+ .text.fp_prime_get_srt
+                0x000012b8        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x000012b8                fp_prime_get_srt
+ .text.fp_prime_get_mod8
+                0x000012c4        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x000012c4                fp_prime_get_mod8
+ .text.fp_prime_get_mod18
+                0x000012d0        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x000012d0                fp_prime_get_mod18
+ .text.fp_prime_get_qnr
+                0x000012dc        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x000012dc                fp_prime_get_qnr
+ .text.fp_prime_get_2ad
+                0x000012e8        0xc lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x000012e8                fp_prime_get_2ad
+ .text.fp_prime_set_pairf
+                0x000012f4      0x188 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x000012f4                fp_prime_set_pairf
+ .text.fp_prime_conv
+                0x0000147c       0x60 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x0000147c                fp_prime_conv
+ .text.fp_prime_conv_dig
+                0x000014dc       0x48 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x000014dc                fp_prime_conv_dig
+ .text.fp_prime_back
+                0x00001524       0x48 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                0x00001524                fp_prime_back
+ .text.fp_rdc_monty_comba
+                0x0000156c        0x4 lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+                0x0000156c                fp_rdc_monty_comba
+ .text.fp_is_sqr
+                0x00001570       0x20 lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj)
+                0x00001570                fp_is_sqr
+ .text.fp_srt   0x00001590      0x1cc lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj)
+                0x00001590                fp_srt
+ .text.fp_copy  0x0000175c        0x8 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x0000175c                fp_copy
+ .text.fp_copy_sec
+                0x00001764        0x8 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x00001764                fp_copy_sec
+ .text.fp_zero  0x0000176c        0x8 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x0000176c                fp_zero
+ .text.fp_is_zero
+                0x00001774       0x4c lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x00001774                fp_is_zero
+ .text.fp_is_even
+                0x000017c0       0x20 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x000017c0                fp_is_even
+ .text.fp_bits  0x000017e0       0x28 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x000017e0                fp_bits
+ .text.fp_set_dig
+                0x00001808        0x4 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x00001808                fp_set_dig
+ .text.fp_norm  0x0000180c       0x30 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x0000180c                fp_norm
+ .text.fp_read_str
+                0x0000183c       0x64 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x0000183c                fp_read_str
+ .text.fp_read_bin
+                0x000018a0       0xc4 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                0x000018a0                fp_read_bin
+ .text.fp12_sqr_unr
+                0x00001964      0x1fc lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+                0x00001964                fp12_sqr_unr
+ .text.fp12_sqr_lazyr
+                0x00001b60       0x38 lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+                0x00001b60                fp12_sqr_lazyr
+ .text.fp12_sqr_cyc_lazyr
+                0x00001b98      0x228 lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+                0x00001b98                fp12_sqr_cyc_lazyr
+ .text.fp12_sqr_pck_lazyr
+                0x00001dc0      0x170 lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+                0x00001dc0                fp12_sqr_pck_lazyr
+ .text.fp2_mul_integ
+                0x00001f30        0x4 lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+                0x00001f30                fp2_mul_integ
+ .text.fp2_mul_nor_integ
+                0x00001f34        0x4 lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+                0x00001f34                fp2_mul_nor_integ
+ .text.fp2_mul_art
+                0x00001f38       0x58 lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+                0x00001f38                fp2_mul_art
+ .text.fp2_mul_frb
+                0x00001f90       0x4c lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+                0x00001f90                fp2_mul_frb
+ .text.fp2_mul_dig
+                0x00001fdc       0x24 lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+                0x00001fdc                fp2_mul_dig
+ .text.fp2_sqr_integ
+                0x00002000        0x4 lib/relic/lib/librelic_s.a(relic_fp2_sqr.c.obj)
+                0x00002000                fp2_sqr_integ
+ .text.fp4_mul_unr
+                0x00002004       0x78 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+                0x00002004                fp4_mul_unr
+ .text.fp4_sqr_unr
+                0x0000207c       0x60 lib/relic/lib/librelic_s.a(relic_fp4_sqr.c.obj)
+                0x0000207c                fp4_sqr_unr
+ .text.fp6_mul_unr
+                0x000020dc      0x134 lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+                0x000020dc                fp6_mul_unr
+ .text.fp6_mul_lazyr
+                0x00002210       0x34 lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+                0x00002210                fp6_mul_lazyr
+ .text.fp6_mul_art
+                0x00002244       0x34 lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+                0x00002244                fp6_mul_art
+ .text.fp2_add_integ
+                0x00002278        0x4 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+                0x00002278                fp2_add_integ
+ .text.fp2_sub_integ
+                0x0000227c        0x4 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+                0x0000227c                fp2_sub_integ
+ .text.fp2_dbl_integ
+                0x00002280        0x4 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+                0x00002280                fp2_dbl_integ
+ .text.fp2_neg  0x00002284       0x20 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+                0x00002284                fp2_neg
+ .text.fp6_add  0x000022a4       0x30 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+                0x000022a4                fp6_add
+ .text.fp6_sub  0x000022d4       0x30 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+                0x000022d4                fp6_sub
+ .text.fp6_neg  0x00002304       0x4c lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+                0x00002304                fp6_neg
+ .text.fp2_cmp  0x00002350       0x28 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+                0x00002350                fp2_cmp
+ .text.fp2_cmp_dig
+                0x00002378       0x20 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+                0x00002378                fp2_cmp_dig
+ .text.fp6_cmp  0x00002398       0x68 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+                0x00002398                fp6_cmp
+ .text.fp6_cmp_dig
+                0x00002400       0x38 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+                0x00002400                fp6_cmp_dig
+ .text.fp12_cmp
+                0x00002438       0x24 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+                0x00002438                fp12_cmp
+ .text.fp12_cmp_dig
+                0x0000245c       0x20 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+                0x0000245c                fp12_cmp_dig
+ .text.fp2_field_get_qnr
+                0x0000247c       0x10 lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj)
+                0x0000247c                fp2_field_get_qnr
+ .text.fp2_field_init
+                0x0000248c      0x304 lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj)
+                0x0000248c                fp2_field_init
+ .text.fp2_srt.part.0
+                0x00002790      0x284 lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+ .text.fp2_srt  0x00002a14       0x2c lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+                0x00002a14                fp2_srt
+ .text.fp2_copy
+                0x00002a40       0x20 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002a40                fp2_copy
+ .text.fp2_copy_sec
+                0x00002a60       0x24 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002a60                fp2_copy_sec
+ .text.fp2_zero
+                0x00002a84       0x18 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002a84                fp2_zero
+ .text.fp2_is_zero
+                0x00002a9c       0x1c lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002a9c                fp2_is_zero
+ .text.fp2_set_dig
+                0x00002ab8       0x18 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002ab8                fp2_set_dig
+ .text.fp6_copy
+                0x00002ad0       0x4c lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002ad0                fp6_copy
+ .text.fp6_zero
+                0x00002b1c       0x34 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002b1c                fp6_zero
+ .text.fp6_is_zero
+                0x00002b50       0x4c lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002b50                fp6_is_zero
+ .text.fp12_copy
+                0x00002b9c       0x20 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002b9c                fp12_copy
+ .text.fp12_zero
+                0x00002bbc       0x3c lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002bbc                fp12_zero
+ .text.fp12_set_dig
+                0x00002bf8       0x3c lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                0x00002bf8                fp12_set_dig
+ .text.ep_curve_set_map
+                0x00002c34      0x2a0 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.detect_opt
+                0x00002ed4       0x68 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_set
+                0x00002f3c       0x7c lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .text.ep_curve_init
+                0x00002fb8       0x4c lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x00002fb8                ep_curve_init
+ .text.ep_curve_clean
+                0x00003004       0x3c lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x00003004                ep_curve_clean
+ .text.ep_curve_get_a
+                0x00003040        0xc lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x00003040                ep_curve_get_a
+ .text.ep_curve_get_b
+                0x0000304c        0xc lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x0000304c                ep_curve_get_b
+ .text.ep_curve_get_beta
+                0x00003058        0xc lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x00003058                ep_curve_get_beta
+ .text.ep_curve_opt_a
+                0x00003064       0x10 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x00003064                ep_curve_opt_a
+ .text.ep_curve_opt_b
+                0x00003074       0x10 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x00003074                ep_curve_opt_b
+ .text.ep_curve_mul_a
+                0x00003084       0x54 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x00003084                ep_curve_mul_a
+ .text.ep_curve_mul_b
+                0x000030d8       0x40 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x000030d8                ep_curve_mul_b
+ .text.ep_curve_is_pairf
+                0x00003118       0x10 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x00003118                ep_curve_is_pairf
+ .text.ep_curve_set_endom
+                0x00003128      0x2e8 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                0x00003128                ep_curve_set_endom
+ .text.ep_dbl_projc
+                0x00003410      0x3f0 lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+                0x00003410                ep_dbl_projc
+ .text.ep_mul_dig.part.0
+                0x00003800       0xa4 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .text.ep_mul_basic
+                0x000038a4      0x108 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+                0x000038a4                ep_mul_basic
+ .text.ep_neg   0x000039ac       0x44 lib/relic/lib/librelic_s.a(relic_ep_neg.c.obj)
+                0x000039ac                ep_neg
+ .text.ep_norm_imp
+                0x000039f0       0x94 lib/relic/lib/librelic_s.a(relic_ep_norm.c.obj)
+ .text.ep_norm  0x00003a84       0x40 lib/relic/lib/librelic_s.a(relic_ep_norm.c.obj)
+                0x00003a84                ep_norm
+ .text.ep_param_get
+                0x00003ac4        0xc lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+                0x00003ac4                ep_param_get
+ .text.ep_param_set
+                0x00003ad0      0x304 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+                0x00003ad0                ep_param_set
+ .text.ep_psi   0x00003dd4       0x60 lib/relic/lib/librelic_s.a(relic_ep_psi.c.obj)
+                0x00003dd4                ep_psi
+ .text.ep_tpl_projc
+                0x00003e34       0x34 lib/relic/lib/librelic_s.a(relic_ep_tpl.c.obj)
+                0x00003e34                ep_tpl_projc
+ .text.ep_is_infty
+                0x00003e68       0x14 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+                0x00003e68                ep_is_infty
+ .text.ep_set_infty
+                0x00003e7c       0x20 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+                0x00003e7c                ep_set_infty
+ .text.ep_copy  0x00003e9c       0x28 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+                0x00003e9c                ep_copy
+ .text.ep_rhs   0x00003ec4       0x6c lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+                0x00003ec4                ep_rhs
+ .text.ep_on_curve
+                0x00003f30       0x44 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+                0x00003f30                ep_on_curve
+ .text.detect_opt
+                0x00003f74       0x78 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .text.ep2_curve_init
+                0x00003fec       0x24 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x00003fec                ep2_curve_init
+ .text.ep2_curve_clean
+                0x00004010       0x2c lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x00004010                ep2_curve_clean
+ .text.ep2_curve_opt_a
+                0x0000403c       0x10 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x0000403c                ep2_curve_opt_a
+ .text.ep2_curve_opt_b
+                0x0000404c       0x10 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x0000404c                ep2_curve_opt_b
+ .text.ep2_curve_mul_a
+                0x0000405c       0x9c lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x0000405c                ep2_curve_mul_a
+ .text.ep2_curve_mul_b
+                0x000040f8       0x8c lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x000040f8                ep2_curve_mul_b
+ .text.ep2_curve_is_twist
+                0x00004184       0x10 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x00004184                ep2_curve_is_twist
+ .text.ep2_curve_get_a
+                0x00004194       0x10 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x00004194                ep2_curve_get_a
+ .text.ep2_curve_get_b
+                0x000041a4       0x10 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x000041a4                ep2_curve_get_b
+ .text.ep2_curve_set_twist
+                0x000041b4      0x62c lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                0x000041b4                ep2_curve_set_twist
+ .text.ep2_norm_imp
+                0x000047e0       0x9c lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj)
+ .text.ep2_norm
+                0x0000487c       0x40 lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj)
+                0x0000487c                ep2_norm
+ .text.ep2_is_infty
+                0x000048bc       0x14 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+                0x000048bc                ep2_is_infty
+ .text.ep2_set_infty
+                0x000048d0       0x20 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+                0x000048d0                ep2_set_infty
+ .text.ep2_copy
+                0x000048f0       0x2c lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+                0x000048f0                ep2_copy
+ .text.ep2_rhs  0x0000491c       0x6c lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+                0x0000491c                ep2_rhs
+ .text.ep2_on_curve
+                0x00004988       0x44 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+                0x00004988                ep2_on_curve
+ .text.pp_map_init
+                0x000049cc        0x4 lib/relic/lib/librelic_s.a(relic_pp_map.c.obj)
+                0x000049cc                pp_map_init
+ .text.pp_map_clean
+                0x000049d0        0x4 lib/relic/lib/librelic_s.a(relic_pp_map.c.obj)
+                0x000049d0                pp_map_clean
+ .text.pp_mil_k12
+                0x000049d4      0x25c lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .text.pp_fin_k12_oatep
+                0x00004c30       0x74 lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .text.pp_map_oatep_k12
+                0x00004ca4       0xec lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+                0x00004ca4                pp_map_oatep_k12
+ .text.bn_divn_low
+                0x00004d90      0x254 lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj)
+                0x00004d90                bn_divn_low
+ .text.bn_div1_low
+                0x00004fe4       0x48 lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj)
+                0x00004fe4                bn_div1_low
+ .text.bn_mul1_low
+                0x0000502c       0x38 lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+                0x0000502c                bn_mul1_low
+ .text.bn_muls_low
+                0x00005064       0x70 lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+                0x00005064                bn_muls_low
+ .text.bn_muln_low
+                0x000050d4       0xf0 lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+                0x000050d4                bn_muln_low
+ .text.bn_muld_low
+                0x000051c4      0x25c lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+                0x000051c4                bn_muld_low
+ .text.bn_lsh1_low
+                0x00005420       0x2c lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+                0x00005420                bn_lsh1_low
+ .text.bn_lshb_low
+                0x0000544c       0x50 lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+                0x0000544c                bn_lshb_low
+ .text.bn_rsh1_low
+                0x0000549c       0x34 lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+                0x0000549c                bn_rsh1_low
+ .text.bn_rshb_low
+                0x000054d0       0x64 lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+                0x000054d0                bn_rshb_low
+ .text.bn_rshs_low
+                0x00005534       0x68 lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+                0x00005534                bn_rshs_low
+ .text.fp_addn_low
+                0x0000559c       0x34 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x0000559c                fp_addn_low
+ .text.fp_addm_low
+                0x000055d0       0x88 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x000055d0                fp_addm_low
+ .text.fp_addd_low
+                0x00005658       0x38 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x00005658                fp_addd_low
+ .text.fp_addc_low
+                0x00005690       0x8c lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x00005690                fp_addc_low
+ .text.fp_subn_low
+                0x0000571c       0x44 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x0000571c                fp_subn_low
+ .text.fp_subm_low
+                0x00005760       0x74 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x00005760                fp_subm_low
+ .text.fp_subc_low
+                0x000057d4       0x78 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x000057d4                fp_subc_low
+ .text.fp_subd_low
+                0x0000584c       0x44 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x0000584c                fp_subd_low
+ .text.fp_negm_low
+                0x00005890       0x64 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x00005890                fp_negm_low
+ .text.fp_dblm_low
+                0x000058f4       0x80 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x000058f4                fp_dblm_low
+ .text.fp_hlvm_low
+                0x00005974       0x70 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x00005974                fp_hlvm_low
+ .text.fp_hlvd_low
+                0x000059e4       0xa8 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                0x000059e4                fp_hlvd_low
+ .text.fp_mul1_low
+                0x00005a8c       0x2c lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+                0x00005a8c                fp_mul1_low
+ .text.fp_muln_low
+                0x00005ab8       0xe4 lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+                0x00005ab8                fp_muln_low
+ .text.fp_mulm_low
+                0x00005b9c       0x18 lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+                0x00005b9c                fp_mulm_low
+ .text.fp_rdcn_low
+                0x00005bb4      0x178 lib/relic/lib/librelic_s.a(relic_fp_rdc_low.c.obj)
+                0x00005bb4                fp_rdcn_low
+ .text.fp_rsh1_low
+                0x00005d2c       0x24 lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+                0x00005d2c                fp_rsh1_low
+ .text.fp2_addn_low
+                0x00005d50       0x24 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                0x00005d50                fp2_addn_low
+ .text.fp2_addm_low
+                0x00005d74       0x24 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                0x00005d74                fp2_addm_low
+ .text.fp2_addd_low
+                0x00005d98       0x28 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                0x00005d98                fp2_addd_low
+ .text.fp2_addc_low
+                0x00005dc0       0x2c lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                0x00005dc0                fp2_addc_low
+ .text.fp2_subm_low
+                0x00005dec       0x24 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                0x00005dec                fp2_subm_low
+ .text.fp2_subc_low
+                0x00005e10       0x2c lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                0x00005e10                fp2_subc_low
+ .text.fp2_dblm_low
+                0x00005e3c       0x20 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                0x00005e3c                fp2_dblm_low
+ .text.fp2_norm_low
+                0x00005e5c       0x8c lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                0x00005e5c                fp2_norm_low
+ .text.fp2_nord_low
+                0x00005ee8      0x108 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                0x00005ee8                fp2_nord_low
+ .text.fp2_muln_low
+                0x00005ff0       0x88 lib/relic/lib/librelic_s.a(relic_fpx_mul_low.c.obj)
+                0x00005ff0                fp2_muln_low
+ .text.fp2_mulm_low
+                0x00006078       0x1c lib/relic/lib/librelic_s.a(relic_fpx_mul_low.c.obj)
+                0x00006078                fp2_mulm_low
+ .text.fp2_rdcn_low
+                0x00006094       0x20 lib/relic/lib/librelic_s.a(relic_fpx_rdc_low.c.obj)
+                0x00006094                fp2_rdcn_low
+ .text.fp2_sqrn_low
+                0x000060b4       0xdc lib/relic/lib/librelic_s.a(relic_fpx_sqr_low.c.obj)
+                0x000060b4                fp2_sqrn_low
+ .text.fp2_sqrm_low
+                0x00006190       0x1c lib/relic/lib/librelic_s.a(relic_fpx_sqr_low.c.obj)
+                0x00006190                fp2_sqrm_low
+ .text.util_conv_char
+                0x000061ac        0xc lib/relic/lib/librelic_s.a(relic_util.c.obj)
+                0x000061ac                util_conv_char
+ .text.util_bits_dig
+                0x000061b8        0xc lib/relic/lib/librelic_s.a(relic_util.c.obj)
+                0x000061b8                util_bits_dig
+ .text.util_printf
+                0x000061c4       0x28 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+                0x000061c4                util_printf
+ .text.bn_add_imp
+                0x000061ec       0x88 lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+ .text.bn_sub_imp
+                0x00006274       0x6c lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+ .text.bn_add   0x000062e0       0x68 lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+                0x000062e0                bn_add
+ .text.bn_add_dig
+                0x00006348       0x80 lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+                0x00006348                bn_add_dig
+ .text.bn_sub   0x000063c8       0x70 lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+                0x000063c8                bn_sub
+ .text.bn_sub_dig
+                0x00006438       0x80 lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+                0x00006438                bn_sub_dig
+ .text.bn_cmp_abs
+                0x000064b8       0x40 lib/relic/lib/librelic_s.a(relic_bn_cmp.c.obj)
+                0x000064b8                bn_cmp_abs
+ .text.bn_cmp_dig
+                0x000064f8       0x24 lib/relic/lib/librelic_s.a(relic_bn_cmp.c.obj)
+                0x000064f8                bn_cmp_dig
+ .text.bn_cmp   0x0000651c       0x4c lib/relic/lib/librelic_s.a(relic_bn_cmp.c.obj)
+                0x0000651c                bn_cmp
+ .text.bn_div_imp
+                0x00006568      0x178 lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+ .text.bn_div   0x000066e0       0x54 lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+                0x000066e0                bn_div
+ .text.bn_div_rem
+                0x00006734       0x58 lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+                0x00006734                bn_div_rem
+ .text.bn_div_dig
+                0x0000678c       0x8c lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+                0x0000678c                bn_div_dig
+ .text.bn_div_rem_dig
+                0x00006818       0xac lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+                0x00006818                bn_div_rem_dig
+ .text.bn_gcd_ext_mid
+                0x000068c4      0x24c lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+                0x000068c4                bn_gcd_ext_mid
+ .text.bn_make  0x00006b10       0x48 lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+                0x00006b10                bn_make
+ .text.bn_clean
+                0x00006b58        0xc lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+                0x00006b58                bn_clean
+ .text.bn_grow  0x00006b64       0x38 lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+                0x00006b64                bn_grow
+ .text.bn_trim  0x00006b9c       0x30 lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+                0x00006b9c                bn_trim
+ .text.bn_mod_dig
+                0x00006bcc        0xc lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+                0x00006bcc                bn_mod_dig
+ .text.bn_mod_basic
+                0x00006bd8        0xc lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+                0x00006bd8                bn_mod_basic
+ .text.bn_mod_pre_monty
+                0x00006be4       0x84 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+                0x00006be4                bn_mod_pre_monty
+ .text.bn_mul_dig
+                0x00006c68       0x44 lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+                0x00006c68                bn_mul_dig
+ .text.bn_mul_comba
+                0x00006cac       0x78 lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+                0x00006cac                bn_mul_comba
+ .text.get_bits
+                0x00006d24       0xa8 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .text.bn_rec_slw
+                0x00006dcc       0xc0 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+                0x00006dcc                bn_rec_slw
+ .text.bn_rec_naf
+                0x00006e8c      0x150 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+                0x00006e8c                bn_rec_naf
+ .text.bn_dbl   0x00006fdc       0x34 lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+                0x00006fdc                bn_dbl
+ .text.bn_hlv   0x00007010       0x20 lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+                0x00007010                bn_hlv
+ .text.bn_lsh   0x00007030       0x8c lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+                0x00007030                bn_lsh
+ .text.bn_rsh   0x000070bc       0x7c lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+                0x000070bc                bn_rsh
+ .text.bn_sqr_comba
+                0x00007138       0x38 lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+                0x00007138                bn_sqr_comba
+ .text.bn_srt   0x00007170      0x108 lib/relic/lib/librelic_s.a(relic_bn_srt.c.obj)
+                0x00007170                bn_srt
+ .text.fp_add_integ
+                0x00007278        0x4 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+                0x00007278                fp_add_integ
+ .text.fp_add_dig
+                0x0000727c       0x38 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+                0x0000727c                fp_add_dig
+ .text.fp_sub_integ
+                0x000072b4        0x4 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+                0x000072b4                fp_sub_integ
+ .text.fp_sub_dig
+                0x000072b8       0x38 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+                0x000072b8                fp_sub_dig
+ .text.fp_neg_integ
+                0x000072f0        0x4 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+                0x000072f0                fp_neg_integ
+ .text.fp_dbl_integ
+                0x000072f4        0x4 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+                0x000072f4                fp_dbl_integ
+ .text.fp_cmp_dig
+                0x000072f8       0x38 lib/relic/lib/librelic_s.a(relic_fp_cmp.c.obj)
+                0x000072f8                fp_cmp_dig
+ .text.fp_cmp   0x00007330       0x34 lib/relic/lib/librelic_s.a(relic_fp_cmp.c.obj)
+                0x00007330                fp_cmp
+ .text.fp_is_cub.part.0
+                0x00007364       0x54 lib/relic/lib/librelic_s.a(relic_fp_crt.c.obj)
+ .text.fp_is_cub
+                0x000073b8       0x30 lib/relic/lib/librelic_s.a(relic_fp_crt.c.obj)
+                0x000073b8                fp_is_cub
+ .text.fp_hlv_integ
+                0x000073e8        0x4 lib/relic/lib/librelic_s.a(relic_fp_div.c.obj)
+                0x000073e8                fp_hlv_integ
+ .text.fp_exp_slide
+                0x000073ec       0xe4 lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+                0x000073ec                fp_exp_slide
+ .text.fp_inv_jmpds.part.0
+                0x000074d0      0x670 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .text.fp_inv_jmpds
+                0x00007b40       0x50 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+                0x00007b40                fp_inv_jmpds
+ .text.fp_mul_dig
+                0x00007b90       0x20 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+                0x00007b90                fp_mul_dig
+ .text.fp_mul_integ
+                0x00007bb0        0x4 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+                0x00007bb0                fp_mul_integ
+ .text.fp_param_set
+                0x00007bb4       0x8c lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+                0x00007bb4                fp_param_set
+ .text.jumpdivstep
+                0x00007c40      0x108 lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .text.fp_smb_jmpds
+                0x00007d48      0x22c lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+                0x00007d48                fp_smb_jmpds
+ .text.fp_sqr_integ
+                0x00007f74        0x4 lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+                0x00007f74                fp_sqr_integ
+ .text.fp12_mul_unr
+                0x00007f78       0xbc lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+                0x00007f78                fp12_mul_unr
+ .text.fp12_mul_lazyr
+                0x00008034       0x38 lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+                0x00008034                fp12_mul_lazyr
+ .text.fp12_mul_dxs_lazyr
+                0x0000806c      0x360 lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+                0x0000806c                fp12_mul_dxs_lazyr
+ .text.fp12_conv_cyc
+                0x000083cc       0x38 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+                0x000083cc                fp12_conv_cyc
+ .text.fp12_back_cyc_sim
+                0x00008404      0x1f8 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+                0x00008404                fp12_back_cyc_sim
+ .text.fp12_exp_cyc_sps
+                0x000085fc      0x198 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+                0x000085fc                fp12_exp_cyc_sps
+ .text.fp2_exp  0x00008794       0x78 lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+                0x00008794                fp2_exp
+ .text.fp2_frb  0x0000880c       0x38 lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+                0x0000880c                fp2_frb
+ .text.fp6_frb  0x00008844       0xa8 lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+                0x00008844                fp6_frb
+ .text.fp12_frb
+                0x000088ec       0xc8 lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+                0x000088ec                fp12_frb
+ .text.fp2_inv  0x000089b4       0xb0 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+                0x000089b4                fp2_inv
+ .text.fp2_inv_sim
+                0x00008a64       0xcc lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+                0x00008a64                fp2_inv_sim
+ .text.fp6_inv  0x00008b30       0xec lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+                0x00008b30                fp6_inv
+ .text.fp12_inv
+                0x00008c1c       0x58 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+                0x00008c1c                fp12_inv
+ .text.fp12_inv_cyc
+                0x00008c74       0x20 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+                0x00008c74                fp12_inv_cyc
+ .text.ep_add_projc
+                0x00008c94      0x960 lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+                0x00008c94                ep_add_projc
+ .text.ep_sub   0x000095f4       0x28 lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+                0x000095f4                ep_sub
+ .text.ep_cmp   0x0000961c      0x118 lib/relic/lib/librelic_s.a(relic_ep_cmp.c.obj)
+                0x0000961c                ep_cmp
+ .text.ep2_add_projc_imp
+                0x00009734      0x92c lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .text.ep2_add_projc
+                0x0000a060       0x40 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+                0x0000a060                ep2_add_projc
+ .text.ep2_sub  0x0000a0a0       0x28 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+                0x0000a0a0                ep2_sub
+ .text.ep2_dbl_projc_imp
+                0x0000a0c8      0x3b0 lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .text.ep2_dbl_projc
+                0x0000a478       0x2c lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+                0x0000a478                ep2_dbl_projc
+ .text.ep2_frb  0x0000a4a4       0xac lib/relic/lib/librelic_s.a(relic_ep2_frb.c.obj)
+                0x0000a4a4                ep2_frb
+ .text.ep2_mul_dig.part.0
+                0x0000a550       0x88 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .text.ep2_mul_basic
+                0x0000a5d8       0xe8 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+                0x0000a5d8                ep2_mul_basic
+ .text.ep2_neg  0x0000a6c0       0x48 lib/relic/lib/librelic_s.a(relic_ep2_neg.c.obj)
+                0x0000a6c0                ep2_neg
+ .text.pp_add_k12_projc_lazyr
+                0x0000a708      0x170 lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+                0x0000a708                pp_add_k12_projc_lazyr
+ .text.pp_dbl_k12_projc_lazyr
+                0x0000a878      0x2a0 lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+                0x0000a878                pp_dbl_k12_projc_lazyr
+ .text.pp_exp_sm9
+                0x0000ab18      0x1d4 lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+ .text.pp_exp_bn
+                0x0000acec      0x148 lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+ .text.pp_exp_b12
+                0x0000ae34      0x1b0 lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+ .text.pp_exp_k12
+                0x0000afe4       0x3c lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+                0x0000afe4                pp_exp_k12
+ .text.bn_add1_low
+                0x0000b020       0x50 lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+                0x0000b020                bn_add1_low
+ .text.bn_addn_low
+                0x0000b070       0x44 lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+                0x0000b070                bn_addn_low
+ .text.bn_sub1_low
+                0x0000b0b4       0x50 lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+                0x0000b0b4                bn_sub1_low
+ .text.bn_subn_low
+                0x0000b104       0x50 lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+                0x0000b104                bn_subn_low
+ .text.bn_negs_low
+                0x0000b154       0x34 lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+                0x0000b154                bn_negs_low
+ .text.bn_sqrn_low
+                0x0000b188      0x1fc lib/relic/lib/librelic_s.a(relic_bn_sqr_low.c.obj)
+                0x0000b188                bn_sqrn_low
+ .text.fp_sqrn_low
+                0x0000b384      0x1bc lib/relic/lib/librelic_s.a(relic_fp_sqr_low.c.obj)
+                0x0000b384                fp_sqrn_low
+ .text.fp_sqrm_low
+                0x0000b540       0x18 lib/relic/lib/librelic_s.a(relic_fp_sqr_low.c.obj)
+                0x0000b540                fp_sqrm_low
+ .text.fp6_sqr_unr
+                0x0000b558       0xfc lib/relic/lib/librelic_s.a(relic_fp6_sqr.c.obj)
+                0x0000b558                fp6_sqr_unr
+ .text.fp6_sqr_lazyr
+                0x0000b654       0x34 lib/relic/lib/librelic_s.a(relic_fp6_sqr.c.obj)
+                0x0000b654                fp6_sqr_lazyr
+ .text          0x0000b688       0x30 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                0x0000b688                __aeabi_uldivmod
+ .text          0x0000b6b8      0x328 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x0000b6b8                __udivmoddi4
+ .text          0x0000b9e0        0x4 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x0000b9e0                __aeabi_ldiv0
+                0x0000b9e0                __aeabi_idiv0
+ *(.rodata*)
+ .rodata.main.str1.4
+                0x0000b9e4      0xae1 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+                                0x106 (size before relaxing)
+ *fill*         0x0000c4c5        0x3 
+ .rodata.TEST_PROOF
+                0x0000c4c8      0x100 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+ .rodata.printf.str1.4
+                0x0000c5c8        0x0 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                                 0x11 (size before relaxing)
+ .rodata.bn_set_2b.str1.4
+                0x0000c5c8        0x0 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                                 0x7b (size before relaxing)
+ .rodata.dv_zero.str1.4
+                0x0000c5c8        0x0 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                                 0x7b (size before relaxing)
+ .rodata.fp_prime_set.str1.4
+                0x0000c5c8        0x0 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                                 0x7f (size before relaxing)
+ .rodata.fp_read_bin.str1.4
+                0x0000c5c8        0x0 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                                 0x7b (size before relaxing)
+ .rodata.fp2_srt.part.0.str1.4
+                0x0000c5c8        0x0 lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+                                 0x7f (size before relaxing)
+ .rodata.ep_curve_set_map.str1.4
+                0x0000c5c8        0x0 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                                 0x7f (size before relaxing)
+ .rodata.ep_param_set.str1.4
+                0x0000c5c8        0x0 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+                                0x15b (size before relaxing)
+ .rodata.ep2_curve_set_twist.str1.4
+                0x0000c5c8        0x0 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                                0x487 (size before relaxing)
+ .rodata.conv_table.0
+                0x0000c5c8       0x41 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .rodata.bn_div.str1.4
+                0x0000c609        0x0 lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+                                 0x7b (size before relaxing)
+ .rodata.bn_make.str1.4
+                0x0000c609        0x0 lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+                                 0x7b (size before relaxing)
+ .rodata.bn_mod_pre_barrt.str1.4
+                0x0000c609        0x0 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+                                 0x7b (size before relaxing)
+ .rodata.bn_rec_win.str1.4
+                0x0000c609        0x0 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+                                 0x7b (size before relaxing)
+ .rodata.bn_srt.str1.4
+                0x0000c609        0x0 lib/relic/lib/librelic_s.a(relic_bn_srt.c.obj)
+                                 0x7b (size before relaxing)
+ .rodata.fp_inv_basic.str1.4
+                0x0000c609        0x0 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+                                 0x7b (size before relaxing)
+ .rodata.fp_param_set.str1.4
+                0x0000c609        0x0 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+                                 0x11 (size before relaxing)
+
+.glue_7         0x0000c60c        0x0
+ .glue_7        0x0000c60c        0x0 linker stubs
+
+.glue_7t        0x0000c60c        0x0
+ .glue_7t       0x0000c60c        0x0 linker stubs
+
+.vfp11_veneer   0x0000c60c        0x0
+ .vfp11_veneer  0x0000c60c        0x0 linker stubs
+
+.v4_bx          0x0000c60c        0x0
+ .v4_bx         0x0000c60c        0x0 linker stubs
+
+.iplt           0x0000c60c        0x0
+ .iplt          0x0000c60c        0x0 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+
+.rel.dyn        0x0000c60c        0x0
+ .rel.iplt      0x0000c60c        0x0 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+
+.ARM.exidx      0x0000c60c        0x8
+ .ARM.exidx     0x0000c60c        0x8 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+
+.data           0x20000000        0x8 load address 0x0000c614
+ *(.data*)
+ .data.stdout   0x20000000        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                0x20000000                stdout
+ .data._stdout_f
+                0x20000004        0x4 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+
+.igot.plt       0x20000008        0x0 load address 0x0000c61c
+ .igot.plt      0x20000008        0x0 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+
+.bss            0x20000008     0x319c load address 0x0000c61c
+                0x20000008                        __bss_start = .
+ *(.bss*)
+ .bss.g_done    0x20000008        0x4 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+                0x20000008                g_done
+ .bss.g_ticks   0x2000000c        0xc CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+                0x2000000c                g_ticks
+ .bss.g_valid   0x20000018        0x4 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+                0x20000018                g_valid
+ .bss.systick_overflow_count
+                0x2000001c        0x4 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+                0x2000001c                systick_overflow_count
+ .bss.core_ctx  0x20000020        0x4 lib/relic/lib/librelic_s.a(relic_core.c.obj)
+ .bss.first_ctx
+                0x20000024     0x3180 lib/relic/lib/librelic_s.a(relic_core.c.obj)
+ *(COMMON)
+                0x200031a4                        __bss_end = .
+                0x200031a4                        _end = .
+OUTPUT(single_pairing_m4 elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x00000000       0x12
+ .comment       0x00000000       0x12 CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 libpairing.a(point_decode.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 libpairing.a(crypto_init.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_core.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_rand_core.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_rand_call.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp2_sqr.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp4_sqr.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_neg.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_norm.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_psi.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_tpl.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_pp_map.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_rdc_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_mul_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_rdc_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_sqr_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_util.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_cmp.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_srt.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_cmp.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_crt.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_div.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep_cmp.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep2_frb.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_ep2_neg.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_bn_sqr_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp_sqr_low.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 lib/relic/lib/librelic_s.a(relic_fp6_sqr.c.obj)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                                 0x13 (size before relaxing)
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x2e CMakeFiles/single_pairing_m4.dir/uvision/single_pairing_m4.c.obj
+ .ARM.attributes
+                0x0000002e       0x2e CMakeFiles/single_pairing_m4.dir/uvision/startup.c.obj
+ .ARM.attributes
+                0x0000005c       0x2e libpairing.a(point_decode.c.obj)
+ .ARM.attributes
+                0x0000008a       0x2e libpairing.a(crypto_init.c.obj)
+ .ARM.attributes
+                0x000000b8       0x2e lib/relic/lib/librelic_s.a(relic_core.c.obj)
+ .ARM.attributes
+                0x000000e6       0x2e lib/relic/lib/librelic_s.a(relic_arch_none.c.obj)
+ .ARM.attributes
+                0x00000114       0x2e lib/relic/lib/librelic_s.a(relic_rand_core.c.obj)
+ .ARM.attributes
+                0x00000142       0x2e lib/relic/lib/librelic_s.a(relic_rand_call.c.obj)
+ .ARM.attributes
+                0x00000170       0x2e lib/relic/lib/librelic_s.a(relic_bn_util.c.obj)
+ .ARM.attributes
+                0x0000019e       0x2e lib/relic/lib/librelic_s.a(relic_dv_util.c.obj)
+ .ARM.attributes
+                0x000001cc       0x2e lib/relic/lib/librelic_s.a(relic_fp_prime.c.obj)
+ .ARM.attributes
+                0x000001fa       0x2e lib/relic/lib/librelic_s.a(relic_fp_rdc.c.obj)
+ .ARM.attributes
+                0x00000228       0x2e lib/relic/lib/librelic_s.a(relic_fp_srt.c.obj)
+ .ARM.attributes
+                0x00000256       0x2e lib/relic/lib/librelic_s.a(relic_fp_util.c.obj)
+ .ARM.attributes
+                0x00000284       0x2e lib/relic/lib/librelic_s.a(relic_fp12_sqr.c.obj)
+ .ARM.attributes
+                0x000002b2       0x2e lib/relic/lib/librelic_s.a(relic_fp2_mul.c.obj)
+ .ARM.attributes
+                0x000002e0       0x2e lib/relic/lib/librelic_s.a(relic_fp2_sqr.c.obj)
+ .ARM.attributes
+                0x0000030e       0x2e lib/relic/lib/librelic_s.a(relic_fp4_mul.c.obj)
+ .ARM.attributes
+                0x0000033c       0x2e lib/relic/lib/librelic_s.a(relic_fp4_sqr.c.obj)
+ .ARM.attributes
+                0x0000036a       0x2e lib/relic/lib/librelic_s.a(relic_fp6_mul.c.obj)
+ .ARM.attributes
+                0x00000398       0x2e lib/relic/lib/librelic_s.a(relic_fpx_add.c.obj)
+ .ARM.attributes
+                0x000003c6       0x2e lib/relic/lib/librelic_s.a(relic_fpx_cmp.c.obj)
+ .ARM.attributes
+                0x000003f4       0x2e lib/relic/lib/librelic_s.a(relic_fpx_field.c.obj)
+ .ARM.attributes
+                0x00000422       0x2e lib/relic/lib/librelic_s.a(relic_fpx_srt.c.obj)
+ .ARM.attributes
+                0x00000450       0x2e lib/relic/lib/librelic_s.a(relic_fpx_util.c.obj)
+ .ARM.attributes
+                0x0000047e       0x2e lib/relic/lib/librelic_s.a(relic_ep_curve.c.obj)
+ .ARM.attributes
+                0x000004ac       0x2e lib/relic/lib/librelic_s.a(relic_ep_dbl.c.obj)
+ .ARM.attributes
+                0x000004da       0x2e lib/relic/lib/librelic_s.a(relic_ep_mul.c.obj)
+ .ARM.attributes
+                0x00000508       0x2e lib/relic/lib/librelic_s.a(relic_ep_neg.c.obj)
+ .ARM.attributes
+                0x00000536       0x2e lib/relic/lib/librelic_s.a(relic_ep_norm.c.obj)
+ .ARM.attributes
+                0x00000564       0x2e lib/relic/lib/librelic_s.a(relic_ep_param.c.obj)
+ .ARM.attributes
+                0x00000592       0x2e lib/relic/lib/librelic_s.a(relic_ep_psi.c.obj)
+ .ARM.attributes
+                0x000005c0       0x2e lib/relic/lib/librelic_s.a(relic_ep_tpl.c.obj)
+ .ARM.attributes
+                0x000005ee       0x2e lib/relic/lib/librelic_s.a(relic_ep_util.c.obj)
+ .ARM.attributes
+                0x0000061c       0x2e lib/relic/lib/librelic_s.a(relic_ep2_curve.c.obj)
+ .ARM.attributes
+                0x0000064a       0x2e lib/relic/lib/librelic_s.a(relic_ep2_norm.c.obj)
+ .ARM.attributes
+                0x00000678       0x2e lib/relic/lib/librelic_s.a(relic_ep2_util.c.obj)
+ .ARM.attributes
+                0x000006a6       0x2e lib/relic/lib/librelic_s.a(relic_pp_map.c.obj)
+ .ARM.attributes
+                0x000006d4       0x2e lib/relic/lib/librelic_s.a(relic_pp_map_k12.c.obj)
+ .ARM.attributes
+                0x00000702       0x2e lib/relic/lib/librelic_s.a(relic_bn_div_low.c.obj)
+ .ARM.attributes
+                0x00000730       0x2e lib/relic/lib/librelic_s.a(relic_bn_mul_low.c.obj)
+ .ARM.attributes
+                0x0000075e       0x2e lib/relic/lib/librelic_s.a(relic_bn_shift_low.c.obj)
+ .ARM.attributes
+                0x0000078c       0x2e lib/relic/lib/librelic_s.a(relic_fp_add_low.c.obj)
+ .ARM.attributes
+                0x000007ba       0x2e lib/relic/lib/librelic_s.a(relic_fp_mul_low.c.obj)
+ .ARM.attributes
+                0x000007e8       0x2e lib/relic/lib/librelic_s.a(relic_fp_rdc_low.c.obj)
+ .ARM.attributes
+                0x00000816       0x2e lib/relic/lib/librelic_s.a(relic_fp_shift_low.c.obj)
+ .ARM.attributes
+                0x00000844       0x2e lib/relic/lib/librelic_s.a(relic_fpx_add_low.c.obj)
+ .ARM.attributes
+                0x00000872       0x2e lib/relic/lib/librelic_s.a(relic_fpx_mul_low.c.obj)
+ .ARM.attributes
+                0x000008a0       0x2e lib/relic/lib/librelic_s.a(relic_fpx_rdc_low.c.obj)
+ .ARM.attributes
+                0x000008ce       0x2e lib/relic/lib/librelic_s.a(relic_fpx_sqr_low.c.obj)
+ .ARM.attributes
+                0x000008fc       0x2e lib/relic/lib/librelic_s.a(relic_util.c.obj)
+ .ARM.attributes
+                0x0000092a       0x2e lib/relic/lib/librelic_s.a(relic_bn_add.c.obj)
+ .ARM.attributes
+                0x00000958       0x2e lib/relic/lib/librelic_s.a(relic_bn_cmp.c.obj)
+ .ARM.attributes
+                0x00000986       0x2e lib/relic/lib/librelic_s.a(relic_bn_div.c.obj)
+ .ARM.attributes
+                0x000009b4       0x2e lib/relic/lib/librelic_s.a(relic_bn_gcd.c.obj)
+ .ARM.attributes
+                0x000009e2       0x2e lib/relic/lib/librelic_s.a(relic_bn_mem.c.obj)
+ .ARM.attributes
+                0x00000a10       0x2e lib/relic/lib/librelic_s.a(relic_bn_mod.c.obj)
+ .ARM.attributes
+                0x00000a3e       0x2e lib/relic/lib/librelic_s.a(relic_bn_mul.c.obj)
+ .ARM.attributes
+                0x00000a6c       0x2e lib/relic/lib/librelic_s.a(relic_bn_rec.c.obj)
+ .ARM.attributes
+                0x00000a9a       0x2e lib/relic/lib/librelic_s.a(relic_bn_shift.c.obj)
+ .ARM.attributes
+                0x00000ac8       0x2e lib/relic/lib/librelic_s.a(relic_bn_sqr.c.obj)
+ .ARM.attributes
+                0x00000af6       0x2e lib/relic/lib/librelic_s.a(relic_bn_srt.c.obj)
+ .ARM.attributes
+                0x00000b24       0x2e lib/relic/lib/librelic_s.a(relic_fp_add.c.obj)
+ .ARM.attributes
+                0x00000b52       0x2e lib/relic/lib/librelic_s.a(relic_fp_cmp.c.obj)
+ .ARM.attributes
+                0x00000b80       0x2e lib/relic/lib/librelic_s.a(relic_fp_crt.c.obj)
+ .ARM.attributes
+                0x00000bae       0x2e lib/relic/lib/librelic_s.a(relic_fp_div.c.obj)
+ .ARM.attributes
+                0x00000bdc       0x2e lib/relic/lib/librelic_s.a(relic_fp_exp.c.obj)
+ .ARM.attributes
+                0x00000c0a       0x2e lib/relic/lib/librelic_s.a(relic_fp_inv.c.obj)
+ .ARM.attributes
+                0x00000c38       0x2e lib/relic/lib/librelic_s.a(relic_fp_mul.c.obj)
+ .ARM.attributes
+                0x00000c66       0x2e lib/relic/lib/librelic_s.a(relic_fp_param.c.obj)
+ .ARM.attributes
+                0x00000c94       0x2e lib/relic/lib/librelic_s.a(relic_fp_smb.c.obj)
+ .ARM.attributes
+                0x00000cc2       0x2e lib/relic/lib/librelic_s.a(relic_fp_sqr.c.obj)
+ .ARM.attributes
+                0x00000cf0       0x2e lib/relic/lib/librelic_s.a(relic_fp12_mul.c.obj)
+ .ARM.attributes
+                0x00000d1e       0x2e lib/relic/lib/librelic_s.a(relic_fpx_cyc.c.obj)
+ .ARM.attributes
+                0x00000d4c       0x2e lib/relic/lib/librelic_s.a(relic_fpx_exp.c.obj)
+ .ARM.attributes
+                0x00000d7a       0x2e lib/relic/lib/librelic_s.a(relic_fpx_frb.c.obj)
+ .ARM.attributes
+                0x00000da8       0x2e lib/relic/lib/librelic_s.a(relic_fpx_inv.c.obj)
+ .ARM.attributes
+                0x00000dd6       0x2e lib/relic/lib/librelic_s.a(relic_ep_add.c.obj)
+ .ARM.attributes
+                0x00000e04       0x2e lib/relic/lib/librelic_s.a(relic_ep_cmp.c.obj)
+ .ARM.attributes
+                0x00000e32       0x2e lib/relic/lib/librelic_s.a(relic_ep2_add.c.obj)
+ .ARM.attributes
+                0x00000e60       0x2e lib/relic/lib/librelic_s.a(relic_ep2_dbl.c.obj)
+ .ARM.attributes
+                0x00000e8e       0x2e lib/relic/lib/librelic_s.a(relic_ep2_frb.c.obj)
+ .ARM.attributes
+                0x00000ebc       0x2e lib/relic/lib/librelic_s.a(relic_ep2_mul.c.obj)
+ .ARM.attributes
+                0x00000eea       0x2e lib/relic/lib/librelic_s.a(relic_ep2_neg.c.obj)
+ .ARM.attributes
+                0x00000f18       0x2e lib/relic/lib/librelic_s.a(relic_pp_add_k12.c.obj)
+ .ARM.attributes
+                0x00000f46       0x2e lib/relic/lib/librelic_s.a(relic_pp_dbl_k12.c.obj)
+ .ARM.attributes
+                0x00000f74       0x2e lib/relic/lib/librelic_s.a(relic_pp_exp_k12.c.obj)
+ .ARM.attributes
+                0x00000fa2       0x2e lib/relic/lib/librelic_s.a(relic_bn_add_low.c.obj)
+ .ARM.attributes
+                0x00000fd0       0x2e lib/relic/lib/librelic_s.a(relic_bn_sqr_low.c.obj)
+ .ARM.attributes
+                0x00000ffe       0x2e lib/relic/lib/librelic_s.a(relic_fp_sqr_low.c.obj)
+ .ARM.attributes
+                0x0000102c       0x2e lib/relic/lib/librelic_s.a(relic_fp6_sqr.c.obj)
+ .ARM.attributes
+                0x0000105a       0x1e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .ARM.attributes
+                0x00001078       0x2e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x000010a6       0x1e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+
+.debug_line     0x00000000      0x6ae
+ .debug_line    0x00000000       0x4e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x0000004e      0x616 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+ .debug_line    0x00000664       0x4a /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+
+.debug_line_str
+                0x00000000       0xb5
+ .debug_line_str
+                0x00000000       0xb5 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                                 0xa9 (size before relaxing)
+ .debug_line_str
+                0x000000b5        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+                                 0xad (size before relaxing)
+
+.debug_info     0x00000000      0x74e
+ .debug_info    0x00000000       0x24 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x00000024      0x6ee /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+ .debug_info    0x00000712       0x3c /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+
+.debug_abbrev   0x00000000      0x1aa
+ .debug_abbrev  0x00000000       0x14 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_abbrev  0x00000014      0x170 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+ .debug_abbrev  0x00000184       0x26 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+
+.debug_aranges  0x00000000       0x60
+ .debug_aranges
+                0x00000000       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_aranges
+                0x00000020       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+ .debug_aranges
+                0x00000040       0x20 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+
+.debug_str      0x00000000      0x6b9
+ .debug_str     0x00000000      0x6b9 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                                 0xb7 (size before relaxing)
+ .debug_str     0x000006b9        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                                0x66c (size before relaxing)
+ .debug_str     0x000006b9        0x0 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+                                 0xd7 (size before relaxing)
+
+.debug_frame    0x00000000       0x60
+ .debug_frame   0x00000000       0x2c /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000002c       0x34 /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+
+.debug_loclists
+                0x00000000      0xa0e
+ .debug_loclists
+                0x00000000      0xa0e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+
+.debug_rnglists
+                0x00000000       0x8e
+ .debug_rnglists
+                0x00000000       0x8e /opt/homebrew/Cellar/arm-none-eabi-gcc/16.1.0/lib/gcc/arm-none-eabi/16.1.0/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)

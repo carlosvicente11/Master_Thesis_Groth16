@@ -155,6 +155,34 @@ else()
     )
     add_dependencies(multi_pairing_m4 pairing relic_s)
 
+    # --- Bare-metal single-pairing micro-benchmark ---
+    # One pp_map_k12 (1 Miller loop + 1 final exp), bilinearity-checked;
+    # isolates the pairing for measuring low-level arithmetic replacements.
+    add_executable(single_pairing_m4 uvision/single_pairing_m4.c uvision/startup.c)
+    target_include_directories(single_pairing_m4 PRIVATE
+        ${CMAKE_SOURCE_DIR}/test
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_BINARY_DIR}/lib/relic/include
+        ${CMAKE_SOURCE_DIR}/lib/relic/include
+    )
+    target_compile_options(single_pairing_m4 PRIVATE ${M4_FLAGS})
+    target_compile_definitions(single_pairing_m4 PRIVATE PAIRING_ITERS=${PAIRING_ITERS})
+    set_target_properties(single_pairing_m4 PROPERTIES LINK_DEPENDS ${LINKER_SCRIPT})
+    target_link_options(single_pairing_m4 PRIVATE
+        -T${LINKER_SCRIPT}
+        -nostartfiles -nostdlib
+        -Wl,--gc-sections
+        -Wl,-Map=single_pairing_m4.map
+    )
+    set_property(TARGET single_pairing_m4 PROPERTY LINK_LIBRARIES
+        -Wl,--start-group
+        $<TARGET_FILE:pairing>
+        $<TARGET_FILE:relic_s>
+        ${LIBGCC_PATH}
+        -Wl,--end-group
+    )
+    add_dependencies(single_pairing_m4 pairing relic_s)
+
     # --- Bare-metal clear-signing verify benchmark (plan step 6) ---
     # Full device flow: 2x on-chip Poseidon (fr.c/poseidon.c from
     # minimal_c_verifier, RELIC-independent) + 2 ep_mul + 3-pair multi-pairing,

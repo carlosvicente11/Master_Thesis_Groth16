@@ -16,6 +16,7 @@ watch window.
 | File | Purpose |
 |---|---|
 | `main_m4.c` | Bare-metal benchmark: decode points, warm-up + correctness check vs `e(alpha,beta)`, then `PAIRING_ITERS` timed runs of `pp_map_sim_k12` |
+| `single_pairing_m4.c` | Bare-metal single-pairing micro-benchmark: `PAIRING_ITERS` timed runs of one `pp_map_k12(e, A, B)` (1 Miller loop + 1 final exp); correctness via bilinearity, `e([2]A,B) == e(A,B)^2`. Isolates the pairing for measuring low-level arithmetic (Montgomery drop-in) changes |
 | `clear_signing_m4.c` | Bare-metal clear-signing verify (two-hash): SysTick-times Poseidon(C), Poseidon(T), 2×`ep_mul` input prep, and the 3-pair multi-pairing separately; checks on-chip h_c/h_t vs the prover and the pairing product vs `e(alpha,beta)`. Watch-window globals: `g_hashes_ok`, `g_valid`, `g_cycles_{hc,ht,prep,pair,total}`, `g_done` |
 | `startup.c` | Vector table, reset handler, BSS init, semihosting (BKPT 0xAB) console, minimal libc (printf subset, bump-allocator malloc/calloc) |
 | `mps2_an386.ld` | Linker script for QEMU's MPS2-AN386 board (Cortex-M4, 4 MB flash @ 0x0, 4 MB SRAM @ 0x20000000) |
@@ -31,8 +32,8 @@ cmake -S . -B build_m4 -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-arm-none-eabi.cmak
 cmake --build build_m4
 ```
 
-Produces `build_m4/multi_pairing_m4` and `build_m4/clear_signing_m4` (ELFs)
-plus their `.map` files. Options: `-DBOARD=stm32f405` (default `mps2-an386`),
+Produces `build_m4/multi_pairing_m4`, `build_m4/single_pairing_m4` and
+`build_m4/clear_signing_m4` (ELFs) plus their `.map` files. Options: `-DBOARD=stm32f405` (default `mps2-an386`),
 `-DPAIRING_ITERS=N` (default 3, `multi_pairing_m4` only).
 
 `clear_signing_m4` compiles `../minimal_c_verifier`'s RELIC-independent
@@ -46,10 +47,13 @@ unchanged (image: ~63 KB flash, ~19 KB RAM).
 qemu-system-arm -M mps2-an386 -cpu cortex-m4 -nographic \
     -semihosting -kernel build_m4/multi_pairing_m4
 qemu-system-arm -M mps2-an386 -cpu cortex-m4 -nographic \
+    -semihosting -kernel build_m4/single_pairing_m4
+qemu-system-arm -M mps2-an386 -cpu cortex-m4 -nographic \
     -semihosting -kernel build_m4/clear_signing_m4
 ```
 
 Expected output: `Correctness: PASS (equals e(alpha,beta))` (multi-pairing) /
+`Correctness: PASS (e([2]A,B) == e(A,B)^2, e(A,B) != 1)` (single-pairing) /
 `On-chip h_c/h_t match prover: YES` + `Proof: VALID` (clear-signing) plus tick
 counts (QEMU ticks are NOT cycle-accurate — ignore the numbers, only the PASS
 matters here).

@@ -1,5 +1,6 @@
 /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles/pairing.dir
 /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles/multi_pairing_m4.dir
+/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles/single_pairing_m4.dir
 /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles/clear_signing_m4.dir
 /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles/edit_cache.dir
 /Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/CMakeFiles/rebuild_cache.dir
