@@ -266,8 +266,6 @@ Discarded input sections
  .bss           0x00000000        0x0 CMakeFiles/clear_signing_m4.dir/Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.obj
  .text.poseidon_hash_fr
                 0x00000000       0x54 CMakeFiles/clear_signing_m4.dir/Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.obj
- .text.poseidon_hash_be
-                0x00000000       0x20 CMakeFiles/clear_signing_m4.dir/Users/carlosdasilva/Codes/proof_systems/thesis/minimal_c_verifier/src/poseidon.c.obj
  .text          0x00000000        0x0 libpairing.a(point_decode.c.obj)
  .data          0x00000000        0x0 libpairing.a(point_decode.c.obj)
  .bss           0x00000000        0x0 libpairing.a(point_decode.c.obj)

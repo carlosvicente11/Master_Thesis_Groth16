@@ -72,13 +72,6 @@ void poseidon_hash_fr(fr_t *out, const fr_t *preimage) {
     *out = state[1]; // squeeze first rate slot
 }
 
-void poseidon_hash_be(uint8_t out[32], const uint8_t in[32]) {
-    fr_t x, h;
-    fr_from_be(&x, in);
-    poseidon_hash_fr(&h, &x);
-    fr_to_be(&h, out);
-}
-
 // arkworks duplex absorb: permute lazily, only when the rate is full AND
 // another element arrives; the final permute happens at squeeze time.
 static void sponge_absorb(fr_t state[POSEIDON_WIDTH], int *idx, const fr_t *e) {

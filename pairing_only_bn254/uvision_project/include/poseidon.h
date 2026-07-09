@@ -13,9 +13,6 @@
 
 void poseidon_hash_fr(fr_t *out, const fr_t *preimage);
 
-// Convenience byte wrapper: 32-byte big-endian preimage -> 32-byte big-endian hash.
-void poseidon_hash_be(uint8_t out[32], const uint8_t in[32]);
-
 // Byte-string sponge hash (two-hash clear-signing convention, must match the
 // Rust pack::poseidon_hash_bytes exactly):
 //   pack(data) = [Fr(len)] ++ one Fr per 31-byte chunk (big-endian integer),
