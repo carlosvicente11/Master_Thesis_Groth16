@@ -2,7 +2,13 @@ use ark_bn254::Fr;
 use ark_crypto_primitives::sponge::poseidon::traits::find_poseidon_ark_and_mds;
 use ark_crypto_primitives::sponge::poseidon::PoseidonConfig;
 use ark_ff::PrimeField;
-use common::{FULL_ROUNDS, PARTIAL_ROUNDS, SBOX_DEGREE, WIDTH};
+
+pub const WIDTH: usize = 3;
+pub const SBOX_DEGREE: u64 = 5;
+pub const FULL_ROUNDS: usize = 8;
+pub const PARTIAL_ROUNDS: usize = 56;
+
+pub const DEFAULT_PREIMAGE: u64 = 12345;
 
 /// Poseidon parameters for BN254 scalar field.
 ///

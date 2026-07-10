@@ -6,8 +6,10 @@ use ark_bn254::Fr;
 use ark_crypto_primitives::sponge::poseidon::PoseidonConfig;
 use ark_ff::{BigInteger, PrimeField};
 
-use common::{FULL_ROUNDS, PARTIAL_ROUNDS, SBOX_DEGREE, WIDTH};
-use poseidon_preimage_groth16::params::{poseidon_hash, poseidon_params};
+use poseidon_preimage_groth16::params::{
+    poseidon_hash, poseidon_params, DEFAULT_PREIMAGE, FULL_ROUNDS, PARTIAL_ROUNDS, SBOX_DEGREE,
+    WIDTH,
+};
 
 fn fr_to_be(elem: &Fr) -> [u8; 32] {
     let bigint = elem.into_bigint();
@@ -54,7 +56,7 @@ fn main() {
     }
 
     println!("\n--- Test vectors: poseidon_hash(absorb 1, squeeze 1) ---");
-    for x in [0u64, 1, 2, 42, common::DEFAULT_PREIMAGE] {
+    for x in [0u64, 1, 2, 42, DEFAULT_PREIMAGE] {
         let h = poseidon_hash(&params, Fr::from(x));
         println!("H({x}) = {}", hex(&fr_to_be(&h)));
     }

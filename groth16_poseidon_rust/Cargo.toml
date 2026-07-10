@@ -1,5 +1,5 @@
 [workspace]
-members = ["common", "groth16"]
+members = ["groth16"]
 resolver = "2"
 
 # Thesis instrumentation: use a local ark-ff with field-op counters so the

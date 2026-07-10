@@ -8,7 +8,7 @@ use ark_ff::opcount::{self, Snapshot};
 use ark_groth16::{prepare_verifying_key, Groth16, PreparedVerifyingKey, Proof, ProvingKey, VerifyingKey};
 use clap::{Parser, Subcommand};
 
-use poseidon_preimage_groth16::params::{poseidon_hash_chain, poseidon_params};
+use poseidon_preimage_groth16::params::{poseidon_hash_chain, poseidon_params, DEFAULT_PREIMAGE};
 use poseidon_preimage_groth16::serialize::{from_bytes_compressed, to_bytes_compressed};
 use poseidon_preimage_groth16::snark::{self, E};
 
@@ -34,7 +34,7 @@ enum Commands {
     Prove {
         #[arg(long, default_value = "1")]
         iterations: usize,
-        #[arg(long, default_value_t = common::DEFAULT_PREIMAGE)]
+        #[arg(long, default_value_t = DEFAULT_PREIMAGE)]
         preimage: u64,
     },
     /// Verify a previously generated proof
