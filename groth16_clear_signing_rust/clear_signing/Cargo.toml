@@ -2,6 +2,7 @@
 name = "clear-signing-groth16"
 version = "0.1.0"
 edition = "2021"
+default-run = "clear-signing-groth16"
 
 [dependencies]
 # Shared Poseidon params + byte-packing convention (cross-validated vs the C

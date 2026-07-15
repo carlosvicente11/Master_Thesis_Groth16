@@ -1,2 +1,0 @@
-arm-none-eabi-ar qc libpairing.a CMakeFiles/pairing.dir/src/point_decode.c.obj CMakeFiles/pairing.dir/src/crypto_init.c.obj
-arm-none-eabi-ranlib libpairing.a

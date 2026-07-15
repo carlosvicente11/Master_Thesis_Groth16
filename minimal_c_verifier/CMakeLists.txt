@@ -111,6 +111,14 @@ add_executable(clear_signing_verifier
 target_include_directories(clear_signing_verifier PRIVATE ${POB}/test)
 target_link_libraries(clear_signing_verifier PRIVATE groth16_verifier)
 
+# --- Clear-signing CLI (file-driven: VK/proof/calldata/text from argv) ---
+add_executable(clear_signing_cli
+    src/clear_signing_cli.c
+    ${POB}/src/fr.c
+    ${POB}/src/poseidon.c
+)
+target_link_libraries(clear_signing_cli PRIVATE groth16_verifier)
+
 # --- Clear-signing profile (per-phase host timing, step 6) ---
 add_executable(clear_signing_profile
     test/clear_signing_profile.c
