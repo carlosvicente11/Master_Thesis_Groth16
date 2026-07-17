@@ -36,6 +36,9 @@ target/
 # --- minimal_c_verifier: track its full pruned RELIC tree (buildable from clone) ---
 # (scoped to this project only; other projects' RELIC still reconstitutes from lib.zip)
 !minimal_c_verifier/lib/relic/**
+# --- device_verifier_bn254: track its full trimmed+modified RELIC tree ---
+# NOT reconstructable from lib.zip (files removed AND edited in place)
+!device_verifier_bn254/lib/relic/**
 
 # Documentation / notes
 docs/
