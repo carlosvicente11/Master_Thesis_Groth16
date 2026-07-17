@@ -23,23 +23,47 @@
 #define PROOF_LEN  256
 
 static uint8_t *load_file(const char *path, size_t *len) {
+    *len = 0;
+    
     FILE *f = fopen(path, "rb");
     if (!f) {
         fprintf(stderr, "cannot open %s\n", path);
         return NULL;
     }
-    fseek(f, 0, SEEK_END);
+    
+    if(fseek(f, 0, SEEK_END) != 0) {
+        fclose(f);
+        return NULL;
+    }
+    
+    
     long size = ftell(f);
-    fseek(f, 0, SEEK_SET);
     if (size < 0) {
         fclose(f);
         return NULL;
     }
-    uint8_t *buf = malloc((size_t)size);
-    if (buf && fread(buf, 1, (size_t)size, f) != (size_t)size) {
-        free(buf);
-        buf = NULL;
+    
+    if (fseek(f, 0, SEEK_SET) != 0) {
+        fclose(f);
+        return NULL;
     }
+    
+    
+    uint8_t *buf = NULL;
+    if (size > 0) {
+        buf = malloc((size_t)size);
+        if (!buf) {
+            fclose(f);
+            return NULL;
+        }
+        
+        if (fread(buf, 1, (size_t)size, f) != (size_t)size) {
+            free(buf);
+            fclose(f);
+            return NULL;
+        }
+    }
+    
     fclose(f);
     *len = (size_t)size;
     return buf;
@@ -86,7 +110,7 @@ int main(int argc, char **argv) {
         .ic = vk_buf,                       /* 3 x 64 B */
         .num_public_inputs = 2,
         .alpha_beta = vk_buf + 192,         /* 384 B */
-        .neg_gamma = vk_buf + 192 + 384,    /* 128 B */
+        .neg_gamma = vk_buf + 192 + 384,    /* 128 B */
         .neg_delta = vk_buf + 192 + 384 + 128, /* 128 B */
     };
 

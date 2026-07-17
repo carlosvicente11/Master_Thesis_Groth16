@@ -111,6 +111,10 @@ add_executable(clear_signing_verifier
 target_include_directories(clear_signing_verifier PRIVATE ${POB}/test)
 target_link_libraries(clear_signing_verifier PRIVATE groth16_verifier)
 
+# --- Poseidon-preimage CLI (file-driven: VK/proof/public-input from argv) ---
+add_executable(poseidon_preimage_cli src/poseidon_preimage_cli.c)
+target_link_libraries(poseidon_preimage_cli PRIVATE groth16_verifier)
+
 # --- Clear-signing CLI (file-driven: VK/proof/calldata/text from argv) ---
 add_executable(clear_signing_cli
     src/clear_signing_cli.c
