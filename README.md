@@ -1,218 +1,235 @@
 # Groth16 BN254 Verifier for Clear Signing
 
-This repository contains the implementation of a Groth16 zero-knowledge proof system for clear signing verification on a constrained ARM Cortex-M4 chip.
-
-## Quick Start for Reviewers
-
-The headline artifact is the ARM Cortex-M4 verifier in `groth16_poseidon_assembly/`. To build and run it from a fresh clone:
-
-```bash
-# 0. Tools needed: arm-none-eabi-gcc, cmake (3.14+), qemu-system-arm
-#    (macOS: brew install --cask gcc-arm-embedded; brew install cmake qemu)
-
-# 1. Reconstitute the RELIC library (NOT stored in git — shipped as lib.zip).
-#    A bare clone will NOT build until you do this. The -o flag overwrites the
-#    placeholder files git checked out; the archive already contains the
-#    optimized kernels, so nothing is lost.
-unzip -o lib.zip -d groth16_poseidon_assembly/lib/
-
-# 2. Build (hand-tuned assembly backend, the default).
-cd groth16_poseidon_assembly
-mkdir -p build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-arm-none-eabi.cmake
-cmake --build .
-
-# 3. Run the verification test suite under QEMU (expect "All tests passed").
-qemu-system-arm -machine netduinoplus2 -nographic -semihosting -kernel ./test_verifier_arm
-```
-
-This is a **bare-metal ARM** project: there is no native/desktop build of the assembly verifier (CMake errors out if not cross-compiling), and it executes under QEMU rather than on a host CPU. For a desktop C verifier that runs natively, see `groth16_poseidon_c/` below.
-
-## Prerequisites
-
-| Tool | Purpose |
-|---|---|
-| Rust stable (1.88+) | Build Rust provers |
-| CMake (3.14+) | Build C projects |
-| GCC or Clang | Desktop C compilation |
-| arm-none-eabi-gcc | ARM cross-compilation (optional) |
-| QEMU (qemu-system-arm) | ARM emulation (optional) |
+Master's thesis implementation of zero-knowledge clear signing: a Groth16 (BN254)
+proof that a human-readable display text is the canonical rendering of a
+transaction's calldata, verified on a constrained ARM Cortex-M4 device. Rust
+produces the proofs and artifacts; a minimal C verifier (built on a trimmed
+RELIC library) checks them on desktop and bare-metal ARM.
 
 ## Project Structure
 
 ```
 thesis/
-├── report/                       # Thesis chapter drafts
-├── groth16_poseidon_rust/       # Rust prover/verifier (basic preimage)
-├── groth16_poseidon_c/          # C verifier (basic preimage, desktop)
-├── groth16_poseidon_assembly/   # C verifier (ARM Cortex-M4 with assembly)
-└── lib.zip                      # RELIC crypto library (vendored)
+├── groth16_poseidon_rust/         # Rust prover: Poseidon-preimage statement
+├── groth16_clear_signing_rust/    # Rust prover: two-hash clear-signing statement
+├── device_verifier_bn254/         # Bare-metal Cortex-M4 verifier (trimmed RELIC, in-tree)
+├── minimal_c_verifier/            # Desktop C verifier + test/CLI harness
+├── groth16_poseidon_c/            # Earlier desktop C verifier (preimage)
+├── groth16_poseidon_assembly/     # Earlier Cortex-M4 verifier with hand-tuned assembly
+├── groth16_clear_signing_c/       # Earlier desktop C verifier (clear signing)
+├── groth16_clear_signing_assembly/# Earlier Cortex-M4 verifier (clear signing)
+├── report/                        # Thesis chapter drafts (not committed)
+└── lib.zip                        # Full RELIC source (for the earlier projects only)
 ```
 
-Current thesis chapter drafts:
+The four main projects are the first four. `device_verifier_bn254` ships its
+own trimmed RELIC tree in-repo (`lib/relic/`), which `minimal_c_verifier`
+also builds against — no library setup step is needed for them.
 
-- Background: [`report/BACKGROUND_DRAFT.md`](report/BACKGROUND_DRAFT.md)
-- Benchmark methodology, results, and proof-system selection:
-  [`report/BENCHMARK_EVALUATION_DRAFT.md`](report/BENCHMARK_EVALUATION_DRAFT.md)
+## Prerequisites
 
-## Setting Up the RELIC Library
+| Tool | Version | Purpose |
+|---|---|---|
+| git | any | clone the repository |
+| CMake | **3.14+** | build all C projects |
+| make | any | CMake's build backend |
+| GCC or Clang | any recent | desktop C builds (`minimal_c_verifier`) |
+| Rust (rustup: stable + cargo) | 1.88+ | Rust provers and artifact exporters |
+| arm-none-eabi-gcc | 10+ | ARM cross-compilation (`device_verifier_bn254`) |
+| QEMU (qemu-system-arm) | any recent | running the ARM firmware in emulation |
 
-The RELIC crypto library is not checked into the repository directly. Instead, it is distributed as `lib.zip` at the root of the project. After cloning, unzip it into the projects that need it:
+All cryptographic libraries are vendored — RELIC ships in the repo and the
+arkworks crates are fetched automatically by cargo. No system crypto or GMP
+is required.
+
+### macOS
 
 ```bash
-# From the thesis/ root
-unzip lib.zip -d groth16_poseidon_c/lib/
-unzip lib.zip -d groth16_poseidon_assembly/lib/
+xcode-select --install                       # clang + make (if not present)
+brew install cmake qemu
+brew install --cask gcc-arm-embedded         # arm-none-eabi-gcc
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh   # Rust
 ```
 
-This creates `groth16_poseidon_c/lib/relic/` and `groth16_poseidon_assembly/lib/relic/`, which CMake expects. The RELIC source includes a custom Ethereum BN254 curve (`BN_P254E`) that is required for Groth16 verification on this curve.
+### Linux (Debian/Ubuntu; other distros have equivalent packages)
 
-## ARM Assembly Files
-
-The hand-tuned ARM Thumb-2 assembly for BN254 field arithmetic is located in the RELIC source tree at:
-
-```
-lib/relic/src/low/arm-asm-254e/
-├── relic_fp_add_low.s    # Field addition and subtraction
-├── relic_fp_add_low.c    # C wrappers for addition operations
-├── relic_fp_mul_low.s    # Field multiplication (schoolbook, 256-bit)
-├── relic_fp_mul_low.c    # C wrappers for multiplication operations
-├── relic_fp_rdc_low.s    # Montgomery reduction (Ethereum BN254 prime hardcoded)
-└── relic_fp_rdc_low.c    # C wrappers for reduction operations
+```bash
+sudo apt update
+sudo apt install git cmake make gcc gcc-arm-none-eabi qemu-system-arm
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh   # Rust
 ```
 
-The `.s` files contain the assembly routines. The `.c` files are thin wrappers that combine the assembly primitives into the higher-level operations RELIC expects. These files are only compiled when building with the assembly backend (`ARITH=arm-asm-254e`, which is the default for the ARM build). When building with `-DFORCE_ARITH=easy`, RELIC uses generic C implementations from `src/low/easy/` instead and these files are not used.
+Note: distributions older than ~2020 may ship CMake < 3.14; check with
+`cmake --version` and upgrade if needed (e.g. from
+[cmake.org](https://cmake.org/download/) or the Kitware apt repository).
 
-## Groth16 Poseidon — Rust
+### Windows
 
-Basic preimage: proves knowledge of a value whose Poseidon hash equals a public input.
+**Recommended: WSL2** (Ubuntu). All builds, scripts, and QEMU runs work
+unchanged — follow the Linux instructions inside WSL:
+
+```powershell
+wsl --install -d Ubuntu    # then use the Linux commands above inside WSL
+```
+
+Native Windows is possible (all tools have installers: CMake, rustup,
+[Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads),
+[QEMU](https://www.qemu.org/download/#windows)) but untested for this repo:
+CMake must be pointed at a GCC-style toolchain (MSYS2/MinGW + `-G Ninja` or
+`-G "MinGW Makefiles"`, not Visual Studio), and the `.sh` helper scripts need
+Git Bash or MSYS2. The one native-Windows-only tool is **Keil µVision 5 /
+Arm MDK**, used optionally for cycle-accurate simulation; everything else is
+easier under WSL2.
+
+## groth16_poseidon_rust — Rust prover (Poseidon preimage)
+
+Statement: *"the prover knows x such that Poseidon(x) = h"*. The public input
+is the hash `h`.
 
 ```bash
 cd groth16_poseidon_rust
 
-# Build
-cargo build --release
-
-# Trusted setup (generates proving key and verifying key)
-cargo run --release --bin poseidon-preimage-groth16 -- setup
-
-# Generate proof (default preimage: 12345)
-cargo run --release --bin poseidon-preimage-groth16 -- prove
-
-# Verify proof
+# Verify the pre-generated proof in artifacts/
 cargo run --release --bin poseidon-preimage-groth16 -- verify
+
+# Export the artifacts to the raw layout the C verifiers consume
+cargo run --release --bin export_vk_raw      # -> artifacts/vk_raw.bin (768 B)
+cargo run --release --bin export_proof_raw   # -> artifacts/proof_raw.bin (256 B),
+                                             #    artifacts/public_input_raw.bin (32 B)
+
+# Cross-validation / profiling helpers
+cargo run --release --bin cross_validate     # dumps intermediates for comparison with C
+cargo run --release --bin profile_verify     # times each verification step
 ```
 
-Pre-generated artifacts are included in `artifacts/`, so you can skip setup and prove and run verify directly.
+> **Do not run `setup` or `prove`.** They perform a fresh random trusted
+> setup and overwrite `artifacts/`. The pre-generated set is **frozen**: the
+> C headers (`vk_constants.h`, `test_vectors.h`) compiled into the device
+> firmware were generated from it and cannot be regenerated to match a new
+> setup. `verify` and the exporters are read-only and always safe.
 
-**Build output:**
-```
-groth16_poseidon_rust/
-└── target/release/
-    ├── poseidon-preimage-groth16    # main binary (setup/prove/verify)
-    ├── cross_validate               # dumps intermediate values for comparison with C
-    └── profile_verify               # times each verification step
-```
-
-## Groth16 Poseidon — C (Desktop)
-
-C verifier using RELIC library with generic C arithmetic backend.
+Clean:
 
 ```bash
-cd groth16_poseidon_c
-
-# Build
-mkdir build && cd build
-cmake ..
-cmake --build .
-
-# Run verification
-./groth16_verifier_main
-
-# Run test suite (valid proof, tampered proof, wrong lengths, etc.)
-./test_verifier
-
-# Dump intermediate values for cross-validation with Rust
-./cross_validate
-
-# Profile each verification step
-./profile_verify
+cargo clean        # removes target/; artifacts/ is untouched
 ```
 
-**Build output:**
-```
-groth16_poseidon_c/
-└── build/
-    ├── groth16_verifier_main    # simple verification
-    ├── test_verifier            # test suite
-    ├── cross_validate           # dumps intermediate values for comparison with Rust
-    ├── profile_verify           # times each verification step
-    └── lib/relic/
-        └── lib/librelic_s.a     # compiled RELIC library
-```
+## groth16_clear_signing_rust — Rust prover (clear signing)
 
-## Groth16 Poseidon — ARM Assembly (Cortex-M4)
-
-C verifier cross-compiled for ARM Cortex-M4 bare-metal, using hand-tuned assembly for field arithmetic. Runs under QEMU emulating a Netduino Plus 2 (STM32F405: 1MB flash, 128KB SRAM, Cortex-M4).
-
-Requires `arm-none-eabi-gcc` and `qemu-system-arm`.
+Statement: *"display text T is the canonical rendering of calldata C"*. The
+public inputs are the two hashes `h_c = Poseidon(C)` and `h_t = Poseidon(T)`.
 
 ```bash
-cd groth16_poseidon_assembly
+cd groth16_clear_signing_rust
 
-# Build (assembly backend)
-mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-arm-none-eabi.cmake
-cmake --build .
+# In-memory demo: build calldata + text, setup, prove, verify, tamper-check
+cargo run --release --bin clear-signing-groth16
 
-# Build (generic C backend, for comparison)
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-arm-none-eabi.cmake -DFORCE_ARITH=easy
-cmake --build .
+# Full artifact export: fresh trusted setup + proof + all raw files -> artifacts/
+cargo run --release --bin export_artifacts
 
-# Run test suite under QEMU
-qemu-system-arm -machine netduinoplus2 -nographic -semihosting -kernel ./test_verifier_arm
-
-# Run benchmark (SysTick cycle count)
-qemu-system-arm -machine netduinoplus2 -nographic -semihosting -kernel ./bench_verifier_arm
-
-# Dump intermediate values for cross-validation
-qemu-system-arm -machine netduinoplus2 -nographic -semihosting -kernel ./cross_validate_arm
+# VK-only raw conversion (reads the existing VK, no setup) -> artifacts/vk_raw.bin
+cargo run --release --bin export_vk_raw
 ```
 
-**Build output:**
-```
-groth16_poseidon_assembly/
-└── build/
-    ├── test_verifier_arm        # test suite (ARM ELF)
-    ├── bench_verifier_arm       # cycle benchmark (ARM ELF)
-    ├── cross_validate_arm       # intermediate value dump (ARM ELF)
-    └── lib/relic/
-        └── lib/librelic_s.a     # RELIC with ARM assembly backend
-```
+Unlike the poseidon project, regenerating these artifacts is harmless for the
+file-driven CLI (each `export_artifacts` run is a self-consistent set) — but
+the new set will no longer match the frozen headers compiled into
+`device_verifier_bn254`.
 
-**Memory usage (STM32F405):**
-
-| Backend | Flash (baseline) | Flash (current, post-strip) | RAM | Budget |
-|---|---|---|---|---|
-| Assembly (`arm-asm-254e`) | 214 KB | 55.0 KB | 12.5 KB | 1 MB / 128 KB |
-| Generic C (`easy`) | 211 KB | 53.2 KB | 12.5 KB | 1 MB / 128 KB |
-
-The *baseline* column is the pre-strip footprint (full RELIC, all curves/towers). The *current* column is after the Phase 3 source-level strip of unused curves and field towers. Measured with `arm-none-eabi-size` on `test_verifier_arm` (flash = text+data, RAM = data+bss). Note the assembly backend is slightly larger in flash than generic C (its unrolled `UMAAL`/`LDM`/`STM` kernels are bigger code) despite being ~3.6× faster in retired instructions.
-
-## Cleaning Build Artifacts
+Clean:
 
 ```bash
-# Rust
-cd groth16_poseidon_rust
-cargo clean                      # removes target/ directory
-
-# C (desktop)
-cd groth16_poseidon_c
-rm -rf build                     # removes build/ directory
-
-# ARM assembly
-cd groth16_poseidon_assembly
-rm -rf build                     # removes build/ directory
+cargo clean        # removes target/; artifacts/ is untouched
 ```
 
-After cleaning, rebuild with the same commands above. `cargo run` automatically rebuilds if needed. For C/ARM, you need to run `cmake` and `cmake --build .` again.
+## device_verifier_bn254 — bare-metal Cortex-M4 verifier
+
+The headline artifact: verifies the clear-signing proof on an emulated
+Cortex-M4, with the trimmed RELIC BN254 pairing stack in-tree (no setup
+needed). Two board configurations, which must match the QEMU machine:
+
+| Build dir | BOARD | Memory | QEMU machine |
+|---|---|---|---|
+| `build_m4` | `mps2-an386` (default) | 4 MB / 4 MB | `mps2-an386` |
+| `build_m4_stm32f405` | `stm32f405` | 1 MB / 128 KB | `netduinoplus2` |
+
+Build (trimmed — leaves only the ELFs and `.map` files):
+
+```bash
+cd device_verifier_bn254
+scripts/build_trimmed.sh build_m4                        # default board
+scripts/build_trimmed.sh build_m4_stm32f405 stm32f405    # STM32F405 board
+```
+
+Run under QEMU (the firmware idles after printing — exit with `Ctrl-A X`):
+
+```bash
+qemu-system-arm -machine mps2-an386 -nographic -semihosting \
+    -kernel build_m4/clear_signing_m4
+
+qemu-system-arm -machine netduinoplus2 -nographic -semihosting \
+    -kernel build_m4_stm32f405/clear_signing_m4
+```
+
+Each build dir contains three firmwares: `clear_signing_m4` (full two-hash
+verification), `multi_pairing_m4` and `single_pairing_m4` (pairing-only
+benchmarks).
+
+Trim vs. clean:
+
+```bash
+# Trim = what build_trimmed.sh already did: scaffolding removed, ELFs kept.
+# Re-running the script rebuilds from scratch and trims again.
+
+# Clean = remove everything:
+rm -rf build_m4 build_m4_stm32f405
+```
+
+## minimal_c_verifier — desktop C verifier
+
+Host-side harness for the same verification engine (builds RELIC from the
+`device_verifier_bn254` tree — nothing to set up).
+
+Build (trimmed — leaves only the executables):
+
+```bash
+cd minimal_c_verifier
+scripts/build_trimmed.sh          # -> build/
+```
+
+Run:
+
+```bash
+# Test suite (run from test/ — it loads the raw proof files from the cwd)
+cd test && ../build/test_verifier && cd ..
+
+# Cross-validation against the Rust prover / profiling (compiled-in vectors)
+build/cross_validate
+build/profile_verify
+
+cd ..   # thesis/
+
+# File-driven CLIs: verify the Rust-exported artifacts directly
+A=groth16_clear_signing_rust/artifacts
+minimal_c_verifier/build/clear_signing_cli \
+    $A/vk_raw.bin $A/proof_raw.bin $A/calldata.bin $A/text.bin
+
+A=groth16_poseidon_rust/artifacts
+minimal_c_verifier/build/poseidon_preimage_cli \
+    $A/vk_raw.bin $A/proof_raw.bin $A/public_input_raw.bin
+```
+
+Both CLIs print the inputs and `VALID` / `INVALID`; exit code `0` = valid,
+`1` = invalid, `2` = usage/IO error. Tampering with any input file flips the
+result to INVALID.
+
+Trim vs. clean:
+
+```bash
+# Trim = what build_trimmed.sh already did (executables only, no scaffolding).
+# Re-running the script rebuilds from scratch and trims again.
+
+# Clean = remove everything:
+rm -rf build
+```

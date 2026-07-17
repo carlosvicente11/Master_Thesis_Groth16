@@ -19,13 +19,16 @@ static int load_file(const char *name, uint8_t *buf, size_t expected) {
         f = fopen(path, "rb");
     }
     if (!f) {
-        printf("  SKIP: %s not found\n", name);
+        printf("  FAIL: %s not found (run from minimal_c_verifier/, its test/ or build/ dir)\n",
+               name);
+        failures++;
         return -1;
     }
     size_t n = fread(buf, 1, expected, f);
     fclose(f);
     if (n != expected) {
         printf("  FAIL: %s is %zu bytes, expected %zu\n", name, n, expected);
+        failures++;
         return -1;
     }
     return 0;
