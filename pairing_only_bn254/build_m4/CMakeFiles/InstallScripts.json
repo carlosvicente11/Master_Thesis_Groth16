@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/cmake_install.cmake",
-		"/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/lib/relic/cmake_install.cmake",
-		"/Users/carlosdasilva/Codes/proof_systems/thesis/pairing_only_bn254/build_m4/lib/relic/src/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
