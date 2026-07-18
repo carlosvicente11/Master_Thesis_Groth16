@@ -2,7 +2,8 @@
 
 Master's thesis implementation of zero-knowledge clear signing: a Groth16 (BN254)
 proof that a human-readable display text is the canonical rendering of a
-transaction's calldata, verified on a constrained ARM Cortex-M4 device. Rust
+transaction's calldata, verified on a constrained ARM Cortex-M4
+(emulated via QEMU / Keil µVision). Rust
 produces the proofs and artifacts; a minimal C verifier (built on a trimmed
 RELIC library) checks them on desktop and bare-metal ARM.
 
@@ -16,15 +17,12 @@ thesis/
 ├── minimal_c_verifier/            # Desktop C verifier + test/CLI harness
 ├── groth16_poseidon_c/            # Earlier desktop C verifier (preimage)
 ├── groth16_poseidon_assembly/     # Earlier Cortex-M4 verifier with hand-tuned assembly
-├── groth16_clear_signing_c/       # Earlier desktop C verifier (clear signing)
-├── groth16_clear_signing_assembly/# Earlier Cortex-M4 verifier (clear signing)
-├── report/                        # Thesis chapter drafts (not committed)
 └── lib.zip                        # Full RELIC source (for the earlier projects only)
 ```
 
 The four main projects are the first four. `device_verifier_bn254` ships its
 own trimmed RELIC tree in-repo (`lib/relic/`), which `minimal_c_verifier`
-also builds against — no library setup step is needed for them.
+also builds against.
 
 ## Prerequisites
 
@@ -38,7 +36,7 @@ also builds against — no library setup step is needed for them.
 | arm-none-eabi-gcc | 10+ | ARM cross-compilation (`device_verifier_bn254`) |
 | QEMU (qemu-system-arm) | any recent | running the ARM firmware in emulation |
 
-All cryptographic libraries are vendored — RELIC ships in the repo and the
+All cryptographic libraries are vendored, RELIC ships in the repo and the
 arkworks crates are fetched automatically by cargo. No system crypto or GMP
 is required.
 
@@ -59,29 +57,20 @@ sudo apt install git cmake make gcc gcc-arm-none-eabi qemu-system-arm
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh   # Rust
 ```
 
-Note: distributions older than ~2020 may ship CMake < 3.14; check with
-`cmake --version` and upgrade if needed (e.g. from
-[cmake.org](https://cmake.org/download/) or the Kitware apt repository).
+Note: CMake should be 3.14<; check with `cmake --version` and upgrade if needed (e.g. from [cmake.org](https://cmake.org/download/) or the Kitware apt repository).
 
 ### Windows
 
 **Recommended: WSL2** (Ubuntu). All builds, scripts, and QEMU runs work
-unchanged — follow the Linux instructions inside WSL:
+unchanged. Follow the Linux instructions inside WSL:
 
 ```powershell
 wsl --install -d Ubuntu    # then use the Linux commands above inside WSL
 ```
 
-Native Windows is possible (all tools have installers: CMake, rustup,
-[Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads),
-[QEMU](https://www.qemu.org/download/#windows)) but untested for this repo:
-CMake must be pointed at a GCC-style toolchain (MSYS2/MinGW + `-G Ninja` or
-`-G "MinGW Makefiles"`, not Visual Studio), and the `.sh` helper scripts need
-Git Bash or MSYS2. The one native-Windows-only tool is **Keil µVision 5 /
-Arm MDK**, used optionally for cycle-accurate simulation; everything else is
-easier under WSL2.
+The one native-Windows-only tool is **Keil µVision 5 / Arm MDK**, used optionally for cycle-accurate simulation; everything else is easier under WSL2.
 
-## groth16_poseidon_rust — Rust prover (Poseidon preimage)
+## groth16_poseidon_rust (Poseidon preimage)
 
 Statement: *"the prover knows x such that Poseidon(x) = h"*. The public input
 is the hash `h`.
@@ -114,7 +103,7 @@ Clean:
 cargo clean        # removes target/; artifacts/ is untouched
 ```
 
-## groth16_clear_signing_rust — Rust prover (clear signing)
+## groth16_clear_signing_rust (clear signing)
 
 Statement: *"display text T is the canonical rendering of calldata C"*. The
 public inputs are the two hashes `h_c = Poseidon(C)` and `h_t = Poseidon(T)`.
@@ -132,18 +121,13 @@ cargo run --release --bin export_artifacts
 cargo run --release --bin export_vk_raw
 ```
 
-Unlike the poseidon project, regenerating these artifacts is harmless for the
-file-driven CLI (each `export_artifacts` run is a self-consistent set) — but
-the new set will no longer match the frozen headers compiled into
-`device_verifier_bn254`.
-
 Clean:
 
 ```bash
 cargo clean        # removes target/; artifacts/ is untouched
 ```
 
-## device_verifier_bn254 — bare-metal Cortex-M4 verifier
+## device_verifier_bn254 (bare-metal Cortex-M4 verifier)
 
 The headline artifact: verifies the clear-signing proof on an emulated
 Cortex-M4, with the trimmed RELIC BN254 pairing stack in-tree (no setup
@@ -154,7 +138,7 @@ needed). Two board configurations, which must match the QEMU machine:
 | `build_m4` | `mps2-an386` (default) | 4 MB / 4 MB | `mps2-an386` |
 | `build_m4_stm32f405` | `stm32f405` | 1 MB / 128 KB | `netduinoplus2` |
 
-Build (trimmed — leaves only the ELFs and `.map` files):
+Build (trimmed, leaves only the ELFs and `.map` files):
 
 ```bash
 cd device_verifier_bn254
@@ -162,7 +146,7 @@ scripts/build_trimmed.sh build_m4                        # default board
 scripts/build_trimmed.sh build_m4_stm32f405 stm32f405    # STM32F405 board
 ```
 
-Run under QEMU (the firmware idles after printing — exit with `Ctrl-A X`):
+Run under QEMU:
 
 ```bash
 qemu-system-arm -machine mps2-an386 -nographic -semihosting \
@@ -176,22 +160,18 @@ Each build dir contains three firmwares: `clear_signing_m4` (full two-hash
 verification), `multi_pairing_m4` and `single_pairing_m4` (pairing-only
 benchmarks).
 
-Trim vs. clean:
+Clean:
 
 ```bash
-# Trim = what build_trimmed.sh already did: scaffolding removed, ELFs kept.
-# Re-running the script rebuilds from scratch and trims again.
-
-# Clean = remove everything:
 rm -rf build_m4 build_m4_stm32f405
 ```
 
-## minimal_c_verifier — desktop C verifier
+## minimal_c_verifier (desktop C verifier)
 
 Host-side harness for the same verification engine (builds RELIC from the
-`device_verifier_bn254` tree — nothing to set up).
+`device_verifier_bn254` tree).
 
-Build (trimmed — leaves only the executables):
+Build (trimmed, leaves only the executables):
 
 ```bash
 cd minimal_c_verifier
@@ -224,12 +204,8 @@ Both CLIs print the inputs and `VALID` / `INVALID`; exit code `0` = valid,
 `1` = invalid, `2` = usage/IO error. Tampering with any input file flips the
 result to INVALID.
 
-Trim vs. clean:
+Clean:
 
 ```bash
-# Trim = what build_trimmed.sh already did (executables only, no scaffolding).
-# Re-running the script rebuilds from scratch and trims again.
-
-# Clean = remove everything:
 rm -rf build
 ```
